@@ -1,0 +1,89 @@
+/* ================================================================
+   Brayer Performance Peptides — CSS Token Properties
+   Single source for all raw values used in custom classes,
+   browser-level styling (scrollbars, selection), and inline
+   effects that Tailwind utilities cannot express.
+   ================================================================ */
+
+:root {
+  /* ── Base layer ────────────────────────────────────────────── */
+  --color-base:         #000000;   /* pure black — body background */
+
+  /* ── Primary in RGB channels (for rgba() composition) ───── */
+  --primary-r: 172;
+  --primary-g: 207;
+  --primary-b: 179;
+
+  /* ── Surface in RGB channels ─────────────────────────────── */
+  --surface-r: 18;
+  --surface-g: 20;
+  --surface-b: 18;
+
+  /* ── Outline in RGB channels ─────────────────────────────── */
+  --outline-r: 140;
+  --outline-g: 146;
+  --outline-b: 139;
+
+  /* ── Glass effect ────────────────────────────────────────── */
+  --glass-bg:     rgba(18, 20, 18, 0.8);
+  --glass-border: rgba(140, 146, 139, 0.2);  /* 20% outline — per design spec */
+  --glass-blur:   blur(12px);
+
+  /* ── Hero radial gradient ────────────────────────────────── */
+  --hero-radial: radial-gradient(
+    circle at center,
+    rgba(172, 207, 179, 0.05) 0%,
+    rgba(18, 20, 18, 1) 70%
+  );
+
+  /* ── Primary glow accents ────────────────────────────────── */
+  --primary-glow-30:  rgba(172, 207, 179, 0.3);
+  --text-glow-primary: 0 0 15px rgba(172, 207, 179, 0.3);
+
+  /* ── Scrollbar chrome ────────────────────────────────────── */
+  --scrollbar-track:        #0d0f0d;   /* surface-container-lowest */
+  --scrollbar-thumb:        #424842;   /* outline-variant */
+  --scrollbar-thumb-hover:  #accfb3;   /* primary */
+}
+
+/* ── Body base ─────────────────────────────────────────────── */
+body {
+  background-color: var(--color-base);
+  color: #e3e3df;  /* on-surface */
+}
+
+/* ── Glass surface ─────────────────────────────────────────── */
+/* Unified replacement for glass-card and glass-panel.         */
+/* 20% outline border per design spec "Elevated Surfaces" note */
+.glass-card {
+  background:               var(--glass-bg);
+  backdrop-filter:          var(--glass-blur);
+  -webkit-backdrop-filter:  var(--glass-blur);
+  border:                   1px solid var(--glass-border);
+}
+
+/* ── Hero gradient overlay ─────────────────────────────────── */
+.hero-gradient {
+  background: var(--hero-radial);
+}
+
+/* ── Text glow utility ─────────────────────────────────────── */
+.text-glow {
+  text-shadow: var(--text-glow-primary);
+}
+
+/* ── Header glow accent line ───────────────────────────────── */
+.header-glow {
+  border-top: 1px solid var(--primary-glow-30);
+}
+
+/* ── Material Symbols icon variation defaults ──────────────── */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ── Scrollbar chrome ──────────────────────────────────────── */
+::-webkit-scrollbar              { width: 8px; }
+::-webkit-scrollbar-track        { background: var(--scrollbar-track); }
+::-webkit-scrollbar-thumb        { background: var(--scrollbar-thumb); }
+::-webkit-scrollbar-thumb:hover  { background: var(--scrollbar-thumb-hover); }

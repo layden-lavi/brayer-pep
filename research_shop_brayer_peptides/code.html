@@ -3,114 +3,14 @@
 <html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<title>BRAYER PEPTIDES | Research Catalog</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "on-secondary": "#233144",
-                        "error-container": "#93000a",
-                        "inverse-surface": "#e3e3df",
-                        "on-error-container": "#ffdad6",
-                        "primary-fixed-dim": "#accfb3",
-                        "on-secondary-fixed": "#0d1c2e",
-                        "on-primary-fixed": "#02210f",
-                        "on-primary-container": "#76977e",
-                        "on-surface-variant": "#c2c8c0",
-                        "on-tertiary-fixed-variant": "#633b44",
-                        "on-primary-fixed-variant": "#2f4d38",
-                        "error": "#ffb4ab",
-                        "surface-container-low": "#1a1c1a",
-                        "on-secondary-container": "#abb9d1",
-                        "tertiary-fixed-dim": "#efb8c2",
-                        "inverse-on-surface": "#2f312f",
-                        "tertiary-fixed": "#ffd9df",
-                        "on-background": "#e3e3df",
-                        "secondary-container": "#3c4a5e",
-                        "on-secondary-fixed-variant": "#3a485b",
-                        "on-surface": "#e3e3df",
-                        "background": "#121412",
-                        "primary": "#accfb3",
-                        "surface-container-high": "#292a28",
-                        "secondary": "#b9c7df",
-                        "surface-container": "#1e201e",
-                        "on-error": "#690005",
-                        "on-tertiary": "#49262e",
-                        "secondary-fixed": "#d5e3fc",
-                        "primary-container": "#0f2e1b",
-                        "outline-variant": "#424842",
-                        "outline": "#8c928b",
-                        "secondary-fixed-dim": "#b9c7df",
-                        "surface-variant": "#343533",
-                        "on-tertiary-container": "#b3838c",
-                        "on-primary": "#183623",
-                        "surface": "#121412",
-                        "tertiary-container": "#401e26",
-                        "primary-fixed": "#c8ebce",
-                        "inverse-primary": "#46654f",
-                        "surface-container-highest": "#343533",
-                        "surface-container-lowest": "#0d0f0d",
-                        "surface-bright": "#383a37",
-                        "surface-dim": "#121412",
-                        "tertiary": "#efb8c2",
-                        "surface-tint": "#accfb3",
-                        "on-tertiary-fixed": "#311119"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "margin-desktop": "64px",
-                        "container-max": "1280px",
-                        "gutter": "24px",
-                        "margin-mobile": "20px",
-                        "unit": "4px"
-                    },
-                    "fontFamily": {
-                        "body-md": ["Inter"],
-                        "headline-lg": ["Montserrat"],
-                        "label-caps": ["Inter"],
-                        "body-sm": ["Inter"],
-                        "headline-xl": ["Montserrat"],
-                        "data-mono": ["Inter"],
-                        "headline-lg-mobile": ["Montserrat"]
-                    },
-                    "fontSize": {
-                        "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}],
-                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "0.01em", "fontWeight": "700"}],
-                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
-                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
-                        "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "800"}],
-                        "data-mono": ["18px", {"lineHeight": "1.0", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                        "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}]
-                    }
-                },
-            },
-        }
-    </script>
-<style>
-        body {
-            background-color: #000000;
-        }
-        .glass-card {
-            background: rgba(18, 18, 18, 0.8);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .header-glow {
-            border-top: 1px solid rgba(172, 207, 179, 0.3);
-        }
-    </style>
+<link href="../shared/tokens.css" rel="stylesheet"/>
+<script src="../shared/tailwind.config.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 </head>
-<body class="font-body-md text-on-surface">
+<body class="font-body-md text-on-surface selection:bg-primary selection:text-on-primary">
 <!-- TopNavBar -->
 <nav class="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-white/20 h-12">
 <div class="flex justify-between items-center px-margin-desktop w-full max-w-container-max mx-auto h-full">
@@ -123,14 +23,14 @@
 </div>
 <div class="flex items-center gap-6">
 <div class="flex items-center gap-4 text-on-surface-variant">
-<button class="hover:bg-white/10 transition-all duration-200 p-1 rounded scale-95 active:scale-90">
+<button type="button" class="hover:bg-white/10 transition-all duration-200 p-1 scale-95 active:scale-90">
 <span class="material-symbols-outlined">shopping_cart</span>
 </button>
-<button class="hover:bg-white/10 transition-all duration-200 p-1 rounded scale-95 active:scale-90">
+<button type="button" class="hover:bg-white/10 transition-all duration-200 p-1 scale-95 active:scale-90">
 <span class="material-symbols-outlined">account_circle</span>
 </button>
 </div>
-<button class="font-label-caps text-label-caps bg-primary text-on-primary px-4 py-1 rounded-none uppercase tracking-widest hover:brightness-110 transition-all active:scale-95">LOGIN</button>
+<button type="button" class="font-label-caps text-label-caps bg-primary text-on-primary px-4 py-1 uppercase tracking-widest hover:brightness-110 transition-all active:scale-95">LOGIN</button>
 </div>
 </div>
 </nav>
@@ -143,10 +43,10 @@
 <!-- Filter Bar -->
 <section class="mb-12 flex flex-col md:flex-row gap-6 justify-between items-start md:items-center">
 <div class="flex flex-wrap gap-2">
-<button class="bg-primary text-on-primary px-6 py-2 font-label-caps text-label-caps uppercase tracking-widest transition-all">ALL COMPOUNDS</button>
-<button class="border border-outline px-6 py-2 font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:bg-white/10 transition-all">FAT LOSS</button>
-<button class="border border-outline px-6 py-2 font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:bg-white/10 transition-all">RECOVERY</button>
-<button class="border border-outline px-6 py-2 font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:bg-white/10 transition-all">PERFORMANCE</button>
+<button type="button" class="bg-primary text-on-primary px-6 py-2 font-label-caps text-label-caps uppercase tracking-widest transition-all">ALL COMPOUNDS</button>
+<button type="button" class="border border-outline px-6 py-2 font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:bg-white/10 transition-all">FAT LOSS</button>
+<button type="button" class="border border-outline px-6 py-2 font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:bg-white/10 transition-all">RECOVERY</button>
+<button type="button" class="border border-outline px-6 py-2 font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:bg-white/10 transition-all">PERFORMANCE</button>
 </div>
 <div class="relative w-full md:w-64">
 <input class="w-full bg-surface-container border border-outline px-4 py-2 text-on-surface font-label-caps focus:border-primary outline-none transition-colors" placeholder="SEARCH SEQUENCES..." type="text"/>
@@ -162,7 +62,7 @@
 <span class="font-label-caps text-label-caps text-primary tracking-widest block mb-1">RECOVERY AGENT</span>
 <h3 class="font-headline-lg text-headline-lg text-on-surface group-hover:text-primary transition-colors">BPC-157</h3>
 </div>
-<div class="bg-primary-container text-on-primary-container px-2 py-1 font-data-mono text-[10px] border border-primary/20">
+<div class="bg-primary-container text-on-primary-container px-2 py-1 font-data-mono text-label-xs border border-primary/20">
                         VERIFIED 99.4%
                     </div>
 </div>
@@ -171,17 +71,17 @@
 </div>
 <div class="space-y-4 mb-8">
 <div class="flex justify-between border-b border-outline-variant pb-2">
-<span class="font-label-caps text-[10px] text-on-surface-variant uppercase">Sequence Strength</span>
+<span class="font-label-caps text-label-xs text-on-surface-variant uppercase">Sequence Strength</span>
 <span class="font-data-mono text-body-sm">5MG / VIAL</span>
 </div>
 <div class="flex justify-between border-b border-outline-variant pb-2">
-<span class="font-label-caps text-[10px] text-on-surface-variant uppercase">Storage Protocol</span>
+<span class="font-label-caps text-label-xs text-on-surface-variant uppercase">Storage Protocol</span>
 <span class="font-data-mono text-body-sm">2-8°C REFRIG</span>
 </div>
 </div>
 <div class="mt-auto">
-<p class="font-body-sm text-[11px] text-on-surface-variant mb-4 italic">FOR LABORATORY RESEARCH ONLY. NOT FOR HUMAN CONSUMPTION.</p>
-<button class="w-full bg-primary text-on-primary font-label-caps text-label-caps py-3 uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all">VIEW DOCUMENTATION</button>
+<p class="font-body-sm text-disclaimer text-on-surface-variant mb-4 italic">FOR LABORATORY RESEARCH ONLY. NOT FOR HUMAN CONSUMPTION.</p>
+<button type="button" class="w-full bg-primary text-on-primary font-label-caps text-label-caps py-3 uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all">VIEW DOCUMENTATION</button>
 </div>
 </article>
 <!-- Product Card 2: TB-500 -->
@@ -191,7 +91,7 @@
 <span class="font-label-caps text-label-caps text-primary tracking-widest block mb-1">TISSUE REPAIR</span>
 <h3 class="font-headline-lg text-headline-lg text-on-surface group-hover:text-primary transition-colors">TB-500</h3>
 </div>
-<div class="bg-primary-container text-on-primary-container px-2 py-1 font-data-mono text-[10px] border border-primary/20">
+<div class="bg-primary-container text-on-primary-container px-2 py-1 font-data-mono text-label-xs border border-primary/20">
                         VERIFIED 99.2%
                     </div>
 </div>
@@ -200,17 +100,17 @@
 </div>
 <div class="space-y-4 mb-8">
 <div class="flex justify-between border-b border-outline-variant pb-2">
-<span class="font-label-caps text-[10px] text-on-surface-variant uppercase">Sequence Strength</span>
+<span class="font-label-caps text-label-xs text-on-surface-variant uppercase">Sequence Strength</span>
 <span class="font-data-mono text-body-sm">2MG / VIAL</span>
 </div>
 <div class="flex justify-between border-b border-outline-variant pb-2">
-<span class="font-label-caps text-[10px] text-on-surface-variant uppercase">Storage Protocol</span>
+<span class="font-label-caps text-label-xs text-on-surface-variant uppercase">Storage Protocol</span>
 <span class="font-data-mono text-body-sm">2-8°C REFRIG</span>
 </div>
 </div>
 <div class="mt-auto">
-<p class="font-body-sm text-[11px] text-on-surface-variant mb-4 italic">FOR LABORATORY RESEARCH ONLY. NOT FOR HUMAN CONSUMPTION.</p>
-<button class="w-full bg-primary text-on-primary font-label-caps text-label-caps py-3 uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all">VIEW DOCUMENTATION</button>
+<p class="font-body-sm text-disclaimer text-on-surface-variant mb-4 italic">FOR LABORATORY RESEARCH ONLY. NOT FOR HUMAN CONSUMPTION.</p>
+<button type="button" class="w-full bg-primary text-on-primary font-label-caps text-label-caps py-3 uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all">VIEW DOCUMENTATION</button>
 </div>
 </article>
 <!-- Product Card 3: CJC-1295 -->
@@ -220,26 +120,26 @@
 <span class="font-label-caps text-label-caps text-primary tracking-widest block mb-1">GH OPTIMIZATION</span>
 <h3 class="font-headline-lg text-headline-lg text-on-surface group-hover:text-primary transition-colors">CJC-1295</h3>
 </div>
-<div class="bg-primary-container text-on-primary-container px-2 py-1 font-data-mono text-[10px] border border-primary/20">
+<div class="bg-primary-container text-on-primary-container px-2 py-1 font-data-mono text-label-xs border border-primary/20">
                         VERIFIED 99.8%
                     </div>
 </div>
 <div class="h-48 overflow-hidden mb-6 bg-surface-container-lowest relative">
-<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" data-alt="A futuristic laboratory setting with soft focus on complex chemical glass structures. The background is a deep charcoal, while the foreground objects are highlighted with subtle lime green LED reflections. The aesthetic is ultra-modern, professional, and suggests rigorous clinical research and athletic performance optimization." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGBA1OLow-EfugOtc6ouzFR0NDwLQKVLJyB_Tf2KNpbqExX3_gfMNAoddd0NeW68NKr-AmZbXpwFWbMCFoKLQ4Bmog4v2lHw4Yd6CxVHl_02MS6DB8DIO5GSg8Zdz527Ux-eHF6olOt7JVrGRiX67n-dt2lV4qxSA66_JWljRvemYWRH-Otetp6upRLT2GGoYOApQ-OsNbJvYyFvngiBPlztYVT7LXmwRg5M6v-Q69v8e1Rv3f7qi6nmCSNkblIanRb4aJ6DeJOz8"/>
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" data-alt="A futuristic laboratory setting with soft focus on complex chemical glass structures. The background is a deep charcoal, while the foreground objects are highlighted with subtle lime green LED reflections. The aesthetic is ultra-modern, professional, and suggests rigorous clinical research and athletic performance optimization." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGBA1OLow-EfugOtc6ouzFR0NDwLQKVLJyB_Tf2KNpbqExX3_gMHW8Yd6CxVHl_02MS6DB8DIO5GSg8Zdz527Ux-eHF6olOt7JVrGRiX67n-dt2lV4qxSA66_JWljRvemYWRH-Otetp6upRLT2GGoYOApQ-OsNbJvYyFvngiBPlztYVT7LXmwRg5M6v-Q69v8e1Rv3f7qi6nmCSNkblIanRb4aJ6DeJOz8"/>
 </div>
 <div class="space-y-4 mb-8">
 <div class="flex justify-between border-b border-outline-variant pb-2">
-<span class="font-label-caps text-[10px] text-on-surface-variant uppercase">Sequence Strength</span>
+<span class="font-label-caps text-label-xs text-on-surface-variant uppercase">Sequence Strength</span>
 <span class="font-data-mono text-body-sm">5MG (DAC)</span>
 </div>
 <div class="flex justify-between border-b border-outline-variant pb-2">
-<span class="font-label-caps text-[10px] text-on-surface-variant uppercase">Storage Protocol</span>
+<span class="font-label-caps text-label-xs text-on-surface-variant uppercase">Storage Protocol</span>
 <span class="font-data-mono text-body-sm">ROOM TEMP (LYO)</span>
 </div>
 </div>
 <div class="mt-auto">
-<p class="font-body-sm text-[11px] text-on-surface-variant mb-4 italic">FOR LABORATORY RESEARCH ONLY. NOT FOR HUMAN CONSUMPTION.</p>
-<button class="w-full bg-primary text-on-primary font-label-caps text-label-caps py-3 uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all">VIEW DOCUMENTATION</button>
+<p class="font-body-sm text-disclaimer text-on-surface-variant mb-4 italic">FOR LABORATORY RESEARCH ONLY. NOT FOR HUMAN CONSUMPTION.</p>
+<button type="button" class="w-full bg-primary text-on-primary font-label-caps text-label-caps py-3 uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all">VIEW DOCUMENTATION</button>
 </div>
 </article>
 <!-- Product Card 4: IPAMORELIN -->
@@ -249,7 +149,7 @@
 <span class="font-label-caps text-label-caps text-primary tracking-widest block mb-1">GH SECRETAGOGUE</span>
 <h3 class="font-headline-lg text-headline-lg text-on-surface group-hover:text-primary transition-colors">IPAMORELIN</h3>
 </div>
-<div class="bg-primary-container text-on-primary-container px-2 py-1 font-data-mono text-[10px] border border-primary/20">
+<div class="bg-primary-container text-on-primary-container px-2 py-1 font-data-mono text-label-xs border border-primary/20">
                         VERIFIED 99.5%
                     </div>
 </div>
@@ -258,17 +158,17 @@
 </div>
 <div class="space-y-4 mb-8">
 <div class="flex justify-between border-b border-outline-variant pb-2">
-<span class="font-label-caps text-[10px] text-on-surface-variant uppercase">Sequence Strength</span>
+<span class="font-label-caps text-label-xs text-on-surface-variant uppercase">Sequence Strength</span>
 <span class="font-data-mono text-body-sm">2MG / VIAL</span>
 </div>
 <div class="flex justify-between border-b border-outline-variant pb-2">
-<span class="font-label-caps text-[10px] text-on-surface-variant uppercase">Storage Protocol</span>
+<span class="font-label-caps text-label-xs text-on-surface-variant uppercase">Storage Protocol</span>
 <span class="font-data-mono text-body-sm">2-8°C REFRIG</span>
 </div>
 </div>
 <div class="mt-auto">
-<p class="font-body-sm text-[11px] text-on-surface-variant mb-4 italic">FOR LABORATORY RESEARCH ONLY. NOT FOR HUMAN CONSUMPTION.</p>
-<button class="w-full bg-primary text-on-primary font-label-caps text-label-caps py-3 uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all">VIEW DOCUMENTATION</button>
+<p class="font-body-sm text-disclaimer text-on-surface-variant mb-4 italic">FOR LABORATORY RESEARCH ONLY. NOT FOR HUMAN CONSUMPTION.</p>
+<button type="button" class="w-full bg-primary text-on-primary font-label-caps text-label-caps py-3 uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all">VIEW DOCUMENTATION</button>
 </div>
 </article>
 <!-- CTA / Science Module (Asymmetric Bento Element) -->
@@ -278,7 +178,7 @@
 <h2 class="font-headline-xl text-headline-xl text-on-surface mb-6 leading-tight">THIRD-PARTY HPLC VERIFIED</h2>
 <p class="font-body-md text-on-surface-variant mb-8">We provide complete transparency with downloadable COA documents for every batch. Our laboratory standards meet or exceed clinical research requirements.</p>
 <div class="flex gap-4">
-<button class="border border-primary text-primary px-8 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all">VIEW LAB COAs</button>
+<button type="button" class="border border-primary text-primary px-8 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all">VIEW LAB COAs</button>
 </div>
 </div>
 <div class="md:w-1/2 relative h-64 w-full">
