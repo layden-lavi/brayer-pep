@@ -161,6 +161,92 @@ body {
   }
 }
 
+/* ================================================================
+   Shop Components
+   Purity badges, variant selectors, filter pills, stock indicator
+   ================================================================ */
+
+/* Purity badge — absolute overlay on product images */
+.purity-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(172, 207, 179, 0.12);
+  border: 1px solid rgba(172, 207, 179, 0.35);
+  color: #accfb3;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 4px 8px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Variant selector pill buttons */
+.variant-btn {
+  padding: 4px 12px;
+  border: 1px solid rgba(140, 146, 139, 0.28);
+  color: rgba(194, 200, 192, 0.6);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+  cursor: pointer;
+  background: transparent;
+  line-height: 1.4;
+}
+.variant-btn:hover {
+  border-color: #accfb3;
+  color: #accfb3;
+}
+.variant-btn.active {
+  background: rgba(172, 207, 179, 0.12);
+  border-color: #accfb3;
+  color: #accfb3;
+}
+
+/* Category filter pills */
+.filter-pill {
+  padding: 5px 16px;
+  border: 1px solid rgba(140, 146, 139, 0.28);
+  color: rgba(194, 200, 192, 0.6);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+  cursor: pointer;
+  background: transparent;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+.filter-pill:hover {
+  border-color: #accfb3;
+  color: #accfb3;
+}
+.filter-pill.active {
+  background: #accfb3;
+  border-color: #accfb3;
+  color: #183623;
+}
+
+/* Stock indicator dot */
+.stock-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #accfb3;
+  box-shadow: 0 0 6px rgba(172, 207, 179, 0.55);
+  flex-shrink: 0;
+  animation: stock-pulse 2s ease-in-out infinite;
+}
+@keyframes stock-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 6px rgba(172, 207, 179, 0.55); }
+  50%       { opacity: 0.65; box-shadow: 0 0 10px rgba(172, 207, 179, 0.3); }
+}
+
 /* Mobile nav drawer */
 .mobile-nav {
   display: none;
