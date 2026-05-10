@@ -1,565 +1,556 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>BRAYER PEPTIDES | Research Catalog</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<title>BRAYER PEPTIDES | Compound Library</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="../shared/tokens.css" rel="stylesheet"/>
 <script src="../shared/tailwind.config.js"></script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script src="../shared/animations.js" defer></script>
 </head>
-<body class="font-body-md text-on-surface overflow-x-hidden selection:bg-primary selection:text-on-primary">
+<body style="background:#000000;color:#f0ede8;overflow-x:hidden">
 
-<!-- TopNavBar -->
-<nav class="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-white/20 h-12">
-<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto h-full">
-<div class="font-headline-lg text-headline-lg tracking-tighter text-on-surface uppercase">BRAYER PEPTIDES</div>
-<div class="hidden md:flex gap-8 items-center">
-<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors" href="#">Research</a>
-<a class="font-label-caps text-label-caps uppercase tracking-widest text-primary border-b-2 border-primary pb-1" href="#">Shop</a>
-<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors" href="#">Coaching</a>
-<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors" href="#">Science</a>
-</div>
-<div class="flex items-center gap-4">
-<div class="flex items-center gap-3 text-on-surface-variant">
-<button type="button" class="hover:bg-white/10 transition-all duration-200 p-1 active:scale-90 relative">
-<span class="material-symbols-outlined">shopping_cart</span>
-<span class="absolute -top-1 -right-1 w-4 h-4 bg-primary text-on-primary text-[9px] flex items-center justify-center font-bold">0</span>
-</button>
-<button type="button" class="hover:bg-white/10 transition-all duration-200 p-1 active:scale-90">
-<span class="material-symbols-outlined">account_circle</span>
-</button>
-</div>
-<button type="button" class="font-label-caps text-label-caps bg-primary text-on-primary px-4 py-1 uppercase tracking-widest hover:brightness-110 transition-all active:scale-95">LOGIN</button>
-<button type="button" class="hamburger text-on-surface" aria-label="Toggle navigation" aria-expanded="false">
-<span></span><span></span><span></span>
-</button>
-</div>
+<!-- ══════════════════════════════════════════════════════════════
+     NAV
+     ══════════════════════════════════════════════════════════════ -->
+<nav class="fixed top-0 left-0 right-0 z-50 h-[60px]" style="background:#000000;border-bottom:1px solid rgba(240,237,232,0.06)">
+<div class="flex items-center justify-between px-6 md:px-16 h-full max-w-[1400px] mx-auto">
+  <a href="#" class="font-display text-[30px] tracking-wider" style="color:#f0ede8;text-decoration:none">BRAYER PEPTIDES</a>
+  <div class="hidden md:flex items-center gap-10">
+    <a href="#" class="label-caps hover:text-[#f0ede8] transition-colors" style="color:#8a8a85;text-decoration:none">Research</a>
+    <a href="#" class="label-caps" style="color:#f0ede8;text-decoration:none;border-bottom:1px solid #1a3a2a;padding-bottom:2px">Shop</a>
+    <a href="#" class="label-caps hover:text-[#f0ede8] transition-colors" style="color:#8a8a85;text-decoration:none">Coaching</a>
+    <a href="#" class="label-caps hover:text-[#f0ede8] transition-colors" style="color:#8a8a85;text-decoration:none">Science</a>
+  </div>
+  <div class="flex items-center gap-4">
+    <button type="button" class="relative" style="color:#8a8a85;background:none;border:none;cursor:pointer">
+      <span class="material-symbols-outlined">shopping_cart</span>
+      <span class="absolute -top-1 -right-1 w-4 h-4 flex items-center justify-center font-display text-[11px]" style="background:#1a3a2a;color:#f0ede8">0</span>
+    </button>
+    <button type="button" class="btn-primary" style="padding:9px 22px;font-size:10px">LOGIN</button>
+    <button type="button" class="hamburger" style="color:#f0ede8" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </div>
 <div class="mobile-nav">
-<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant" href="#">Research</a>
-<a class="font-label-caps text-label-caps uppercase tracking-widest text-primary border-b border-primary pb-1" href="#">Shop</a>
-<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant" href="#">Coaching</a>
-<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant" href="#">Science</a>
+  <a href="#" class="label-caps" style="color:#8a8a85;text-decoration:none">Research</a>
+  <a href="#" class="label-caps" style="color:#f0ede8;text-decoration:none">Shop</a>
+  <a href="#" class="label-caps" style="color:#8a8a85;text-decoration:none">Coaching</a>
+  <a href="#" class="label-caps" style="color:#8a8a85;text-decoration:none">Science</a>
 </div>
 </nav>
 
-<!-- Trust Bar -->
-<div class="fixed top-12 left-0 w-full z-40 bg-primary/8 border-b border-primary/20 h-8 flex items-center overflow-hidden">
-<div class="flex items-center gap-6 px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto overflow-x-auto scrollbar-none">
-<div class="flex items-center gap-6 text-primary font-label-caps text-label-xs uppercase tracking-widest whitespace-nowrap shrink-0">
-<span class="flex items-center gap-1.5"><span class="material-symbols-outlined" style="font-size:12px">verified</span> 99%+ PURITY GUARANTEED</span>
-<span class="text-primary/25">|</span>
-<span class="flex items-center gap-1.5"><span class="material-symbols-outlined" style="font-size:12px">science</span> HPLC &amp; MS VERIFIED</span>
-<span class="text-primary/25">|</span>
-<span class="flex items-center gap-1.5"><span class="material-symbols-outlined" style="font-size:12px">description</span> COA AVAILABLE PER BATCH</span>
-<span class="text-primary/25">|</span>
-<span class="flex items-center gap-1.5"><span class="material-symbols-outlined" style="font-size:12px">local_shipping</span> SAME-DAY DISPATCH</span>
-<span class="text-primary/25">|</span>
-<span class="flex items-center gap-1.5"><span class="material-symbols-outlined" style="font-size:12px">lock</span> SECURE &amp; DISCREET PACKAGING</span>
-</div>
+<!-- ══════════════════════════════════════════════════════════════
+     TRUST MARQUEE
+     ══════════════════════════════════════════════════════════════ -->
+<div class="fixed left-0 right-0 z-40 h-[36px] flex items-center overflow-hidden" style="top:60px;background:#0a0a0a;border-bottom:1px solid rgba(240,237,232,0.04)">
+<div class="marquee-wrapper">
+  <span class="marquee-track label-caps" style="color:#4a8a5a">
+    HPLC VERIFIED &nbsp;·&nbsp; 99%+ PURITY GUARANTEED &nbsp;·&nbsp; SAME-DAY DISPATCH &nbsp;·&nbsp; COA EVERY BATCH &nbsp;·&nbsp; 3RD PARTY TESTED &nbsp;·&nbsp; PHARMACEUTICAL GRADE &nbsp;·&nbsp; NO FILLER COMPOUNDS &nbsp;·&nbsp;&nbsp;&nbsp;&nbsp;
+    HPLC VERIFIED &nbsp;·&nbsp; 99%+ PURITY GUARANTEED &nbsp;·&nbsp; SAME-DAY DISPATCH &nbsp;·&nbsp; COA EVERY BATCH &nbsp;·&nbsp; 3RD PARTY TESTED &nbsp;·&nbsp; PHARMACEUTICAL GRADE &nbsp;·&nbsp; NO FILLER COMPOUNDS &nbsp;·&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>
 </div>
 </div>
 
-<main class="pt-20 pb-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<main style="padding-top:96px">
 
-<!-- Page Header -->
-<header class="mb-12 pt-8" data-animate>
-<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-<div>
-<p class="font-label-caps text-label-caps text-primary tracking-[0.25em] mb-3">RESEARCH CATALOG — 2024</p>
-<h1 class="font-headline-xl text-headline-xl text-on-surface mb-3">COMPOUND LIBRARY</h1>
-<p class="font-body-md text-on-surface-variant max-w-lg">Pharmaceutical-grade synthetic peptides, precision-engineered for laboratory investigation. Every compound HPLC and mass-spectrometry certified to &gt;99% purity.</p>
+<!-- ══════════════════════════════════════════════════════════════
+     PAGE HEADER
+     ══════════════════════════════════════════════════════════════ -->
+<section class="px-6 md:px-16 pt-12 pb-10 max-w-[1400px] mx-auto" data-animate>
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-8 pb-8" style="border-bottom:1px solid rgba(240,237,232,0.07)">
+  <div>
+    <p class="label-caps mb-3" style="color:#4a8a5a">Research Catalog — 2024</p>
+    <h1 class="headline-xl">COMPOUND LIBRARY</h1>
+  </div>
+  <!-- Stats row -->
+  <div class="flex gap-8 shrink-0">
+    <div class="text-right">
+      <p class="font-display text-[36px]" style="color:#f0ede8;line-height:1" data-counter="10" data-counter-suffix="">10</p>
+      <p class="label-caps mt-1" style="color:#8a8a85">Compounds</p>
+    </div>
+    <div style="width:1px;background:rgba(240,237,232,0.1)"></div>
+    <div class="text-right">
+      <p class="font-display text-[36px]" style="color:#f0ede8;line-height:1">99.4%</p>
+      <p class="label-caps mt-1" style="color:#8a8a85">Avg Purity</p>
+    </div>
+    <div style="width:1px;background:rgba(240,237,232,0.1)"></div>
+    <div class="text-right">
+      <p class="font-display text-[36px]" style="color:#f0ede8;line-height:1" data-counter="100" data-counter-suffix="%">100%</p>
+      <p class="label-caps mt-1" style="color:#8a8a85">3rd-Party Tested</p>
+    </div>
+  </div>
 </div>
-<div class="flex gap-6 shrink-0 border-l border-white/10 pl-6">
-<div class="text-right">
-<p class="font-data-mono text-2xl text-primary" data-counter="10" data-counter-suffix="">10</p>
-<p class="font-label-caps text-label-xs text-on-surface-variant uppercase mt-1">Compounds</p>
-</div>
-<div class="w-px bg-outline-variant self-stretch"></div>
-<div class="text-right">
-<p class="font-data-mono text-2xl text-primary">99.4%</p>
-<p class="font-label-caps text-label-xs text-on-surface-variant uppercase mt-1">Avg. Purity</p>
-</div>
-<div class="w-px bg-outline-variant self-stretch"></div>
-<div class="text-right">
-<p class="font-data-mono text-2xl text-primary" data-counter="100" data-counter-suffix="%">100%</p>
-<p class="font-label-caps text-label-xs text-on-surface-variant uppercase mt-1">3rd-Party Tested</p>
-</div>
-</div>
-</div>
-</header>
+</section>
 
-<!-- Sticky Filter Bar -->
-<div class="sticky top-20 z-30 bg-background/95 backdrop-blur-md border-b border-white/10 py-3 mb-10 -mx-margin-mobile md:-mx-margin-desktop px-margin-mobile md:px-margin-desktop" data-animate style="--stagger-i:1">
-<div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
-<div class="flex gap-2 flex-wrap">
-<button type="button" class="filter-pill active" data-filter="all">ALL</button>
-<button type="button" class="filter-pill" data-filter="recovery">RECOVERY</button>
-<button type="button" class="filter-pill" data-filter="gh-axis">GH AXIS</button>
-<button type="button" class="filter-pill" data-filter="fat-loss">FAT LOSS</button>
-<button type="button" class="filter-pill" data-filter="performance">PERFORMANCE</button>
-<button type="button" class="filter-pill" data-filter="longevity">LONGEVITY</button>
-<button type="button" class="filter-pill" data-filter="immune">IMMUNE</button>
-<button type="button" class="filter-pill" data-filter="nootropic">NOOTROPIC</button>
-</div>
-<div class="flex gap-2 shrink-0">
-<div class="relative">
-<input type="text" id="search-input" placeholder="SEARCH..." class="w-36 bg-surface-container border border-outline px-3 py-1.5 text-on-surface font-label-caps text-label-xs focus:border-primary outline-none transition-colors pr-7"/>
-<span class="material-symbols-outlined absolute right-2 top-1.5 text-on-surface-variant" style="font-size:14px">search</span>
-</div>
-<select class="bg-surface-container border border-outline px-3 py-1.5 text-on-surface font-label-caps text-label-xs focus:border-primary outline-none cursor-pointer appearance-none pr-6">
-<option>FEATURED</option>
-<option>PURITY ↓</option>
-<option>PRICE ↓</option>
-<option>PRICE ↑</option>
-</select>
-</div>
+<!-- ══════════════════════════════════════════════════════════════
+     FILTER BAR (sticky)
+     ══════════════════════════════════════════════════════════════ -->
+<div class="sticky z-30 px-6 md:px-16 py-3" style="top:96px;background:rgba(0,0,0,0.97);border-bottom:1px solid rgba(240,237,232,0.06);backdrop-filter:blur(12px)">
+<div class="max-w-[1400px] mx-auto flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+  <div class="flex flex-wrap gap-2">
+    <button type="button" class="filter-pill active" data-filter="all">ALL</button>
+    <button type="button" class="filter-pill" data-filter="recovery">RECOVERY</button>
+    <button type="button" class="filter-pill" data-filter="gh-axis">GH AXIS</button>
+    <button type="button" class="filter-pill" data-filter="fat-loss">FAT LOSS</button>
+    <button type="button" class="filter-pill" data-filter="performance">PERFORMANCE</button>
+    <button type="button" class="filter-pill" data-filter="longevity">LONGEVITY</button>
+    <button type="button" class="filter-pill" data-filter="immune">IMMUNE</button>
+    <button type="button" class="filter-pill" data-filter="nootropic">NOOTROPIC</button>
+  </div>
+  <div class="flex gap-2 shrink-0">
+    <div class="relative">
+      <input type="text" id="search-input" placeholder="SEARCH..." class="label-caps" style="background:#1c1c1c;border:1px solid rgba(240,237,232,0.12);color:#f0ede8;padding:7px 28px 7px 10px;width:140px;outline:none"/>
+      <span class="material-symbols-outlined absolute right-2 top-1.5" style="font-size:14px;color:#8a8a85">search</span>
+    </div>
+    <select class="label-caps" style="background:#1c1c1c;border:1px solid rgba(240,237,232,0.12);color:#8a8a85;padding:7px 10px;outline:none;cursor:pointer;appearance:none">
+      <option>FEATURED</option>
+      <option>PURITY ↓</option>
+      <option>PRICE ↓</option>
+      <option>PRICE ↑</option>
+    </select>
+  </div>
 </div>
 </div>
 
-<!-- ─────────────────────────────────────────────────────────── -->
-<!-- Featured Hero Card: BPC-157                                -->
-<!-- ─────────────────────────────────────────────────────────── -->
-<section class="mb-10" data-animate style="--stagger-i:2">
-<article class="glass-card overflow-hidden group hover:border-primary/40 transition-all duration-300" data-category="recovery" data-name="BPC-157">
+<!-- ══════════════════════════════════════════════════════════════
+     FEATURED HERO CARD — BPC-157
+     ══════════════════════════════════════════════════════════════ -->
+<section class="px-6 md:px-16 py-8 max-w-[1400px] mx-auto" data-animate>
+<article style="background:#1c1c1c;border:1px solid rgba(240,237,232,0.07)" data-category="recovery" data-name="BPC-157">
 <div class="flex flex-col md:flex-row">
-<!-- Image -->
-<div class="relative md:w-2/5 h-72 md:h-auto overflow-hidden bg-surface-container-lowest shrink-0">
-<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-     alt="A sterile laboratory environment showing a high-tech glass vial of clear liquid medicine on a matte black surface with cold clinical lighting."
-     src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYGF7B2C-HhbmcqMtutHnCzzmq18FF6e_idre4MbC4cZbg4BW8IE1PnRkbU30wosu0UP4JwNKgur3untZqo1MViXqZmvhFVlsE_n5MqojrzR_hauPF1HFDrbBS8kQeVbzMD1Ey55aCl2_JeNY-dSejxxtlziup_qLQ7-yn0gQuyAMVkMfvsn8YJe8UaSEJo8jZdF4TUiKqrRl36zMOoAwfzcHYSRBkdxEInicxSrAOtH2JCpxRWbAmYS819JXaooK2E6JRkwCSuA8"/>
-<div class="absolute top-4 left-4 bg-primary text-on-primary font-label-caps text-label-xs px-3 py-1 tracking-widest">&#9733; FEATURED COMPOUND</div>
-<div class="purity-badge">99.4% PURE</div>
-<div class="absolute bottom-4 left-4 flex items-center gap-1.5">
-<span class="stock-dot"></span>
-<span class="font-label-caps text-label-xs text-primary">IN STOCK</span>
-</div>
-</div>
-<!-- Details -->
-<div class="md:w-3/5 p-8 flex flex-col justify-between">
-<div>
-<div class="flex items-center gap-3 mb-4 flex-wrap">
-<span class="font-label-caps text-label-xs text-primary tracking-widest border border-primary/30 px-2 py-0.5">RECOVERY AGENT</span>
-<span class="font-label-caps text-label-xs text-on-surface-variant tracking-widest">BATCH #BP-1124-09</span>
-<span class="font-label-caps text-label-xs text-on-surface-variant">OCT 12, 2024</span>
-</div>
-<h2 class="font-headline-xl text-headline-xl text-on-surface group-hover:text-primary transition-colors mb-1">BPC-157</h2>
-<p class="font-label-caps text-label-caps text-on-surface-variant mb-6">Body Protective Compound — 15 Amino Acid Sequence</p>
-<p class="font-body-md text-on-surface-variant mb-8 max-w-md">A synthetic pentadecapeptide fragment of body protection compound. Extensively studied for its role in tissue repair, angiogenesis signaling, and cellular recovery mechanisms in controlled laboratory environments.</p>
-<!-- Specs grid -->
-<div class="grid grid-cols-3 gap-x-6 gap-y-4 mb-8 border-t border-white/10 pt-6">
-<div><p class="font-label-caps text-label-xs text-on-surface-variant mb-1">PURITY</p><p class="font-data-mono text-primary text-[16px]">99.4%</p></div>
-<div><p class="font-label-caps text-label-xs text-on-surface-variant mb-1">STORAGE</p><p class="font-data-mono text-on-surface text-[16px]">2–8°C</p></div>
-<div><p class="font-label-caps text-label-xs text-on-surface-variant mb-1">FORM</p><p class="font-data-mono text-on-surface text-[16px]">LYO</p></div>
-<div><p class="font-label-caps text-label-xs text-on-surface-variant mb-1">MW</p><p class="font-data-mono text-on-surface text-[16px]">1419.5</p></div>
-<div><p class="font-label-caps text-label-xs text-on-surface-variant mb-1">SEQUENCE</p><p class="font-data-mono text-on-surface text-[16px]">15 AA</p></div>
-<div><p class="font-label-caps text-label-xs text-on-surface-variant mb-1">VALIDATED</p><p class="font-data-mono text-primary text-[16px]">HPLC+MS</p></div>
-</div>
-</div>
-<!-- Variant + CTA -->
-<div>
-<div class="flex items-center gap-3 mb-4 flex-wrap">
-<span class="font-label-caps text-label-xs text-on-surface-variant uppercase">SIZE:</span>
-<div class="flex gap-2 variant-group">
-<button type="button" class="variant-btn active">2mg</button>
-<button type="button" class="variant-btn">5mg</button>
-<button type="button" class="variant-btn">10mg</button>
-</div>
-</div>
-<div class="flex items-baseline gap-2 mb-5">
-<span class="font-data-mono text-on-surface" style="font-size:28px">$48.00</span>
-<span class="font-label-caps text-label-xs text-on-surface-variant">/ vial</span>
-</div>
-<div class="flex gap-3 flex-wrap">
-<button type="button" class="border border-outline text-on-surface-variant font-label-caps text-label-caps px-6 py-3 hover:border-primary hover:text-primary transition-all uppercase tracking-widest flex items-center gap-2">
-<span class="material-symbols-outlined" style="font-size:15px">description</span> COA DOCS
-</button>
-<button type="button" class="flex-1 min-w-[140px] bg-primary text-on-primary font-label-caps text-label-caps py-3 uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-2">
-<span class="material-symbols-outlined" style="font-size:15px">add_shopping_cart</span> ADD TO CART
-</button>
-</div>
-<p class="font-body-sm text-disclaimer text-on-surface-variant mt-4 italic">FOR LABORATORY RESEARCH ONLY. NOT FOR HUMAN CONSUMPTION.</p>
-</div>
-</div>
+
+  <!-- Image side — 40% -->
+  <div class="relative md:w-[40%] overflow-hidden" style="min-height:320px">
+    <img class="w-full h-full object-cover absolute inset-0" style="opacity:0.75" alt="BPC-157 sterile research vial" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYGF7B2C-HhbmcqMtutHnCzzmq18FF6e_idre4MbC4cZbg4BW8IE1PnRkbU30wosu0UP4JwNKgur3untZqo1MViXqZmvhFVlsE_n5MqojrzR_hauPF1HFDrbBS8kQeVbzMD1Ey55aCl2_JeNY-dSejxxtlziup_qLQ7-yn0gQuyAMVkMfvsn8YJe8UaSEJo8jZdF4TUiKqrRl36zMOoAwfzcHYSRBkdxEInicxSrAOtH2JCpxRWbAmYS819JXaooK2E6JRkwCSuA8"/>
+    <div class="absolute inset-0" style="background:linear-gradient(to right,transparent 60%,#1c1c1c 100%)"></div>
+    <!-- Badges -->
+    <div class="absolute top-4 left-4" style="background:#1a3a2a;color:#f0ede8;padding:4px 10px">
+      <span class="label-caps">★ FEATURED COMPOUND</span>
+    </div>
+    <div class="purity-badge">99.4% PURE</div>
+    <div class="absolute bottom-4 left-4 flex items-center gap-2">
+      <span class="stock-dot"></span>
+      <span class="label-caps" style="color:#4a8a5a">IN STOCK</span>
+    </div>
+  </div>
+
+  <!-- Content side — 60% -->
+  <div class="md:w-[60%] p-8 flex flex-col justify-between">
+    <div>
+      <div class="flex items-center gap-4 mb-4 flex-wrap">
+        <span class="label-caps" style="color:#4a8a5a;border:1px solid rgba(26,58,42,0.5);padding:3px 8px">RECOVERY AGENT</span>
+        <span class="label-caps" style="color:#8a8a85">BATCH #BP-1124-09 &nbsp;·&nbsp; OCT 2024</span>
+      </div>
+      <h2 class="headline-xl mb-2">BPC-157</h2>
+      <p class="label-caps mb-6" style="color:#8a8a85">Body Protective Compound — 15 Amino Acid Sequence</p>
+      <p class="mb-8 max-w-lg" style="font-size:14px;line-height:1.65;color:#8a8a85">A synthetic pentadecapeptide studied for its role in tissue repair, angiogenesis signaling, and cellular recovery mechanisms in controlled laboratory environments.</p>
+
+      <!-- Specs grid -->
+      <div class="grid grid-cols-3 gap-x-8 gap-y-5 mb-8 pt-6" style="border-top:1px solid rgba(240,237,232,0.07)">
+        <div><p class="label-caps mb-1" style="color:#8a8a85">PURITY</p><p class="font-display text-[20px]" style="color:#4a8a5a">99.4%</p></div>
+        <div><p class="label-caps mb-1" style="color:#8a8a85">STORAGE</p><p class="font-display text-[20px]" style="color:#f0ede8">2–8°C</p></div>
+        <div><p class="label-caps mb-1" style="color:#8a8a85">FORM</p><p class="font-display text-[20px]" style="color:#f0ede8">LYO</p></div>
+        <div><p class="label-caps mb-1" style="color:#8a8a85">MW</p><p class="font-display text-[20px]" style="color:#f0ede8">1419.5</p></div>
+        <div><p class="label-caps mb-1" style="color:#8a8a85">SEQUENCE</p><p class="font-display text-[20px]" style="color:#f0ede8">15 AA</p></div>
+        <div><p class="label-caps mb-1" style="color:#8a8a85">VALIDATED</p><p class="font-display text-[20px]" style="color:#4a8a5a">HPLC+MS</p></div>
+      </div>
+    </div>
+
+    <!-- Variant + CTA -->
+    <div>
+      <div class="flex items-center gap-3 mb-4 flex-wrap">
+        <span class="label-caps" style="color:#8a8a85">SIZE:</span>
+        <div class="flex gap-2 variant-group">
+          <button type="button" class="variant-btn active">2mg</button>
+          <button type="button" class="variant-btn">5mg</button>
+          <button type="button" class="variant-btn">10mg</button>
+        </div>
+      </div>
+      <div class="flex items-baseline gap-2 mb-6">
+        <span class="font-display text-[32px]" style="color:#f0ede8">$48.00</span>
+        <span class="label-caps" style="color:#8a8a85">/ vial</span>
+      </div>
+      <div class="flex gap-3 flex-wrap">
+        <button type="button" class="btn-outlined" style="padding:11px 24px">
+          <span class="material-symbols-outlined" style="font-size:15px">description</span>
+          COA DOCS
+        </button>
+        <button type="button" class="btn-primary flex-1" style="min-width:160px;justify-content:center">
+          <span class="material-symbols-outlined" style="font-size:15px">add_shopping_cart</span>
+          ADD TO CART
+        </button>
+      </div>
+      <p class="mt-4" style="font-size:11px;color:#8a8a85;font-style:italic">FOR LABORATORY RESEARCH ONLY. NOT FOR HUMAN CONSUMPTION.</p>
+    </div>
+  </div>
+
 </div>
 </article>
 </section>
 
-<!-- Catalog Label -->
-<div class="flex items-center gap-4 mb-8" data-animate style="--stagger-i:3">
-<span class="font-label-caps text-label-caps text-on-surface-variant tracking-widest">FULL CATALOG</span>
-<div class="flex-1 h-px bg-white/10" data-animate-line></div>
-<span class="font-data-mono text-label-xs text-on-surface-variant" id="compound-count">9 COMPOUNDS</span>
+<!-- ══════════════════════════════════════════════════════════════
+     CATALOG LABEL
+     ══════════════════════════════════════════════════════════════ -->
+<div class="px-6 md:px-16 py-4 max-w-[1400px] mx-auto flex items-center gap-4">
+  <span class="label-caps" style="color:#8a8a85">FULL CATALOG</span>
+  <div class="flex-1 h-px" style="background:rgba(240,237,232,0.07)" data-animate-line></div>
+  <span class="label-caps" style="color:#8a8a85" id="compound-count">9 COMPOUNDS</span>
 </div>
 
-<!-- Product Grid -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter mb-16" data-stagger id="product-grid">
+<!-- ══════════════════════════════════════════════════════════════
+     PRODUCT GRID
+     ══════════════════════════════════════════════════════════════ -->
+<section class="px-6 md:px-16 pb-12 max-w-[1400px] mx-auto">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" data-stagger id="product-grid">
 
-<!-- TB-500 -->
-<article class="glass-card flex flex-col group overflow-hidden hover:border-primary/50 transition-all duration-300" data-category="recovery" data-name="TB-500">
-<div class="relative h-56 overflow-hidden bg-surface-container-lowest shrink-0">
-<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-     alt="Macro photography of sealed glass vials on a dark metallic tray under blue-tinted laboratory lights."
-     src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP-I17FG5-55aEGUfmBjjtKTmcLIzTY-3ni92OBJP3luB_V7YeJZxEj3hREJrctTQDJqQldD4hl3ySSNgPNyRtvfPlG6j1IUEJc_-AebvJI5Ef7bACPuGKZPo9vIJavDmA3JH2LEYwoh3-R-NaNp4c19T2WwLAN5cPuI7GWqKDT5wR_pMeT7SIl4ti4ApulXB_oXYkFQ7Sq_U67GGS_wKrwohCnugaRjtMfRQlHXwhRhCSCR76rpwumB2xNyafTqe8fKBs232eMrk"/>
-<div class="purity-badge">99.2%</div>
-<div class="absolute bottom-3 left-3 flex items-center gap-1.5"><span class="stock-dot"></span><span class="font-label-caps text-label-xs text-primary">IN STOCK</span></div>
-</div>
-<div class="p-5 flex flex-col flex-1">
-<span class="font-label-caps text-label-xs text-primary tracking-widest mb-1">TISSUE REPAIR</span>
-<h3 class="font-headline-lg text-headline-lg text-on-surface group-hover:text-primary transition-colors mb-4">TB-500</h3>
-<div class="flex items-center gap-3 mb-4">
-<span class="font-label-caps text-label-xs text-on-surface-variant">SIZE:</span>
-<div class="flex gap-2 variant-group">
-<button type="button" class="variant-btn active">2mg</button>
-<button type="button" class="variant-btn">5mg</button>
-</div>
-</div>
-<div class="flex items-baseline gap-1.5 mb-4">
-<span class="font-data-mono text-xl text-on-surface">$54.00</span>
-<span class="font-label-caps text-label-xs text-on-surface-variant">/ vial</span>
-</div>
-<div class="mt-auto flex gap-2">
-<button type="button" class="border border-outline text-on-surface-variant font-label-caps px-3 py-2.5 hover:border-primary hover:text-primary transition-all text-[10px] uppercase tracking-widest flex items-center gap-1 whitespace-nowrap">
-<span class="material-symbols-outlined" style="font-size:13px">description</span> COA
-</button>
-<button type="button" class="flex-1 bg-primary text-on-primary font-label-caps py-2.5 uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all text-[10px] flex items-center justify-center gap-1">
-<span class="material-symbols-outlined" style="font-size:13px">add_shopping_cart</span> ADD TO CART
-</button>
-</div>
-<p class="font-body-sm text-disclaimer text-on-surface-variant mt-3 italic">FOR RESEARCH ONLY.</p>
-</div>
-</article>
+  <!-- TB-500 -->
+  <article class="flat-card flex flex-col overflow-hidden" data-category="recovery" data-name="TB-500">
+  <div class="relative overflow-hidden" style="height:220px">
+    <img class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" style="opacity:0.72" alt="TB-500 research vial" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP-I17FG5-55aEGUfmBjjtKTmcLIzTY-3ni92OBJP3luB_V7YeJZxEj3hREJrctTQDJqQldD4hl3ySSNgPNyRtvfPlG6j1IUEJc_-AebvJI5Ef7bACPuGKZPo9vIJavDmA3JH2LEYwoh3-R-NaNp4c19T2WwLAN5cPuI7GWqKDT5wR_pMeT7SIl4ti4ApulXB_oXYkFQ7Sq_U67GGS_wKrwohCnugaRjtMfRQlHXwhRhCSCR76rpwumB2xNyafTqe8fKBs232eMrk"/>
+    <div class="purity-badge">99.2%</div>
+    <div class="absolute bottom-3 left-3 flex items-center gap-1.5"><span class="stock-dot"></span><span class="label-caps" style="color:#4a8a5a">IN STOCK</span></div>
+  </div>
+  <div class="p-5 flex flex-col flex-1">
+    <span class="label-caps mb-1" style="color:#4a8a5a">Tissue Repair</span>
+    <h3 class="headline-md mb-4">TB-500</h3>
+    <div class="flex items-center gap-3 mb-4">
+      <span class="label-caps" style="color:#8a8a85">SIZE:</span>
+      <div class="flex gap-2 variant-group">
+        <button type="button" class="variant-btn active">2mg</button>
+        <button type="button" class="variant-btn">5mg</button>
+      </div>
+    </div>
+    <div class="flex items-baseline gap-1.5 mb-4">
+      <span class="font-display text-[24px]" style="color:#f0ede8">$54.00</span>
+      <span class="label-caps" style="color:#8a8a85">/ vial</span>
+    </div>
+    <div class="mt-auto flex gap-2">
+      <button type="button" class="btn-outlined flex items-center gap-1" style="padding:9px 14px;font-size:10px">
+        <span class="material-symbols-outlined" style="font-size:13px">description</span>COA
+      </button>
+      <button type="button" class="btn-primary flex-1 justify-center" style="padding:9px 12px;font-size:10px">
+        <span class="material-symbols-outlined" style="font-size:13px">add_shopping_cart</span>ADD TO CART
+      </button>
+    </div>
+    <p class="mt-3" style="font-size:10px;color:#8a8a85;font-style:italic">FOR RESEARCH ONLY.</p>
+  </div>
+  </article>
 
-<!-- CJC-1295 -->
-<article class="glass-card flex flex-col group overflow-hidden hover:border-primary/50 transition-all duration-300" data-category="gh-axis" data-name="CJC-1295">
-<div class="relative h-56 overflow-hidden bg-surface-container-lowest shrink-0">
-<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-     alt="A futuristic laboratory setting with complex chemical glass structures and subtle lime green LED reflections on charcoal."
-     src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGBA1OLow-EfugOtc6ouzFR0NDwLQKVLJyB_Tf2KNpbqExX3_gMHW8Yd6CxVHl_02MS6DB8DIO5GSg8Zdz527Ux-eHF6olOt7JVrGRiX67n-dt2lV4qxSA66_JWljRvemYWRH-Otetp6upRLT2GGoYOApQ-OsNbJvYyFvngiBPlztYVT7LXmwRg5M6v-Q69v8e1Rv3f7qi6nmCSNkblIanRb4aJ6DeJOz8"/>
-<div class="purity-badge">99.8%</div>
-<div class="absolute bottom-3 left-3 flex items-center gap-1.5"><span class="stock-dot"></span><span class="font-label-caps text-label-xs text-primary">IN STOCK</span></div>
-</div>
-<div class="p-5 flex flex-col flex-1">
-<span class="font-label-caps text-label-xs text-primary tracking-widest mb-1">GH OPTIMIZATION</span>
-<h3 class="font-headline-lg text-headline-lg text-on-surface group-hover:text-primary transition-colors mb-4">CJC-1295</h3>
-<div class="flex items-center gap-3 mb-4">
-<span class="font-label-caps text-label-xs text-on-surface-variant">SIZE:</span>
-<div class="flex gap-2 variant-group">
-<button type="button" class="variant-btn active">2mg</button>
-<button type="button" class="variant-btn">5mg</button>
-<button type="button" class="variant-btn">10mg</button>
-</div>
-</div>
-<div class="flex items-baseline gap-1.5 mb-4">
-<span class="font-data-mono text-xl text-on-surface">$52.00</span>
-<span class="font-label-caps text-label-xs text-on-surface-variant">/ vial</span>
-</div>
-<div class="mt-auto flex gap-2">
-<button type="button" class="border border-outline text-on-surface-variant font-label-caps px-3 py-2.5 hover:border-primary hover:text-primary transition-all text-[10px] uppercase tracking-widest flex items-center gap-1 whitespace-nowrap">
-<span class="material-symbols-outlined" style="font-size:13px">description</span> COA
-</button>
-<button type="button" class="flex-1 bg-primary text-on-primary font-label-caps py-2.5 uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all text-[10px] flex items-center justify-center gap-1">
-<span class="material-symbols-outlined" style="font-size:13px">add_shopping_cart</span> ADD TO CART
-</button>
-</div>
-<p class="font-body-sm text-disclaimer text-on-surface-variant mt-3 italic">FOR RESEARCH ONLY.</p>
-</div>
-</article>
+  <!-- CJC-1295 -->
+  <article class="flat-card flex flex-col overflow-hidden" data-category="gh-axis" data-name="CJC-1295">
+  <div class="relative overflow-hidden" style="height:220px">
+    <img class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" style="opacity:0.72" alt="CJC-1295" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGBA1OLow-EfugOtc6ouzFR0NDwLQKVLJyB_Tf2KNpbqExX3_gMHW8Yd6CxVHl_02MS6DB8DIO5GSg8Zdz527Ux-eHF6olOt7JVrGRiX67n-dt2lV4qxSA66_JWljRvemYWRH-Otetp6upRLT2GGoYOApQ-OsNbJvYyFvngiBPlztYVT7LXmwRg5M6v-Q69v8e1Rv3f7qi6nmCSNkblIanRb4aJ6DeJOz8"/>
+    <div class="purity-badge">99.8%</div>
+    <div class="absolute bottom-3 left-3 flex items-center gap-1.5"><span class="stock-dot"></span><span class="label-caps" style="color:#4a8a5a">IN STOCK</span></div>
+  </div>
+  <div class="p-5 flex flex-col flex-1">
+    <span class="label-caps mb-1" style="color:#4a8a5a">GH Optimization</span>
+    <h3 class="headline-md mb-4">CJC-1295</h3>
+    <div class="flex items-center gap-3 mb-4">
+      <span class="label-caps" style="color:#8a8a85">SIZE:</span>
+      <div class="flex gap-2 variant-group">
+        <button type="button" class="variant-btn active">2mg</button>
+        <button type="button" class="variant-btn">5mg</button>
+        <button type="button" class="variant-btn">10mg</button>
+      </div>
+    </div>
+    <div class="flex items-baseline gap-1.5 mb-4">
+      <span class="font-display text-[24px]" style="color:#f0ede8">$52.00</span>
+      <span class="label-caps" style="color:#8a8a85">/ vial</span>
+    </div>
+    <div class="mt-auto flex gap-2">
+      <button type="button" class="btn-outlined flex items-center gap-1" style="padding:9px 14px;font-size:10px">
+        <span class="material-symbols-outlined" style="font-size:13px">description</span>COA
+      </button>
+      <button type="button" class="btn-primary flex-1 justify-center" style="padding:9px 12px;font-size:10px">
+        <span class="material-symbols-outlined" style="font-size:13px">add_shopping_cart</span>ADD TO CART
+      </button>
+    </div>
+    <p class="mt-3" style="font-size:10px;color:#8a8a85;font-style:italic">FOR RESEARCH ONLY.</p>
+  </div>
+  </article>
 
-<!-- IPAMORELIN -->
-<article class="glass-card flex flex-col group overflow-hidden hover:border-primary/50 transition-all duration-300" data-category="gh-axis" data-name="IPAMORELIN">
-<div class="relative h-56 overflow-hidden bg-surface-container-lowest shrink-0">
-<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-     alt="Clinical close-up of a pipette dispensing clear liquid into a laboratory tube with a subtle lime green glow on dark background."
-     src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsFEKzRrT7GYsE42gr2sC3iXmH5IjpUYyT8hhYonj-TJ_Ml2ti1R13zfTzgkGYNlXqPDG_2QAeKaOEgjLjFVMBjOPy0EYz2fsMNsarpqxro2ZPREip7Gr1tpF99W4qL9YG4TruQDzT0MQX3bnr4vdonCvcfMmIo1j9nwQ8kd0k3ShTRkfsz1hMN7fMlIamB2SoXxCUYgp3FFhFMYiyq3cnx_UdnFMGZ_eRMHz6PUEqjXs91xop60GCk09gXx_Kkwpynu6sc36etYA"/>
-<div class="purity-badge">99.5%</div>
-<div class="absolute bottom-3 left-3 flex items-center gap-1.5"><span class="stock-dot"></span><span class="font-label-caps text-label-xs text-primary">IN STOCK</span></div>
-</div>
-<div class="p-5 flex flex-col flex-1">
-<span class="font-label-caps text-label-xs text-primary tracking-widest mb-1">GH SECRETAGOGUE</span>
-<h3 class="font-headline-lg text-headline-lg text-on-surface group-hover:text-primary transition-colors mb-4">IPAMORELIN</h3>
-<div class="flex items-center gap-3 mb-4">
-<span class="font-label-caps text-label-xs text-on-surface-variant">SIZE:</span>
-<div class="flex gap-2 variant-group">
-<button type="button" class="variant-btn active">2mg</button>
-<button type="button" class="variant-btn">5mg</button>
-</div>
-</div>
-<div class="flex items-baseline gap-1.5 mb-4">
-<span class="font-data-mono text-xl text-on-surface">$44.00</span>
-<span class="font-label-caps text-label-xs text-on-surface-variant">/ vial</span>
-</div>
-<div class="mt-auto flex gap-2">
-<button type="button" class="border border-outline text-on-surface-variant font-label-caps px-3 py-2.5 hover:border-primary hover:text-primary transition-all text-[10px] uppercase tracking-widest flex items-center gap-1 whitespace-nowrap">
-<span class="material-symbols-outlined" style="font-size:13px">description</span> COA
-</button>
-<button type="button" class="flex-1 bg-primary text-on-primary font-label-caps py-2.5 uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all text-[10px] flex items-center justify-center gap-1">
-<span class="material-symbols-outlined" style="font-size:13px">add_shopping_cart</span> ADD TO CART
-</button>
-</div>
-<p class="font-body-sm text-disclaimer text-on-surface-variant mt-3 italic">FOR RESEARCH ONLY.</p>
-</div>
-</article>
+  <!-- IPAMORELIN -->
+  <article class="flat-card flex flex-col overflow-hidden" data-category="gh-axis" data-name="IPAMORELIN">
+  <div class="relative overflow-hidden" style="height:220px">
+    <img class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" style="opacity:0.72" alt="Ipamorelin" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsFEKzRrT7GYsE42gr2sC3iXmH5IjpUYyT8hhYonj-TJ_Ml2ti1R13zfTzgkGYNlXqPDG_2QAeKaOEgjLjFVMBjOPy0EYz2fsMNsarpqxro2ZPREip7Gr1tpF99W4qL9YG4TruQDzT0MQX3bnr4vdonCvcfMmIo1j9nwQ8kd0k3ShTRkfsz1hMN7fMlIamB2SoXxCUYgp3FFhFMYiyq3cnx_UdnFMGZ_eRMHz6PUEqjXs91xop60GCk09gXx_Kkwpynu6sc36etYA"/>
+    <div class="purity-badge">99.5%</div>
+    <div class="absolute bottom-3 left-3 flex items-center gap-1.5"><span class="stock-dot"></span><span class="label-caps" style="color:#4a8a5a">IN STOCK</span></div>
+  </div>
+  <div class="p-5 flex flex-col flex-1">
+    <span class="label-caps mb-1" style="color:#4a8a5a">GH Secretagogue</span>
+    <h3 class="headline-md mb-4">IPAMORELIN</h3>
+    <div class="flex items-center gap-3 mb-4">
+      <span class="label-caps" style="color:#8a8a85">SIZE:</span>
+      <div class="flex gap-2 variant-group">
+        <button type="button" class="variant-btn active">2mg</button>
+        <button type="button" class="variant-btn">5mg</button>
+      </div>
+    </div>
+    <div class="flex items-baseline gap-1.5 mb-4">
+      <span class="font-display text-[24px]" style="color:#f0ede8">$44.00</span>
+      <span class="label-caps" style="color:#8a8a85">/ vial</span>
+    </div>
+    <div class="mt-auto flex gap-2">
+      <button type="button" class="btn-outlined flex items-center gap-1" style="padding:9px 14px;font-size:10px">
+        <span class="material-symbols-outlined" style="font-size:13px">description</span>COA
+      </button>
+      <button type="button" class="btn-primary flex-1 justify-center" style="padding:9px 12px;font-size:10px">
+        <span class="material-symbols-outlined" style="font-size:13px">add_shopping_cart</span>ADD TO CART
+      </button>
+    </div>
+    <p class="mt-3" style="font-size:10px;color:#8a8a85;font-style:italic">FOR RESEARCH ONLY.</p>
+  </div>
+  </article>
 
-<!-- AOD-9604 -->
-<article class="glass-card flex flex-col group overflow-hidden hover:border-primary/50 transition-all duration-300" data-category="fat-loss" data-name="AOD-9604">
-<div class="relative h-56 overflow-hidden bg-surface-container-lowest shrink-0">
-<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-     alt="High-tech laboratory with deep forest green and charcoal tones. A researcher's hand operates precision analytical equipment."
-     src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7ZZcPfYyye4wFKo5VmyKlfLd_cjm0TG0ssN1wg11UyOE7rhJTKy_9Aj4CiUDTz7ILA6iUGAlSDGLpSW8ZSOaBLZhiMycZICzOq4JNu5PRnT6zwP-2JPPEKjWNEWi6YVfTflY6TM-Q0uQx7-JTK0x30mRQPxsUuFPIQCozMvXyoKsRYCfEOK46d7hu3pCZ1L27q9PDOq5PqBWNMnbx_nRbrb4M4I_82VVOldasvZxrZ9KQA9olkBPEMBh1alQAvK-GhJz_Xpc8Ldo"/>
-<div class="purity-badge">99.1%</div>
-<div class="absolute bottom-3 left-3 flex items-center gap-1.5"><span class="stock-dot"></span><span class="font-label-caps text-label-xs text-primary">IN STOCK</span></div>
-</div>
-<div class="p-5 flex flex-col flex-1">
-<span class="font-label-caps text-label-xs text-primary tracking-widest mb-1">FAT METABOLISM</span>
-<h3 class="font-headline-lg text-headline-lg text-on-surface group-hover:text-primary transition-colors mb-4">AOD-9604</h3>
-<div class="flex items-center gap-3 mb-4">
-<span class="font-label-caps text-label-xs text-on-surface-variant">SIZE:</span>
-<div class="flex gap-2 variant-group">
-<button type="button" class="variant-btn active">2mg</button>
-<button type="button" class="variant-btn">5mg</button>
-</div>
-</div>
-<div class="flex items-baseline gap-1.5 mb-4">
-<span class="font-data-mono text-xl text-on-surface">$42.00</span>
-<span class="font-label-caps text-label-xs text-on-surface-variant">/ vial</span>
-</div>
-<div class="mt-auto flex gap-2">
-<button type="button" class="border border-outline text-on-surface-variant font-label-caps px-3 py-2.5 hover:border-primary hover:text-primary transition-all text-[10px] uppercase tracking-widest flex items-center gap-1 whitespace-nowrap">
-<span class="material-symbols-outlined" style="font-size:13px">description</span> COA
-</button>
-<button type="button" class="flex-1 bg-primary text-on-primary font-label-caps py-2.5 uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all text-[10px] flex items-center justify-center gap-1">
-<span class="material-symbols-outlined" style="font-size:13px">add_shopping_cart</span> ADD TO CART
-</button>
-</div>
-<p class="font-body-sm text-disclaimer text-on-surface-variant mt-3 italic">FOR RESEARCH ONLY.</p>
-</div>
-</article>
+  <!-- AOD-9604 -->
+  <article class="flat-card flex flex-col overflow-hidden" data-category="fat-loss" data-name="AOD-9604">
+  <div class="relative overflow-hidden" style="height:220px">
+    <img class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" style="opacity:0.72" alt="AOD-9604" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7ZZcPfYyye4wFKo5VmyKlfLd_cjm0TG0ssN1wg11UyOE7rhJTKy_9Aj4CiUDTz7ILA6iUGAlSDGLpSW8ZSOaBLZhiMycZICzOq4JNu5PRnT6zwP-2JPPEKjWNEWi6YVfTflY6TM-Q0uQx7-JTK0x30mRQPxsUuFPIQCozMvXyoKsRYCfEOK46d7hu3pCZ1L27q9PDOq5PqBWNMnbx_nRbrb4M4I_82VVOldasvZxrZ9KQA9olkBPEMBh1alQAvK-GhJz_Xpc8Ldo"/>
+    <div class="purity-badge">99.1%</div>
+    <div class="absolute bottom-3 left-3 flex items-center gap-1.5"><span class="stock-dot"></span><span class="label-caps" style="color:#4a8a5a">IN STOCK</span></div>
+  </div>
+  <div class="p-5 flex flex-col flex-1">
+    <span class="label-caps mb-1" style="color:#4a8a5a">Fat Metabolism</span>
+    <h3 class="headline-md mb-4">AOD-9604</h3>
+    <div class="flex items-center gap-3 mb-4">
+      <span class="label-caps" style="color:#8a8a85">SIZE:</span>
+      <div class="flex gap-2 variant-group">
+        <button type="button" class="variant-btn active">2mg</button>
+        <button type="button" class="variant-btn">5mg</button>
+      </div>
+    </div>
+    <div class="flex items-baseline gap-1.5 mb-4">
+      <span class="font-display text-[24px]" style="color:#f0ede8">$42.00</span>
+      <span class="label-caps" style="color:#8a8a85">/ vial</span>
+    </div>
+    <div class="mt-auto flex gap-2">
+      <button type="button" class="btn-outlined flex items-center gap-1" style="padding:9px 14px;font-size:10px">
+        <span class="material-symbols-outlined" style="font-size:13px">description</span>COA
+      </button>
+      <button type="button" class="btn-primary flex-1 justify-center" style="padding:9px 12px;font-size:10px">
+        <span class="material-symbols-outlined" style="font-size:13px">add_shopping_cart</span>ADD TO CART
+      </button>
+    </div>
+    <p class="mt-3" style="font-size:10px;color:#8a8a85;font-style:italic">FOR RESEARCH ONLY.</p>
+  </div>
+  </article>
 
-<!-- PT-141 -->
-<article class="glass-card flex flex-col group overflow-hidden hover:border-primary/50 transition-all duration-300" data-category="performance" data-name="PT-141">
-<div class="relative h-56 overflow-hidden bg-surface-container-lowest shrink-0">
-<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-     alt="Digital representation of complex molecular structures on a high-tech screen with neon green data points on deep black."
-     src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_L5TswXfaPGAAdefyMlWfp_tHNmnUE643tS4vdcU7DngeiNTQjQHyZS-pwOoiOelFQnCoPmuV6Cm7vVJUVf1Te2H0F77K3RGSIvOcIY2y6Qv2NptT-xHTDhA7yYM793A9A8CqMFlVU2KLQjXC8qcX0M7MZ_OBxz5DSAdQHRIFh9EZ5a8KQ7ljpsGJQjU97EO1REvWvvDyB4xYPdrw7VlPYLWwb-mXJvqE6K1TRuPNrQHNYiJstHnGvbCNdxXxLD2HcLOqHoZ__kQ"/>
-<div class="purity-badge">99.7%</div>
-<div class="absolute bottom-3 left-3 flex items-center gap-1.5"><span class="stock-dot"></span><span class="font-label-caps text-label-xs text-primary">IN STOCK</span></div>
-</div>
-<div class="p-5 flex flex-col flex-1">
-<span class="font-label-caps text-label-xs text-primary tracking-widest mb-1">PERFORMANCE</span>
-<h3 class="font-headline-lg text-headline-lg text-on-surface group-hover:text-primary transition-colors mb-4">PT-141</h3>
-<div class="flex items-center gap-3 mb-4">
-<span class="font-label-caps text-label-xs text-on-surface-variant">SIZE:</span>
-<div class="flex gap-2 variant-group">
-<button type="button" class="variant-btn active">5mg</button>
-<button type="button" class="variant-btn">10mg</button>
-</div>
-</div>
-<div class="flex items-baseline gap-1.5 mb-4">
-<span class="font-data-mono text-xl text-on-surface">$62.00</span>
-<span class="font-label-caps text-label-xs text-on-surface-variant">/ vial</span>
-</div>
-<div class="mt-auto flex gap-2">
-<button type="button" class="border border-outline text-on-surface-variant font-label-caps px-3 py-2.5 hover:border-primary hover:text-primary transition-all text-[10px] uppercase tracking-widest flex items-center gap-1 whitespace-nowrap">
-<span class="material-symbols-outlined" style="font-size:13px">description</span> COA
-</button>
-<button type="button" class="flex-1 bg-primary text-on-primary font-label-caps py-2.5 uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all text-[10px] flex items-center justify-center gap-1">
-<span class="material-symbols-outlined" style="font-size:13px">add_shopping_cart</span> ADD TO CART
-</button>
-</div>
-<p class="font-body-sm text-disclaimer text-on-surface-variant mt-3 italic">FOR RESEARCH ONLY.</p>
-</div>
-</article>
+  <!-- PT-141 -->
+  <article class="flat-card flex flex-col overflow-hidden" data-category="performance" data-name="PT-141">
+  <div class="relative overflow-hidden" style="height:220px">
+    <img class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" style="opacity:0.72" alt="PT-141" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_L5TswXfaPGAAdefyMlWfp_tHNmnUE643tS4vdcU7DngeiNTQjQHyZS-pwOoiOelFQnCoPmuV6Cm7vVJUVf1Te2H0F77K3RGSIvOcIY2y6Qv2NptT-xHTDhA7yYM793A9A8CqMFlVU2KLQjXC8qcX0M7MZ_OBxz5DSAdQHRIFh9EZ5a8KQ7ljpsGJQjU97EO1REvWvvDyB4xYPdrw7VlPYLWwb-mXJvqE6K1TRuPNrQHNYiJstHnGvbCNdxXxLD2HcLOqHoZ__kQ"/>
+    <div class="purity-badge">99.7%</div>
+    <div class="absolute bottom-3 left-3 flex items-center gap-1.5"><span class="stock-dot"></span><span class="label-caps" style="color:#4a8a5a">IN STOCK</span></div>
+  </div>
+  <div class="p-5 flex flex-col flex-1">
+    <span class="label-caps mb-1" style="color:#4a8a5a">Performance</span>
+    <h3 class="headline-md mb-4">PT-141</h3>
+    <div class="flex items-center gap-3 mb-4">
+      <span class="label-caps" style="color:#8a8a85">SIZE:</span>
+      <div class="flex gap-2 variant-group">
+        <button type="button" class="variant-btn active">5mg</button>
+        <button type="button" class="variant-btn">10mg</button>
+      </div>
+    </div>
+    <div class="flex items-baseline gap-1.5 mb-4">
+      <span class="font-display text-[24px]" style="color:#f0ede8">$62.00</span>
+      <span class="label-caps" style="color:#8a8a85">/ vial</span>
+    </div>
+    <div class="mt-auto flex gap-2">
+      <button type="button" class="btn-outlined flex items-center gap-1" style="padding:9px 14px;font-size:10px">
+        <span class="material-symbols-outlined" style="font-size:13px">description</span>COA
+      </button>
+      <button type="button" class="btn-primary flex-1 justify-center" style="padding:9px 12px;font-size:10px">
+        <span class="material-symbols-outlined" style="font-size:13px">add_shopping_cart</span>ADD TO CART
+      </button>
+    </div>
+    <p class="mt-3" style="font-size:10px;color:#8a8a85;font-style:italic">FOR RESEARCH ONLY.</p>
+  </div>
+  </article>
 
-<!-- GHK-Cu -->
-<article class="glass-card flex flex-col group overflow-hidden hover:border-primary/50 transition-all duration-300" data-category="longevity" data-name="GHK-Cu">
-<div class="relative h-56 overflow-hidden bg-surface-container-lowest shrink-0">
-<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-     alt="Sterile laboratory environment with a glass vial of clear liquid medicine on matte black surface and cold clinical lighting."
-     src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYGF7B2C-HhbmcqMtutHnCzzmq18FF6e_idre4MbC4cZbg4BW8IE1PnRkbU30wosu0UP4JwNKgur3untZqo1MViXqZmvhFVlsE_n5MqojrzR_hauPF1HFDrbBS8kQeVbzMD1Ey55aCl2_JeNY-dSejxxtlziup_qLQ7-yn0gQuyAMVkMfvsn8YJe8UaSEJo8jZdF4TUiKqrRl36zMOoAwfzcHYSRBkdxEInicxSrAOtH2JCpxRWbAmYS819JXaooK2E6JRkwCSuA8"/>
-<div class="purity-badge">99.6%</div>
-<div class="absolute bottom-3 left-3 flex items-center gap-1.5"><span class="stock-dot"></span><span class="font-label-caps text-label-xs text-primary">IN STOCK</span></div>
-</div>
-<div class="p-5 flex flex-col flex-1">
-<span class="font-label-caps text-label-xs text-primary tracking-widest mb-1">LONGEVITY / REPAIR</span>
-<h3 class="font-headline-lg text-headline-lg text-on-surface group-hover:text-primary transition-colors mb-4">GHK-Cu</h3>
-<div class="flex items-center gap-3 mb-4">
-<span class="font-label-caps text-label-xs text-on-surface-variant">SIZE:</span>
-<div class="flex gap-2 variant-group">
-<button type="button" class="variant-btn active">50mg</button>
-<button type="button" class="variant-btn">100mg</button>
-</div>
-</div>
-<div class="flex items-baseline gap-1.5 mb-4">
-<span class="font-data-mono text-xl text-on-surface">$46.00</span>
-<span class="font-label-caps text-label-xs text-on-surface-variant">/ vial</span>
-</div>
-<div class="mt-auto flex gap-2">
-<button type="button" class="border border-outline text-on-surface-variant font-label-caps px-3 py-2.5 hover:border-primary hover:text-primary transition-all text-[10px] uppercase tracking-widest flex items-center gap-1 whitespace-nowrap">
-<span class="material-symbols-outlined" style="font-size:13px">description</span> COA
-</button>
-<button type="button" class="flex-1 bg-primary text-on-primary font-label-caps py-2.5 uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all text-[10px] flex items-center justify-center gap-1">
-<span class="material-symbols-outlined" style="font-size:13px">add_shopping_cart</span> ADD TO CART
-</button>
-</div>
-<p class="font-body-sm text-disclaimer text-on-surface-variant mt-3 italic">FOR RESEARCH ONLY.</p>
-</div>
-</article>
+  <!-- GHK-Cu -->
+  <article class="flat-card flex flex-col overflow-hidden" data-category="longevity" data-name="GHK-Cu">
+  <div class="relative overflow-hidden" style="height:220px">
+    <img class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" style="opacity:0.72" alt="GHK-Cu" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYGF7B2C-HhbmcqMtutHnCzzmq18FF6e_idre4MbC4cZbg4BW8IE1PnRkbU30wosu0UP4JwNKgur3untZqo1MViXqZmvhFVlsE_n5MqojrzR_hauPF1HFDrbBS8kQeVbzMD1Ey55aCl2_JeNY-dSejxxtlziup_qLQ7-yn0gQuyAMVkMfvsn8YJe8UaSEJo8jZdF4TUiKqrRl36zMOoAwfzcHYSRBkdxEInicxSrAOtH2JCpxRWbAmYS819JXaooK2E6JRkwCSuA8"/>
+    <div class="purity-badge">99.6%</div>
+    <div class="absolute bottom-3 left-3 flex items-center gap-1.5"><span class="stock-dot"></span><span class="label-caps" style="color:#4a8a5a">IN STOCK</span></div>
+  </div>
+  <div class="p-5 flex flex-col flex-1">
+    <span class="label-caps mb-1" style="color:#4a8a5a">Longevity / Repair</span>
+    <h3 class="headline-md mb-4">GHK-Cu</h3>
+    <div class="flex items-center gap-3 mb-4">
+      <span class="label-caps" style="color:#8a8a85">SIZE:</span>
+      <div class="flex gap-2 variant-group">
+        <button type="button" class="variant-btn active">50mg</button>
+        <button type="button" class="variant-btn">100mg</button>
+      </div>
+    </div>
+    <div class="flex items-baseline gap-1.5 mb-4">
+      <span class="font-display text-[24px]" style="color:#f0ede8">$46.00</span>
+      <span class="label-caps" style="color:#8a8a85">/ vial</span>
+    </div>
+    <div class="mt-auto flex gap-2">
+      <button type="button" class="btn-outlined flex items-center gap-1" style="padding:9px 14px;font-size:10px">
+        <span class="material-symbols-outlined" style="font-size:13px">description</span>COA
+      </button>
+      <button type="button" class="btn-primary flex-1 justify-center" style="padding:9px 12px;font-size:10px">
+        <span class="material-symbols-outlined" style="font-size:13px">add_shopping_cart</span>ADD TO CART
+      </button>
+    </div>
+    <p class="mt-3" style="font-size:10px;color:#8a8a85;font-style:italic">FOR RESEARCH ONLY.</p>
+  </div>
+  </article>
 
-<!-- SELANK -->
-<article class="glass-card flex flex-col group overflow-hidden hover:border-primary/50 transition-all duration-300" data-category="immune" data-name="SELANK">
-<div class="relative h-56 overflow-hidden bg-surface-container-lowest shrink-0">
-<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-     alt="Macro photography of sealed glass vials on dark metallic tray under blue-tinted clinical laboratory lights."
-     src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP-I17FG5-55aEGUfmBjjtKTmcLIzTY-3ni92OBJP3luB_V7YeJZxEj3hREJrctTQDJqQldD4hl3ySSNgPNyRtvfPlG6j1IUEJc_-AebvJI5Ef7bACPuGKZPo9vIJavDmA3JH2LEYwoh3-R-NaNp4c19T2WwLAN5cPuI7GWqKDT5wR_pMeT7SIl4ti4ApulXB_oXYkFQ7Sq_U67GGS_wKrwohCnugaRjtMfRQlHXwhRhCSCR76rpwumB2xNyafTqe8fKBs232eMrk"/>
-<div class="purity-badge">99.0%</div>
-<div class="absolute bottom-3 left-3 flex items-center gap-1.5"><span class="stock-dot"></span><span class="font-label-caps text-label-xs text-primary">IN STOCK</span></div>
-</div>
-<div class="p-5 flex flex-col flex-1">
-<span class="font-label-caps text-label-xs text-primary tracking-widest mb-1">IMMUNE MODULATOR</span>
-<h3 class="font-headline-lg text-headline-lg text-on-surface group-hover:text-primary transition-colors mb-4">SELANK</h3>
-<div class="flex items-center gap-3 mb-4">
-<span class="font-label-caps text-label-xs text-on-surface-variant">SIZE:</span>
-<div class="flex gap-2 variant-group">
-<button type="button" class="variant-btn active">5mg</button>
-<button type="button" class="variant-btn">10mg</button>
-</div>
-</div>
-<div class="flex items-baseline gap-1.5 mb-4">
-<span class="font-data-mono text-xl text-on-surface">$50.00</span>
-<span class="font-label-caps text-label-xs text-on-surface-variant">/ vial</span>
-</div>
-<div class="mt-auto flex gap-2">
-<button type="button" class="border border-outline text-on-surface-variant font-label-caps px-3 py-2.5 hover:border-primary hover:text-primary transition-all text-[10px] uppercase tracking-widest flex items-center gap-1 whitespace-nowrap">
-<span class="material-symbols-outlined" style="font-size:13px">description</span> COA
-</button>
-<button type="button" class="flex-1 bg-primary text-on-primary font-label-caps py-2.5 uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all text-[10px] flex items-center justify-center gap-1">
-<span class="material-symbols-outlined" style="font-size:13px">add_shopping_cart</span> ADD TO CART
-</button>
-</div>
-<p class="font-body-sm text-disclaimer text-on-surface-variant mt-3 italic">FOR RESEARCH ONLY.</p>
-</div>
-</article>
+  <!-- SELANK -->
+  <article class="flat-card flex flex-col overflow-hidden" data-category="immune" data-name="SELANK">
+  <div class="relative overflow-hidden" style="height:220px">
+    <img class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" style="opacity:0.72" alt="Selank" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP-I17FG5-55aEGUfmBjjtKTmcLIzTY-3ni92OBJP3luB_V7YeJZxEj3hREJrctTQDJqQldD4hl3ySSNgPNyRtvfPlG6j1IUEJc_-AebvJI5Ef7bACPuGKZPo9vIJavDmA3JH2LEYwoh3-R-NaNp4c19T2WwLAN5cPuI7GWqKDT5wR_pMeT7SIl4ti4ApulXB_oXYkFQ7Sq_U67GGS_wKrwohCnugaRjtMfRQlHXwhRhCSCR76rpwumB2xNyafTqe8fKBs232eMrk"/>
+    <div class="purity-badge">99.0%</div>
+    <div class="absolute bottom-3 left-3 flex items-center gap-1.5"><span class="stock-dot"></span><span class="label-caps" style="color:#4a8a5a">IN STOCK</span></div>
+  </div>
+  <div class="p-5 flex flex-col flex-1">
+    <span class="label-caps mb-1" style="color:#4a8a5a">Immune Modulator</span>
+    <h3 class="headline-md mb-4">SELANK</h3>
+    <div class="flex items-center gap-3 mb-4">
+      <span class="label-caps" style="color:#8a8a85">SIZE:</span>
+      <div class="flex gap-2 variant-group">
+        <button type="button" class="variant-btn active">5mg</button>
+        <button type="button" class="variant-btn">10mg</button>
+      </div>
+    </div>
+    <div class="flex items-baseline gap-1.5 mb-4">
+      <span class="font-display text-[24px]" style="color:#f0ede8">$50.00</span>
+      <span class="label-caps" style="color:#8a8a85">/ vial</span>
+    </div>
+    <div class="mt-auto flex gap-2">
+      <button type="button" class="btn-outlined flex items-center gap-1" style="padding:9px 14px;font-size:10px">
+        <span class="material-symbols-outlined" style="font-size:13px">description</span>COA
+      </button>
+      <button type="button" class="btn-primary flex-1 justify-center" style="padding:9px 12px;font-size:10px">
+        <span class="material-symbols-outlined" style="font-size:13px">add_shopping_cart</span>ADD TO CART
+      </button>
+    </div>
+    <p class="mt-3" style="font-size:10px;color:#8a8a85;font-style:italic">FOR RESEARCH ONLY.</p>
+  </div>
+  </article>
 
-<!-- SEMAX -->
-<article class="glass-card flex flex-col group overflow-hidden hover:border-primary/50 transition-all duration-300" data-category="nootropic" data-name="SEMAX">
-<div class="relative h-56 overflow-hidden bg-surface-container-lowest shrink-0">
-<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-     alt="Futuristic laboratory with chemical glass structures highlighted with lime green LED reflections on deep charcoal."
-     src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGBA1OLow-EfugOtc6ouzFR0NDwLQKVLJyB_Tf2KNpbqExX3_gMHW8Yd6CxVHl_02MS6DB8DIO5GSg8Zdz527Ux-eHF6olOt7JVrGRiX67n-dt2lV4qxSA66_JWljRvemYWRH-Otetp6upRLT2GGoYOApQ-OsNbJvYyFvngiBPlztYVT7LXmwRg5M6v-Q69v8e1Rv3f7qi6nmCSNkblIanRb4aJ6DeJOz8"/>
-<div class="purity-badge">99.3%</div>
-<div class="absolute bottom-3 left-3 flex items-center gap-1.5"><span class="stock-dot"></span><span class="font-label-caps text-label-xs text-primary">IN STOCK</span></div>
-</div>
-<div class="p-5 flex flex-col flex-1">
-<span class="font-label-caps text-label-xs text-primary tracking-widest mb-1">NOOTROPIC</span>
-<h3 class="font-headline-lg text-headline-lg text-on-surface group-hover:text-primary transition-colors mb-4">SEMAX</h3>
-<div class="flex items-center gap-3 mb-4">
-<span class="font-label-caps text-label-xs text-on-surface-variant">SIZE:</span>
-<div class="flex gap-2 variant-group">
-<button type="button" class="variant-btn active">5mg</button>
-<button type="button" class="variant-btn">10mg</button>
-</div>
-</div>
-<div class="flex items-baseline gap-1.5 mb-4">
-<span class="font-data-mono text-xl text-on-surface">$58.00</span>
-<span class="font-label-caps text-label-xs text-on-surface-variant">/ vial</span>
-</div>
-<div class="mt-auto flex gap-2">
-<button type="button" class="border border-outline text-on-surface-variant font-label-caps px-3 py-2.5 hover:border-primary hover:text-primary transition-all text-[10px] uppercase tracking-widest flex items-center gap-1 whitespace-nowrap">
-<span class="material-symbols-outlined" style="font-size:13px">description</span> COA
-</button>
-<button type="button" class="flex-1 bg-primary text-on-primary font-label-caps py-2.5 uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all text-[10px] flex items-center justify-center gap-1">
-<span class="material-symbols-outlined" style="font-size:13px">add_shopping_cart</span> ADD TO CART
-</button>
-</div>
-<p class="font-body-sm text-disclaimer text-on-surface-variant mt-3 italic">FOR RESEARCH ONLY.</p>
-</div>
-</article>
+  <!-- SEMAX -->
+  <article class="flat-card flex flex-col overflow-hidden" data-category="nootropic" data-name="SEMAX">
+  <div class="relative overflow-hidden" style="height:220px">
+    <img class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" style="opacity:0.72" alt="Semax" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGBA1OLow-EfugOtc6ouzFR0NDwLQKVLJyB_Tf2KNpbqExX3_gMHW8Yd6CxVHl_02MS6DB8DIO5GSg8Zdz527Ux-eHF6olOt7JVrGRiX67n-dt2lV4qxSA66_JWljRvemYWRH-Otetp6upRLT2GGoYOApQ-OsNbJvYyFvngiBPlztYVT7LXmwRg5M6v-Q69v8e1Rv3f7qi6nmCSNkblIanRb4aJ6DeJOz8"/>
+    <div class="purity-badge">99.3%</div>
+    <div class="absolute bottom-3 left-3 flex items-center gap-1.5"><span class="stock-dot"></span><span class="label-caps" style="color:#4a8a5a">IN STOCK</span></div>
+  </div>
+  <div class="p-5 flex flex-col flex-1">
+    <span class="label-caps mb-1" style="color:#4a8a5a">Nootropic</span>
+    <h3 class="headline-md mb-4">SEMAX</h3>
+    <div class="flex items-center gap-3 mb-4">
+      <span class="label-caps" style="color:#8a8a85">SIZE:</span>
+      <div class="flex gap-2 variant-group">
+        <button type="button" class="variant-btn active">5mg</button>
+        <button type="button" class="variant-btn">10mg</button>
+      </div>
+    </div>
+    <div class="flex items-baseline gap-1.5 mb-4">
+      <span class="font-display text-[24px]" style="color:#f0ede8">$58.00</span>
+      <span class="label-caps" style="color:#8a8a85">/ vial</span>
+    </div>
+    <div class="mt-auto flex gap-2">
+      <button type="button" class="btn-outlined flex items-center gap-1" style="padding:9px 14px;font-size:10px">
+        <span class="material-symbols-outlined" style="font-size:13px">description</span>COA
+      </button>
+      <button type="button" class="btn-primary flex-1 justify-center" style="padding:9px 12px;font-size:10px">
+        <span class="material-symbols-outlined" style="font-size:13px">add_shopping_cart</span>ADD TO CART
+      </button>
+    </div>
+    <p class="mt-3" style="font-size:10px;color:#8a8a85;font-style:italic">FOR RESEARCH ONLY.</p>
+  </div>
+  </article>
 
-<!-- EPITHALON -->
-<article class="glass-card flex flex-col group overflow-hidden hover:border-primary/50 transition-all duration-300" data-category="longevity" data-name="EPITHALON">
-<div class="relative h-56 overflow-hidden bg-surface-container-lowest shrink-0">
-<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-     alt="Molecular structure data visualization on a high-tech screen with neon green data points on pure black background."
-     src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_L5TswXfaPGAAdefyMlWfp_tHNmnUE643tS4vdcU7DngeiNTQjQHyZS-pwOoiOelFQnCoPmuV6Cm7vVJUVf1Te2H0F77K3RGSIvOcIY2y6Qv2NptT-xHTDhA7yYM793A9A8CqMFlVU2KLQjXC8qcX0M7MZ_OBxz5DSAdQHRIFh9EZ5a8KQ7ljpsGJQjU97EO1REvWvvDyB4xYPdrw7VlPYLWwb-mXJvqE6K1TRuPNrQHNYiJstHnGvbCNdxXxLD2HcLOqHoZ__kQ"/>
-<div class="purity-badge">99.2%</div>
-<div class="absolute bottom-3 left-3 flex items-center gap-1.5"><span class="stock-dot"></span><span class="font-label-caps text-label-xs text-primary">IN STOCK</span></div>
-</div>
-<div class="p-5 flex flex-col flex-1">
-<span class="font-label-caps text-label-xs text-primary tracking-widest mb-1">LONGEVITY</span>
-<h3 class="font-headline-lg text-headline-lg text-on-surface group-hover:text-primary transition-colors mb-4">EPITHALON</h3>
-<div class="flex items-center gap-3 mb-4">
-<span class="font-label-caps text-label-xs text-on-surface-variant">SIZE:</span>
-<div class="flex gap-2 variant-group">
-<button type="button" class="variant-btn active">5mg</button>
-<button type="button" class="variant-btn">10mg</button>
-</div>
-</div>
-<div class="flex items-baseline gap-1.5 mb-4">
-<span class="font-data-mono text-xl text-on-surface">$56.00</span>
-<span class="font-label-caps text-label-xs text-on-surface-variant">/ vial</span>
-</div>
-<div class="mt-auto flex gap-2">
-<button type="button" class="border border-outline text-on-surface-variant font-label-caps px-3 py-2.5 hover:border-primary hover:text-primary transition-all text-[10px] uppercase tracking-widest flex items-center gap-1 whitespace-nowrap">
-<span class="material-symbols-outlined" style="font-size:13px">description</span> COA
-</button>
-<button type="button" class="flex-1 bg-primary text-on-primary font-label-caps py-2.5 uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all text-[10px] flex items-center justify-center gap-1">
-<span class="material-symbols-outlined" style="font-size:13px">add_shopping_cart</span> ADD TO CART
-</button>
-</div>
-<p class="font-body-sm text-disclaimer text-on-surface-variant mt-3 italic">FOR RESEARCH ONLY.</p>
-</div>
-</article>
+  <!-- EPITHALON -->
+  <article class="flat-card flex flex-col overflow-hidden" data-category="longevity" data-name="EPITHALON">
+  <div class="relative overflow-hidden" style="height:220px">
+    <img class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" style="opacity:0.72" alt="Epithalon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_L5TswXfaPGAAdefyMlWfp_tHNmnUE643tS4vdcU7DngeiNTQjQHyZS-pwOoiOelFQnCoPmuV6Cm7vVJUVf1Te2H0F77K3RGSIvOcIY2y6Qv2NptT-xHTDhA7yYM793A9A8CqMFlVU2KLQjXC8qcX0M7MZ_OBxz5DSAdQHRIFh9EZ5a8KQ7ljpsGJQjU97EO1REvWvvDyB4xYPdrw7VlPYLWwb-mXJvqE6K1TRuPNrQHNYiJstHnGvbCNdxXxLD2HcLOqHoZ__kQ"/>
+    <div class="purity-badge">99.2%</div>
+    <div class="absolute bottom-3 left-3 flex items-center gap-1.5"><span class="stock-dot"></span><span class="label-caps" style="color:#4a8a5a">IN STOCK</span></div>
+  </div>
+  <div class="p-5 flex flex-col flex-1">
+    <span class="label-caps mb-1" style="color:#4a8a5a">Longevity</span>
+    <h3 class="headline-md mb-4">EPITHALON</h3>
+    <div class="flex items-center gap-3 mb-4">
+      <span class="label-caps" style="color:#8a8a85">SIZE:</span>
+      <div class="flex gap-2 variant-group">
+        <button type="button" class="variant-btn active">5mg</button>
+        <button type="button" class="variant-btn">10mg</button>
+      </div>
+    </div>
+    <div class="flex items-baseline gap-1.5 mb-4">
+      <span class="font-display text-[24px]" style="color:#f0ede8">$56.00</span>
+      <span class="label-caps" style="color:#8a8a85">/ vial</span>
+    </div>
+    <div class="mt-auto flex gap-2">
+      <button type="button" class="btn-outlined flex items-center gap-1" style="padding:9px 14px;font-size:10px">
+        <span class="material-symbols-outlined" style="font-size:13px">description</span>COA
+      </button>
+      <button type="button" class="btn-primary flex-1 justify-center" style="padding:9px 12px;font-size:10px">
+        <span class="material-symbols-outlined" style="font-size:13px">add_shopping_cart</span>ADD TO CART
+      </button>
+    </div>
+    <p class="mt-3" style="font-size:10px;color:#8a8a85;font-style:italic">FOR RESEARCH ONLY.</p>
+  </div>
+  </article>
 
 </div>
+</section>
 
-<!-- HPLC CTA Module -->
-<section class="glass-card p-10 flex flex-col md:flex-row gap-8 items-center bg-primary-container/20" data-animate>
-<div class="md:w-1/2">
-<span class="font-label-caps text-label-caps text-primary tracking-widest mb-4 block">LABORATORY COMPLIANCE</span>
-<h2 class="font-headline-xl text-headline-xl text-on-surface mb-6 leading-tight">THIRD-PARTY HPLC VERIFIED</h2>
-<p class="font-body-md text-on-surface-variant mb-8">Complete transparency — downloadable COA documents for every batch. Our laboratory standards meet or exceed clinical research requirements for pharmaceutical-grade purity.</p>
-<div class="flex gap-4 flex-wrap">
-<button type="button" class="border border-primary text-primary px-8 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all">VIEW LAB COAs</button>
-<button type="button" class="border border-outline text-on-surface-variant px-8 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:border-primary hover:text-primary transition-all">SCIENCE HUB</button>
-</div>
-</div>
-<div class="md:w-1/2 relative h-64 w-full">
-<div class="absolute inset-0 border border-primary/30 -m-4 pointer-events-none"></div>
-<img class="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-700"
-     alt="Digital representation of complex molecular structures and scientific data visualization on a high-tech screen."
-     src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_L5TswXfaPGAAdefyMlWfp_tHNmnUE643tS4vdcU7DngeiNTQjQHyZS-pwOoiOelFQnCoPmuV6Cm7vVJUVf1Te2H0F77K3RGSIvOcIY2y6Qv2NptT-xHTDhA7yYM793A9A8CqMFlVU2KLQjXC8qcX0M7MZ_OBxz5DSAdQHRIFh9EZ5a8KQ7ljpsGJQjU97EO1REvWvvDyB4xYPdrw7VlPYLWwb-mXJvqE6K1TRuPNrQHNYiJstHnGvbCNdxXxLD2HcLOqHoZ__kQ"/>
+<!-- ══════════════════════════════════════════════════════════════
+     HPLC CTA STRIP
+     ══════════════════════════════════════════════════════════════ -->
+<section class="px-6 md:px-16 py-12 max-w-[1400px] mx-auto" data-animate>
+<div class="flex flex-col md:flex-row items-center justify-between gap-8 p-10" style="background:#1c1c1c;border:1px solid rgba(240,237,232,0.07)">
+  <div>
+    <p class="label-caps mb-3" style="color:#4a8a5a">Laboratory Compliance</p>
+    <h2 class="headline-lg mb-4">THIRD-PARTY HPLC VERIFIED</h2>
+    <p style="font-size:14px;line-height:1.65;color:#8a8a85;max-width:480px">Downloadable COA documents for every batch. Laboratory standards meet or exceed clinical research requirements for pharmaceutical-grade purity verification.</p>
+  </div>
+  <div class="flex gap-3 shrink-0">
+    <button type="button" class="btn-primary">VIEW LAB COAs</button>
+    <button type="button" class="btn-outlined">SCIENCE HUB</button>
+  </div>
 </div>
 </section>
 
 </main>
 
-<!-- Footer -->
-<footer class="bg-surface-container-lowest border-t border-white/10 mt-20">
-<div class="flex flex-col md:flex-row justify-between items-center py-8 px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto gap-4">
-<div class="font-label-caps text-label-caps text-on-surface-variant">BRAYER PEPTIDES</div>
-<div class="flex gap-8 flex-wrap justify-center">
-<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
-<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
-<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Regulatory Compliance</a>
-<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a>
-</div>
-<div class="font-body-sm text-body-sm text-on-surface-variant opacity-80 text-center md:text-right">
-© 2024 BRAYER PEPTIDES RESEARCH • FOR LABORATORY USE ONLY.
-</div>
+<!-- ══════════════════════════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════════════════════════ -->
+<footer style="border-top:1px solid rgba(240,237,232,0.07);background:#000000;margin-top:40px">
+<div class="flex flex-col md:flex-row items-center justify-between gap-4 px-6 md:px-16 py-6 max-w-[1400px] mx-auto">
+  <span class="font-display text-[20px]" style="color:#f0ede8">BRAYER PEPTIDES</span>
+  <div class="flex items-center gap-8 flex-wrap justify-center">
+    <a href="#" class="label-caps" style="color:#8a8a85;text-decoration:none">Terms</a>
+    <a href="#" class="label-caps" style="color:#8a8a85;text-decoration:none">Privacy</a>
+    <a href="#" class="label-caps" style="color:#8a8a85;text-decoration:none">Compliance</a>
+    <a href="#" class="label-caps" style="color:#8a8a85;text-decoration:none">Contact</a>
+  </div>
+  <p class="label-caps text-center" style="color:#8a8a85">© 2024 BRAYER PEPTIDES · FOR LAB USE ONLY</p>
 </div>
 </footer>
 
 <script>
 (function () {
   // ── Filter pills ──────────────────────────────────────────────
-  var pills = document.querySelectorAll('.filter-pill');
+  var pills    = document.querySelectorAll('.filter-pill');
   var allCards = document.querySelectorAll('#product-grid [data-category]');
   var countEl  = document.getElementById('compound-count');
+  var activeCat = 'all';
 
   function applyFilter(cat, searchTerm) {
     var visible = 0;
@@ -573,22 +564,21 @@
     if (countEl) countEl.textContent = visible + ' COMPOUND' + (visible !== 1 ? 'S' : '');
   }
 
-  var activeCat = 'all';
   pills.forEach(function (pill) {
     pill.addEventListener('click', function () {
       pills.forEach(function (p) { p.classList.remove('active'); });
       pill.classList.add('active');
       activeCat = pill.getAttribute('data-filter');
-      var searchInput = document.getElementById('search-input');
-      applyFilter(activeCat, searchInput ? searchInput.value.trim().toLowerCase() : '');
+      var si = document.getElementById('search-input');
+      applyFilter(activeCat, si ? si.value.trim().toLowerCase() : '');
     });
   });
 
   // ── Live search ───────────────────────────────────────────────
-  var searchInput = document.getElementById('search-input');
-  if (searchInput) {
-    searchInput.addEventListener('input', function () {
-      applyFilter(activeCat, searchInput.value.trim().toLowerCase());
+  var si = document.getElementById('search-input');
+  if (si) {
+    si.addEventListener('input', function () {
+      applyFilter(activeCat, si.value.trim().toLowerCase());
     });
   }
 
@@ -605,4 +595,5 @@
   });
 })();
 </script>
-</body></html>
+</body>
+</html>
