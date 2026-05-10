@@ -9,6 +9,7 @@
 <link href="../shared/tokens.css" rel="stylesheet"/>
 <script src="../shared/tailwind.config.js"></script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="../shared/animations.js" defer></script>
 </head>
 <body class="font-body-md selection:bg-primary selection:text-on-primary overflow-x-hidden">
 <!-- TopNavBar Navigation Shell -->
@@ -36,7 +37,7 @@
 <div class="absolute inset-0 opacity-20 pointer-events-none">
 <img class="w-full h-full object-cover grayscale" data-alt="A dark, clinical laboratory environment with sophisticated stainless steel equipment and glass vials. The lighting is low and focused, creating a dramatic, high-performance atmosphere. Subdued green medical lasers slice through a slight mist, emphasizing a futuristic and sterile research aesthetic consistent with elite athletic science." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDZ86x1gMGfVUOLE3_U5gpchHpG1a7TjGj0TYkMs-Y3S0vxH2iiCFWEgj8UXMURYBdlEKqGVxWFvkdJZh0TsXrn9GY-EXCArCNT94qozLfBpxULjhUiYwX8tip_0PZtVnVjIQzK8veuVo_zzlB-bNdLrV2SORc2tLk94ONRL68XFIzu3ZJdyqbaytNeCFaexLfbZnv62A-XAkbkaDONElDNL4tLMonsxspC1qA7Haidmb6vbTTSqCr-4ZWz1pZzn2NIQ8_4KSZ4l0"/>
 </div>
-<div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto">
+<div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto" data-animate>
 <div class="inline-block border border-primary/30 bg-primary/5 px-4 py-2 mb-8 backdrop-blur-sm">
 <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase">Authorized Laboratory Research Only</span>
 </div>
@@ -52,7 +53,7 @@
 </section>
 <!-- Bento Grid Section: Top Research Compounds -->
 <section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-<div class="flex justify-between items-end mb-16 border-l-4 border-primary pl-6">
+<div class="flex justify-between items-end mb-16 border-l-4 border-primary pl-6" data-animate>
 <div>
 <h2 class="font-headline-lg text-headline-lg mb-2 uppercase tracking-tight">Top Research Compounds</h2>
 <p class="font-body-sm text-body-sm text-on-surface-variant">Validated through rigorous HPLC testing and batch analysis.</p>
@@ -61,7 +62,7 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
 <!-- Main Compound Card -->
-<div class="md:col-span-8 group relative overflow-hidden bg-surface-container border border-outline/20 p-8 flex flex-col justify-between min-h-[400px]">
+<div class="md:col-span-8 group relative overflow-hidden bg-surface-container border border-outline/20 p-8 flex flex-col justify-between min-h-[400px]" data-animate>
 <div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
 <span class="material-symbols-outlined text-[120px]">science</span>
 </div>
@@ -120,10 +121,10 @@
 <!-- Science of Purity Section -->
 <section class="py-24 bg-surface-container-lowest border-y border-white/5">
 <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
-<div>
+<div data-animate>
 <span class="font-label-caps text-label-caps text-primary tracking-[0.3em] mb-6 block">EMPIRICAL DATA FIRST</span>
 <h2 class="font-headline-xl text-headline-xl mb-8">THE SCIENCE OF PURITY</h2>
-<div class="space-y-8">
+<div class="space-y-8" data-stagger>
 <div class="flex gap-6">
 <div class="shrink-0 w-12 h-12 border border-primary flex items-center justify-center">
 <span class="material-symbols-outlined text-primary">magnification_small</span>
@@ -156,7 +157,7 @@
 <div class="relative">
 <div class="absolute -top-12 -left-12 w-64 h-64 border-t border-l border-primary/20 pointer-events-none"></div>
 <div class="glass-card p-4">
-<img class="w-full aspect-square object-cover grayscale brightness-75" data-alt="A scientist in a sleek black laboratory coat working with high-tech research equipment. The laboratory features deep charcoal surfaces and glowing neon green displays showing chemical data and chromatography graphs. The environment is dark, professional, and reflects a sense of disciplined, elite authority in high-performance chemistry." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJSD6jkGHg-4UdXZlEcxdH0A6INkREaSWhd5PeoHoZEJa45yR8-HRVAOJslnFm9jQJcEMiEXjlUS3fAUXlsIAPVpADor8PqFG97MgpNwnPT758NYHzfyGV1ne9RlBT4EaPppA4DX93CeKpZiahuGIKwe7CYrHhdoCu-5pfSoLJNdU5QpoPk3HtgbDTXVss-XsbTqxkpdfSyrR0b8JpHq59cUyBswizfOpoRSAjxbUhU_nVacEVtNbMHZyW-wSiMxCWAWaSMMtNvqY"/>
+<img class="w-full aspect-square object-cover grayscale brightness-75" data-animate-img data-alt="A scientist in a sleek black laboratory coat working with high-tech research equipment. The laboratory features deep charcoal surfaces and glowing neon green displays showing chemical data and chromatography graphs. The environment is dark, professional, and reflects a sense of disciplined, elite authority in high-performance chemistry." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJSD6jkGHg-4UdXZlEcxdH0A6INkREaSWhd5PeoHoZEJa45yR8-HRVAOJslnFm9jQJcEMiEXjlUS3fAUXlsIAPVpADor8PqFG97MgpNwnPT758NYHzfyGV1ne9RlBT4EaPppA4DX93CeKpZiahuGIKwe7CYrHhdoCu-5pfSoLJNdU5QpoPk3HtgbDTXVss-XsbTqxkpdfSyrR0b8JpHq59cUyBswizfOpoRSAjxbUhU_nVacEVtNbMHZyW-wSiMxCWAWaSMMtNvqY"/>
 <div class="mt-4 p-4 border-t border-outline/10 flex justify-between items-center bg-base/40">
 <div>
 <div class="font-label-caps text-label-xs text-on-surface-variant">LAB REPORT STATUS</div>
@@ -172,7 +173,7 @@
 <section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center">
 <h2 class="font-headline-xl text-headline-xl mb-4">COACHING BY BRAYER</h2>
 <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto mb-16">Customized physiological optimization protocols for competitive athletes seeking the 1% edge.</p>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter" data-stagger>
 <div class="bg-surface-container border border-outline/20 p-10 hover:border-primary/50 transition-all text-left flex flex-col h-full">
 <div class="mb-8 font-data-mono text-headline-lg text-primary">01</div>
 <h3 class="font-headline-lg text-headline-lg-mobile mb-6">DATA ANALYSIS</h3>

@@ -9,6 +9,7 @@
 <link href="../shared/tokens.css" rel="stylesheet"/>
 <script src="../shared/tailwind.config.js"></script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="../shared/animations.js" defer></script>
 </head>
 <body class="bg-background text-on-background font-body-md overflow-x-hidden selection:bg-primary selection:text-on-primary">
 <!-- TopNavBar Section -->
@@ -30,7 +31,7 @@
 </nav>
 <main class="pt-24 pb-32 max-w-container-max mx-auto px-margin-desktop">
 <!-- Hero / Title Section -->
-<section class="mb-24 text-center">
+<section class="mb-24 text-center" data-animate>
 <p class="font-label-caps text-label-caps uppercase tracking-[0.3em] text-on-primary-container mb-4">Scientific Integrity &amp; Verification</p>
 <h1 class="font-headline-xl text-headline-xl mb-6">SCIENCE HUB</h1>
 <p class="max-w-2xl mx-auto text-on-surface-variant font-body-md">
@@ -40,7 +41,7 @@
 <!-- Bento Grid Science Overview -->
 <section class="grid grid-cols-12 gap-gutter mb-32">
 <!-- Our Testing Process -->
-<div class="col-span-12 lg:col-span-8 glass-card p-8 flex flex-col justify-between group overflow-hidden relative min-h-[400px]">
+<div class="col-span-12 lg:col-span-8 glass-card p-8 flex flex-col justify-between group overflow-hidden relative min-h-[400px]" data-animate>
 <img class="absolute inset-0 w-full h-full object-cover opacity-20 grayscale group-hover:grayscale-0 transition-all duration-500 -z-10" data-alt="A high-tech laboratory setting with clean stainless steel surfaces and glass vials. The lighting is cold and sterile, using deep forest green and charcoal tones to match a premium dark mode aesthetic. A researcher's hand is visible in the background, operating a precise piece of analytical equipment with subtle glowing digital readouts." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7ZZcPfYyye4wFKo5VmyKlfLd_cjm0TG0ssN1wg11UyOE7rhJTKy_9Aj4CiUDTz7ILA6iUGAlSDGLpSW8ZSOaBLZhiMycZICzOq4JNu5PRnT6zwP-2JPPEKjWNEWi6YVfTflY6TM-Q0uQx7-JTK0x30mRQPxsUuFPIQCozMvXyoKsRYCfEOK46d7hu3pCZ1L27q9PDOq5PqBWNMnbx_nRbrb4M4I_82VVOldasvZxrZ9KQA9olkBPEMBh1alQAvK-GhJz_Xpc8Ldo"/>
 <div>
 <span class="font-label-caps text-label-caps uppercase tracking-widest bg-primary-container text-primary px-3 py-1 mb-6 inline-block">Methodology</span>
@@ -59,7 +60,7 @@
 </div>
 </div>
 <!-- Why Quality Matters -->
-<div class="col-span-12 lg:col-span-4 bg-primary-container p-8 flex flex-col border border-white/10">
+<div class="col-span-12 lg:col-span-4 bg-primary-container p-8 flex flex-col border border-white/10" data-animate style="--stagger-i: 1">
 <span class="material-symbols-outlined text-primary mb-6" style="font-size: 48px;">verified_user</span>
 <h3 class="font-headline-lg text-headline-lg text-on-surface mb-4">QUALITY ARCHITECTURE</h3>
 <p class="text-on-primary-container font-body-md mb-8">In research, variable purity leads to variable results. We eliminate the noise through a strict pharmaceutical-grade supply chain.</p>
@@ -126,7 +127,7 @@
 <h2 class="font-headline-lg text-headline-lg">RESEARCH RESOURCES</h2>
 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">VIEW ALL PAPERS</a>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter" data-stagger>
 <!-- Resource Card 1 -->
 <div class="glass-card p-6 border-t-2 border-t-primary">
 <div class="mb-6 flex justify-between">
@@ -166,7 +167,7 @@
 </div>
 </section>
 <!-- Compliance Callout -->
-<section class="border-2 border-error/20 bg-error-container/5 p-8 text-center max-w-4xl mx-auto">
+<section class="border-2 border-error/20 bg-error-container/5 p-8 text-center max-w-4xl mx-auto" data-animate>
 <div class="flex justify-center items-center gap-4 mb-4 text-error">
 <span class="material-symbols-outlined">warning</span>
 <h3 class="font-headline-lg-mobile text-headline-lg-mobile uppercase tracking-wider">REGULATORY COMPLIANCE</h3>

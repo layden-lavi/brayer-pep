@@ -9,6 +9,7 @@
 <link href="../shared/tokens.css" rel="stylesheet"/>
 <script src="../shared/tailwind.config.js"></script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="../shared/animations.js" defer></script>
 </head>
 <body class="font-body-md text-on-surface overflow-x-hidden selection:bg-primary selection:text-on-primary">
 <!-- TopNavBar -->
@@ -36,7 +37,7 @@
 </nav>
 <main class="pt-24 pb-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
 <!-- Hero / Header Section -->
-<header class="mb-16 border-l-4 border-primary pl-6">
+<header class="mb-16 border-l-4 border-primary pl-6" data-animate>
 <h1 class="font-headline-xl text-headline-xl text-on-surface mb-2">RESEARCH CATALOG</h1>
 <p class="font-body-md text-on-surface-variant max-w-2xl">Precision-engineered synthetic peptides for laboratory investigation. Every batch is verified via HPLC and MS for &gt;99% purity protocols.</p>
 </header>
@@ -54,7 +55,7 @@
 </div>
 </section>
 <!-- Bento Grid for Products -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter" data-stagger>
 <!-- Product Card 1: BPC-157 -->
 <article class="glass-card p-6 flex flex-col group hover:border-primary/50 transition-all duration-300">
 <div class="flex justify-between items-start mb-6">
@@ -172,7 +173,7 @@
 </div>
 </article>
 <!-- CTA / Science Module (Asymmetric Bento Element) -->
-<div class="lg:col-span-2 glass-card p-10 flex flex-col md:flex-row gap-8 items-center bg-primary-container/20">
+<div class="lg:col-span-2 glass-card p-10 flex flex-col md:flex-row gap-8 items-center bg-primary-container/20" data-animate>
 <div class="md:w-1/2">
 <span class="font-label-caps text-label-caps text-primary tracking-widest mb-4 block">LABORATORY COMPLIANCE</span>
 <h2 class="font-headline-xl text-headline-xl text-on-surface mb-6 leading-tight">THIRD-PARTY HPLC VERIFIED</h2>

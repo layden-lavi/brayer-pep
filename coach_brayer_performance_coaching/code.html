@@ -9,6 +9,7 @@
 <link href="../shared/tokens.css" rel="stylesheet"/>
 <script src="../shared/tailwind.config.js"></script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="../shared/animations.js" defer></script>
 </head>
 <body class="bg-background text-on-background font-body-md selection:bg-primary selection:text-on-primary">
 <!-- TopNavBar -->
@@ -38,7 +39,7 @@
 <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50"></div>
 </div>
 <div class="relative z-10 px-margin-desktop w-full max-w-container-max mx-auto">
-<div class="max-w-2xl border-l-4 border-primary pl-8">
+<div class="max-w-2xl border-l-4 border-primary pl-8" data-animate>
 <h2 class="font-label-caps text-label-caps uppercase tracking-widest text-primary mb-4">Elite Human Performance</h2>
 <h1 class="font-headline-xl text-headline-xl mb-6">ENGINEERED FOR THE UNCOMPROMISING</h1>
 <p class="text-body-md mb-8 text-on-surface-variant">Where clinical precision meets athletic grit. Our coaching methodology is built on empirical data and the relentless pursuit of physical excellence.</p>
@@ -51,14 +52,14 @@
 </section>
 <!-- Meet Coach Brayer -->
 <section class="py-24 px-margin-desktop w-full max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter">
-<div class="md:col-span-5 relative aspect-[4/5] bg-surface-container overflow-hidden border border-white/10">
+<div class="md:col-span-5 relative aspect-[4/5] bg-surface-container overflow-hidden border border-white/10" data-animate-img>
 <img class="w-full h-full object-cover grayscale opacity-80" data-alt="A focused close-up portrait of a fitness professional with a disciplined expression. The lighting is sharp, creating a high-contrast clinical yet athletic look. The background is a clean, dark laboratory environment with technical equipment slightly out of focus. The overall aesthetic is professional, modern, and serious, dominated by deep blacks and cool silver highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC90a7SsoCwT0sxO0ufQ3ADl1iTHl6l7pJjkm2GmQWrPpRrYpesWI6qKzxSXP__j0ZwCtIWKsr2uInB86FWstZ9Et9ILOyBxrOSJ3QsC9GqkFJf2n39Qu6ADgOQbZAWXhYQDXgWYpvj0905Od9U3a4Enb30oNtW9qzLjEpVI34iLkkjSO9-6bq6RPkvQNw9l2eBVdARVpfReTVveET_nxgvbQ_1L2r-T5Vh4_e7Lp-h4hT1Z4XtOiDGikbXSlI3MI6azRev3RRCiN4"/>
 <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-base to-transparent">
 <p class="font-label-caps text-label-caps text-primary tracking-[0.2em]">FOUNDER &amp; HEAD COACH</p>
 <p class="font-headline-lg text-headline-lg">BRAYER</p>
 </div>
 </div>
-<div class="md:col-span-7 flex flex-col justify-center gap-8">
+<div class="md:col-span-7 flex flex-col justify-center gap-8" data-animate>
 <div class="space-y-4">
 <h2 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Section 01</h2>
 <h3 class="font-headline-lg text-headline-lg">MEET THE ARCHITECT</h3>
@@ -71,11 +72,11 @@
                 </p>
 <div class="grid grid-cols-2 gap-4">
 <div class="p-6 bg-surface-container-low border border-white/5">
-<div class="font-data-mono text-data-mono text-primary mb-2">12+ YEARS</div>
+<div class="font-data-mono text-data-mono text-primary mb-2" data-counter="12" data-counter-suffix="+ YEARS">12+ YEARS</div>
 <div class="font-label-caps text-label-caps text-on-surface-variant">EXPERIENCE</div>
 </div>
 <div class="p-6 bg-surface-container-low border border-white/5">
-<div class="font-data-mono text-data-mono text-primary mb-2">500+ CLIENTS</div>
+<div class="font-data-mono text-data-mono text-primary mb-2" data-counter="500" data-counter-suffix="+ CLIENTS">500+ CLIENTS</div>
 <div class="font-label-caps text-label-caps text-on-surface-variant">OPTIMIZED</div>
 </div>
 </div>
@@ -88,7 +89,7 @@
 <h3 class="font-headline-lg text-headline-lg mb-4">THE PERFORMANCE PHILOSOPHY</h3>
 <p class="font-label-caps text-label-caps text-on-surface-variant tracking-widest">SYSTEMIC. EMPIRICAL. RELENTLESS.</p>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter" data-stagger>
 <!-- Card 1 -->
 <div class="glass-card p-8 md:col-span-2 flex flex-col justify-between hover:border-primary transition-all duration-300">
 <div>
@@ -139,7 +140,7 @@
 </div>
 <button type="button" class="border border-primary text-primary font-label-caps text-label-caps px-6 py-2 hover:bg-primary hover:text-on-primary transition-all">Follow Instagram</button>
 </div>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-stagger>
 <div class="aspect-square bg-surface-container relative group overflow-hidden border border-white/10">
 <img class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" data-alt="A dark, moody close-up of high-tech laboratory glassware containing clear fluids, illuminated by a subtle green light from below. The style is sterile yet artistic, fitting a premium clinical science brand. High contrast, sharp details, and a focused composition on a black background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH2SKIUrJXkTLBs2BEz_Gqv7hG-aVcZR4hAskdaPDEVPLl1MAMS5UqzxI_bZGki5g6-cW9y0P3xnELNOUqVA6oEY6WknnRIeRwQgbDQvW_kYRoNEcSBkyqJUikYcLcewbNJvLHI4nJ-fK9ZFcjaYMsQ19JUd6KZGVnpQOFDv9f0yQfViYkYe1v7EveZM4DB7Yz7SEaX4WYdOeG4mHh0KxMcmw6L29v-iMNzDFxiFOTMmYvH5dvOzsbNsx8tzTZHDaOUZ3KfoP7VPc"/>
 <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
@@ -167,7 +168,7 @@
 </div>
 </section>
 <!-- CTA Section -->
-<section class="bg-primary py-20 px-margin-desktop text-center">
+<section class="bg-primary py-20 px-margin-desktop text-center" data-animate>
 <h2 class="font-headline-xl text-headline-xl text-on-primary mb-6">READY TO OPTIMIZE?</h2>
 <p class="font-body-md text-on-primary/80 mb-10 max-w-xl mx-auto">Applications are currently open for the Performance Mastery program. Space is limited to maintain our high standard of data-driven individual attention.</p>
 <button type="button" class="bg-base text-on-surface px-12 py-5 font-label-caps text-label-caps uppercase tracking-[0.3em] hover:bg-pure-white hover:text-base transition-all">Apply for Intake</button>
