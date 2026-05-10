@@ -1,201 +1,263 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>BRAYER PEPTIDES | Performance Coaching</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="../shared/tokens.css" rel="stylesheet"/>
 <script src="../shared/tailwind.config.js"></script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script src="../shared/animations.js" defer></script>
 </head>
-<body class="bg-background text-on-background font-body-md selection:bg-primary selection:text-on-primary">
-<!-- TopNavBar -->
-<header class="fixed top-0 left-0 w-full h-12 z-50 bg-background/80 backdrop-blur-md border-b border-white/20">
-<nav class="flex justify-between items-center px-margin-desktop w-full max-w-container-max mx-auto h-full">
-<div class="font-headline-lg text-headline-lg tracking-tighter text-on-surface">BRAYER PEPTIDES</div>
-<div class="hidden md:flex gap-8 items-center h-full">
-<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors" href="#">Research</a>
-<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors" href="#">Shop</a>
-<a class="font-label-caps text-label-caps uppercase tracking-widest text-primary border-b-2 border-primary pb-1" href="#">Coaching</a>
-<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors" href="#">Science</a>
+<body style="background:#000000;color:#f0ede8;overflow-x:hidden">
+
+<!-- ══════════════════════════════════════════════════════════════
+     NAV
+     ══════════════════════════════════════════════════════════════ -->
+<nav class="fixed top-0 left-0 right-0 z-50 h-[60px]" style="background:#000000;border-bottom:1px solid rgba(240,237,232,0.06)">
+<div class="flex items-center justify-between px-6 md:px-16 h-full max-w-[1400px] mx-auto">
+  <a href="#" class="font-display text-[30px] tracking-wider" style="color:#f0ede8;text-decoration:none">BRAYER PEPTIDES</a>
+  <div class="hidden md:flex items-center gap-10">
+    <a href="#" class="label-caps hover:text-[#f0ede8] transition-colors" style="color:#8a8a85;text-decoration:none">Research</a>
+    <a href="#" class="label-caps hover:text-[#f0ede8] transition-colors" style="color:#8a8a85;text-decoration:none">Shop</a>
+    <a href="#" class="label-caps" style="color:#f0ede8;text-decoration:none;border-bottom:1px solid #1a3a2a;padding-bottom:2px">Coaching</a>
+    <a href="#" class="label-caps hover:text-[#f0ede8] transition-colors" style="color:#8a8a85;text-decoration:none">Science</a>
+  </div>
+  <div class="flex items-center gap-4">
+    <button type="button" class="btn-primary" style="padding:9px 22px;font-size:10px">LOGIN</button>
+    <button type="button" class="hamburger" style="color:#f0ede8" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </div>
-<div class="flex items-center gap-6">
-<div class="flex gap-4">
-<button type="button" aria-label="Shopping cart" class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">shopping_cart</button>
-<button type="button" aria-label="Account" class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">account_circle</button>
-</div>
-<button type="button" class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-on-surface hover:bg-white/10 px-4 py-1.5 transition-all duration-200 active:scale-90">LOGIN</button>
-<button type="button" class="hamburger text-on-surface" aria-label="Toggle navigation" aria-expanded="false">
-<span></span><span></span><span></span>
-</button>
+<div class="mobile-nav">
+  <a href="#" class="label-caps" style="color:#8a8a85;text-decoration:none">Research</a>
+  <a href="#" class="label-caps" style="color:#8a8a85;text-decoration:none">Shop</a>
+  <a href="#" class="label-caps" style="color:#f0ede8;text-decoration:none">Coaching</a>
+  <a href="#" class="label-caps" style="color:#8a8a85;text-decoration:none">Science</a>
 </div>
 </nav>
-<div class="mobile-nav">
-<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant" href="#">Research</a>
-<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant" href="#">Shop</a>
-<a class="font-label-caps text-label-caps uppercase tracking-widest text-primary border-b border-primary pb-1" href="#">Coaching</a>
-<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant" href="#">Science</a>
-</div>
-</header>
-<main class="pt-12">
-<!-- Hero Section -->
-<section class="relative min-h-[500px] md:h-[819px] flex items-center overflow-hidden hero-grain">
-<div class="absolute inset-0 z-0">
-<img class="w-full h-full object-cover opacity-40" alt="A moody, high-contrast photograph of a muscular athlete in a dark, industrial gym setting. The lighting is dramatic and low-key, highlighting muscle definition with cool shadows and warm rim light. The atmosphere is intense and disciplined, reflecting a professional elite fitness brand aesthetic with deep blacks and subtle charcoal tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE2e9wCH8_6qYv7x198N4tb1YI6dTdPLM6NnH79YXbCog49ytm8928NnQept5DRXR2wkNjQKMmr0ZaTAROOWWYS10X5FJGWTf0ayzovLdT-6wnNbZ596vdk2rV0z6ojuMlTIaFJ5FWB_8Etw26nflZHmBuOhelOXTajoNKF8DyrjEbUmB6t5uHuCR4N_SPwH5fzqtzPnYM7MrJO6bjJX29MDRQuiKLhbHJZ4gNwTdnA8drxS0uoZ3-fO-3DS2203v0ZKw_CewXEbQ"/>
-<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50"></div>
-</div>
-<div class="relative z-10 px-margin-desktop w-full max-w-container-max mx-auto">
-<div class="max-w-2xl border-l-4 border-primary pl-8" data-animate>
-<h2 class="font-label-caps text-label-caps uppercase tracking-widest text-primary mb-4">Elite Human Performance</h2>
-<h1 class="font-headline-xl text-headline-xl mb-6">ENGINEERED FOR THE UNCOMPROMISING</h1>
-<p class="text-body-md mb-8 text-on-surface-variant">Where clinical precision meets athletic grit. Our coaching methodology is built on empirical data and the relentless pursuit of physical excellence.</p>
-<div class="flex gap-4">
-<button type="button" class="bg-primary text-on-primary font-label-caps text-label-caps px-8 py-4 uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all">Apply Now</button>
-<button type="button" class="border border-outline text-on-surface font-label-caps text-label-caps px-8 py-4 uppercase tracking-widest hover:bg-white/5 active:scale-95 transition-all">View Protocol</button>
+
+<!-- ══════════════════════════════════════════════════════════════
+     TRUST MARQUEE BAR
+     ══════════════════════════════════════════════════════════════ -->
+<div class="fixed left-0 right-0 z-40 h-[36px] flex items-center overflow-hidden" style="top:60px;background:#0a0a0a;border-bottom:1px solid rgba(240,237,232,0.04)">
+<div class="marquee-wrapper">
+  <span class="marquee-track label-caps" style="color:#4a8a5a">
+    HPLC VERIFIED &nbsp;·&nbsp; 99%+ PURITY GUARANTEED &nbsp;·&nbsp; SAME-DAY DISPATCH &nbsp;·&nbsp; COA EVERY BATCH &nbsp;·&nbsp; 3RD PARTY TESTED &nbsp;·&nbsp; PHARMACEUTICAL GRADE &nbsp;·&nbsp; NO FILLER COMPOUNDS &nbsp;·&nbsp;&nbsp;&nbsp;&nbsp;
+    HPLC VERIFIED &nbsp;·&nbsp; 99%+ PURITY GUARANTEED &nbsp;·&nbsp; SAME-DAY DISPATCH &nbsp;·&nbsp; COA EVERY BATCH &nbsp;·&nbsp; 3RD PARTY TESTED &nbsp;·&nbsp; PHARMACEUTICAL GRADE &nbsp;·&nbsp; NO FILLER COMPOUNDS &nbsp;·&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>
 </div>
 </div>
+
+<main style="padding-top:96px">
+
+<!-- ══════════════════════════════════════════════════════════════
+     HERO — FULL VIEWPORT
+     ══════════════════════════════════════════════════════════════ -->
+<section class="relative flex items-end min-h-screen pb-20 hero-grain overflow-hidden" data-animate>
+<div class="absolute inset-0">
+  <img class="w-full h-full object-cover" style="opacity:0.38" alt="Elite athlete in a dark disciplined training environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE2e9wCH8_6qYv7x198N4tb1YI6dTdPLM6NnH79YXbCog49ytm8928NnQept5DRXR2wkNjQKMmr0ZaTAROOWWYS10X5FJGWTf0ayzovLdT-6wnNbZ596vdk2rV0z6ojuMlTIaFJ5FWB_8Etw26nflZHmBuOhelOXTajoNKF8DyrjEbUmB6t5uHuCR4N_SPwH5fzqtzPnYM7MrJO6bjJX29MDRQuiKLhbHJZ4gNwTdnA8drxS0uoZ3-fO-3DS2203v0ZKw_CewXEbQ"/>
+  <div class="absolute inset-0" style="background:linear-gradient(to top,#000000 0%,rgba(0,0,0,0.15) 55%,rgba(0,0,0,0.6) 100%)"></div>
 </div>
-</section>
-<!-- Meet Coach Brayer -->
-<section class="py-24 px-margin-desktop w-full max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter">
-<div class="md:col-span-5 relative aspect-[4/5] bg-surface-container overflow-hidden border border-white/10" data-animate-img>
-<img class="w-full h-full object-cover grayscale opacity-80" alt="A focused close-up portrait of a fitness professional with a disciplined expression. The lighting is sharp, creating a high-contrast clinical yet athletic look. The background is a clean, dark laboratory environment with technical equipment slightly out of focus. The overall aesthetic is professional, modern, and serious, dominated by deep blacks and cool silver highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC90a7SsoCwT0sxO0ufQ3ADl1iTHl6l7pJjkm2GmQWrPpRrYpesWI6qKzxSXP__j0ZwCtIWKsr2uInB86FWstZ9Et9ILOyBxrOSJ3QsC9GqkFJf2n39Qu6ADgOQbZAWXhYQDXgWYpvj0905Od9U3a4Enb30oNtW9qzLjEpVI34iLkkjSO9-6bq6RPkvQNw9l2eBVdARVpfReTVveET_nxgvbQ_1L2r-T5Vh4_e7Lp-h4hT1Z4XtOiDGikbXSlI3MI6azRev3RRCiN4"/>
-<div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-base to-transparent">
-<p class="font-label-caps text-label-caps text-primary tracking-[0.2em]">FOUNDER &amp; HEAD COACH</p>
-<p class="font-headline-lg text-headline-lg">BRAYER</p>
-</div>
-</div>
-<div class="md:col-span-7 flex flex-col justify-center gap-8" data-animate>
-<div class="space-y-4">
-<h2 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Section 01</h2>
-<h3 class="font-headline-lg text-headline-lg">MEET THE ARCHITECT</h3>
-<div class="w-24 h-1 bg-primary"></div>
-</div>
-<p class="text-body-md text-on-surface-variant leading-relaxed">
-                    With over a decade in the high-stakes world of elite competitive athletics and clinical peptide research, Coach Brayer has developed a system that bridges the gap between biological potential and real-world results.
-                    <br/><br/>
-                    His philosophy is rooted in the belief that "Performance is a Science." There is no room for guesswork in a laboratory, and there should be no room for guesswork in your training protocol. Every session, every gram of nutrition, and every peptide application is optimized for your specific genetic profile.
-                </p>
-<div class="grid grid-cols-2 gap-4">
-<div class="p-6 bg-surface-container-low border border-white/5">
-<div class="font-data-mono text-data-mono text-primary mb-2" data-counter="12" data-counter-suffix="+ YEARS">12+ YEARS</div>
-<div class="font-label-caps text-label-caps text-on-surface-variant">EXPERIENCE</div>
-</div>
-<div class="p-6 bg-surface-container-low border border-white/5">
-<div class="font-data-mono text-data-mono text-primary mb-2" data-counter="500" data-counter-suffix="+ CLIENTS">500+ CLIENTS</div>
-<div class="font-label-caps text-label-caps text-on-surface-variant">OPTIMIZED</div>
-</div>
-</div>
+<div class="relative z-10 px-6 md:px-16 w-full max-w-[1400px] mx-auto">
+  <p class="label-caps mb-6" style="color:#4a8a5a">Performance Coaching &nbsp;·&nbsp; By Application Only</p>
+  <h1 class="headline-hero mb-6">COACHING BY<br/>BRAYER.</h1>
+  <div class="mb-8" style="width:72px;height:2px;background:#1a3a2a"></div>
+  <p class="mb-10 max-w-md" style="font-size:15px;line-height:1.65;color:#8a8a85">Elite physiological optimization for serious athletes. Data-driven protocols engineered for peak performance and accelerated recovery.</p>
+  <div class="flex flex-col sm:flex-row gap-4">
+    <button type="button" class="btn-primary">
+      APPLY FOR COACHING
+      <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
+    </button>
+    <button type="button" class="btn-outlined">VIEW PROTOCOL</button>
+  </div>
+  <div class="absolute hidden md:flex items-center gap-3" style="bottom:0;right:64px;color:#8a8a85">
+    <div style="width:1px;height:48px;background:rgba(240,237,232,0.15)"></div>
+    <span class="label-caps" style="writing-mode:vertical-rl">SCROLL</span>
+  </div>
 </div>
 </section>
-<!-- Philosophy Bento Grid -->
-<section class="bg-surface-container-lowest py-24">
-<div class="px-margin-desktop w-full max-w-container-max mx-auto">
-<div class="text-center mb-16">
-<h3 class="font-headline-lg text-headline-lg mb-4">THE PERFORMANCE PHILOSOPHY</h3>
-<p class="font-label-caps text-label-caps text-on-surface-variant tracking-widest">SYSTEMIC. EMPIRICAL. RELENTLESS.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter" data-stagger>
-<!-- Card 1 -->
-<div class="glass-card p-8 md:col-span-2 flex flex-col justify-between hover:border-primary transition-all duration-300">
-<div>
-<span class="material-symbols-outlined text-primary mb-6 text-4xl">biotech</span>
-<h4 class="font-headline-lg text-headline-lg mb-4">CLINICAL PRECISION</h4>
-<p class="text-body-sm text-on-surface-variant">We utilize advanced blood diagnostics and biomarkers to tailor protocols. Every recommendation is backed by peer-reviewed research and real-time data monitoring.</p>
-</div>
-<div class="mt-8 flex gap-4 overflow-x-auto pb-2">
-<span class="px-3 py-1 bg-primary-container text-primary font-label-caps text-label-xs uppercase">Peptide Mapping</span>
-<span class="px-3 py-1 bg-primary-container text-primary font-label-caps text-label-xs uppercase">Hormonal Synergy</span>
-<span class="px-3 py-1 bg-primary-container text-primary font-label-caps text-label-xs uppercase">Metabolic Tracking</span>
-</div>
-</div>
-<!-- Card 2 -->
-<div class="bg-surface-container p-8 border border-white/5 hover:border-primary/50 transition-all">
-<span class="material-symbols-outlined text-primary mb-6 text-4xl">fitness_center</span>
-<h4 class="font-headline-lg text-headline-lg mb-4">ATHLETIC GRIT</h4>
-<p class="text-body-sm text-on-surface-variant">Science is nothing without execution. We push beyond the comfort zone to trigger hypertrophic and neurological adaptations required for elite status.</p>
-</div>
-<!-- Card 3 -->
-<div class="bg-surface-container p-8 border border-white/5 hover:border-primary/50 transition-all">
-<span class="material-symbols-outlined text-primary mb-6 text-4xl">monitoring</span>
-<h4 class="font-headline-lg text-headline-lg mb-4">24/7 BIODATA</h4>
-<p class="text-body-sm text-on-surface-variant">Your journey doesn't end when you leave the gym. We track sleep latency, HRV, and CNS recovery to pivot protocols in real-time.</p>
-</div>
-<!-- Card 4 -->
-<div class="glass-card p-8 md:col-span-2 flex items-center gap-8 group">
-<div class="hidden md:block w-1/3 aspect-square overflow-hidden bg-base border border-white/10">
-<img class="w-full h-full object-cover grayscale group-hover:scale-110 transition-transform duration-700" alt="A cinematic, low-angle shot of athlete hands gripping a cold steel barbell. The image is crisp, showing sweat and texture, emphasizing the grit of intense training. The lighting is cool-toned with bright white highlights against a deep black background, maintaining the corporate modern research aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfO-9u_rrfuXn_Lkd8N1-sGsCoMSkhGL-0Fj7Xd3dl1Gq2IF-o0VYaESe-5xkZ4xnm_WVfNHNGefnqmAb8p9y-fX2e1oWBcvdAt9m5lFF__I7txkxsGlnPnETxcuGImTL81wkLSfBhqp8SxrWcWA5M8y6YnEVgsSAHsDaDhnqRe7248bFVo19QZdhdLTZjDPqK0d0n2jNVS8oF-OaX2sBGxxDeVgtikQcCrucNVph1i_RtHklSX_rWbzv1mwys8x5R__ssXJsAeCU"/>
-</div>
-<div class="flex-1">
-<h4 class="font-headline-lg text-headline-lg mb-4">UNIFIED COHESION</h4>
-<p class="text-body-sm text-on-surface-variant">Integrating research-grade peptides with high-frequency training creates a physiological state of perpetual recovery and accelerated growth.</p>
-<button type="button" class="mt-6 text-primary font-label-caps text-label-caps flex items-center gap-2 hover:gap-4 transition-all">
-                                EXPLORE METHODOLOGY <span class="material-symbols-outlined text-sm">arrow_forward</span>
-</button>
-</div>
-</div>
-</div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     BOLD STATS BAR
+     ══════════════════════════════════════════════════════════════ -->
+<section class="py-16 px-6 md:px-16" style="background:#1a3a2a">
+<div class="max-w-[1400px] mx-auto">
+  <div class="grid grid-cols-1 md:grid-cols-3" data-stagger>
+
+    <div class="py-8 md:py-0 md:pr-16" style="border-bottom:1px solid rgba(240,237,232,0.12)">
+      <p class="font-display text-[clamp(56px,9vw,104px)]" style="line-height:0.88;color:#f0ede8">2+</p>
+      <p class="label-caps mt-4" style="color:rgba(240,237,232,0.5)">Years Experience</p>
+      <div class="mt-4" style="width:40px;height:2px;background:rgba(240,237,232,0.2)"></div>
+    </div>
+
+    <div class="py-8 md:py-0 md:px-16" style="border-bottom:1px solid rgba(240,237,232,0.12);border-left:1px solid rgba(240,237,232,0.12)">
+      <p class="font-display text-[clamp(56px,9vw,104px)]" style="line-height:0.88;color:#f0ede8">DATA</p>
+      <p class="label-caps mt-4" style="color:rgba(240,237,232,0.5)">Driven</p>
+      <div class="mt-4" style="width:40px;height:2px;background:rgba(240,237,232,0.2)"></div>
+    </div>
+
+    <div class="py-8 md:py-0 md:pl-16" style="border-left:1px solid rgba(240,237,232,0.12)">
+      <p class="font-display text-[clamp(56px,9vw,104px)]" style="line-height:0.88;color:#f0ede8">100%</p>
+      <p class="label-caps mt-4" style="color:rgba(240,237,232,0.5)">Results Focused</p>
+      <div class="mt-4" style="width:40px;height:2px;background:rgba(240,237,232,0.2)"></div>
+    </div>
+
+  </div>
 </div>
 </section>
-<!-- Social Feed / Highlights -->
-<section class="py-24 px-margin-desktop w-full max-w-container-max mx-auto">
-<div class="flex justify-between items-end mb-12">
-<div>
-<h3 class="font-headline-lg text-headline-lg">THE FEED</h3>
-<p class="font-label-caps text-label-caps text-on-surface-variant tracking-widest">REAL-TIME UPDATES @BRAYER_RESEARCH</p>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SERVICE CARDS
+     ══════════════════════════════════════════════════════════════ -->
+<section class="py-24 px-6 md:px-16 max-w-[1400px] mx-auto">
+
+<div class="flex items-end justify-between mb-12 pb-6" style="border-bottom:1px solid rgba(240,237,232,0.07)">
+  <div data-animate>
+    <p class="label-caps mb-3" style="color:#4a8a5a">What We Offer</p>
+    <h2 class="headline-xl">COACHING SERVICES</h2>
+  </div>
 </div>
-<button type="button" class="border border-primary text-primary font-label-caps text-label-caps px-6 py-2 hover:bg-primary hover:text-on-primary transition-all">Follow Instagram</button>
-</div>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-stagger>
-<div class="aspect-square bg-surface-container relative group overflow-hidden border border-white/10">
-<img class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" alt="A dark, moody close-up of high-tech laboratory glassware containing clear fluids, illuminated by a subtle green light from below. The style is sterile yet artistic, fitting a premium clinical science brand. High contrast, sharp details, and a focused composition on a black background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH2SKIUrJXkTLBs2BEz_Gqv7hG-aVcZR4hAskdaPDEVPLl1MAMS5UqzxI_bZGki5g6-cW9y0P3xnELNOUqVA6oEY6WknnRIeRwQgbDQvW_kYRoNEcSBkyqJUikYcLcewbNJvLHI4nJ-fK9ZFcjaYMsQ19JUd6KZGVnpQOFDv9f0yQfViYkYe1v7EveZM4DB7Yz7SEaX4WYdOeG4mHh0KxMcmw6L29v-iMNzDFxiFOTMmYvH5dvOzsbNsx8tzTZHDaOUZ3KfoP7VPc"/>
-<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
-<span class="material-symbols-outlined text-on-surface">favorite</span>
-</div>
-</div>
-<div class="aspect-square bg-surface-container relative group overflow-hidden border border-white/10">
-<img class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" alt="A high-key action shot of an athlete mid-movement, capturing the intensity and power of elite performance. The lighting is dramatic, with strong highlights against a deep charcoal background. The image has an industrial grit to it, emphasizing the athletic coaching side of the brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ63eY7kKXstSbYe5HGUigeFu9MIDlswxVDkzwZDND2wFaTyJPPBGp6MbLUHcYiOQEsrEE3kFQtjF1imq_6_qEtxyN22ORmPRsyJS6d-U6TeYRSQRmycAeo7cQqRfyN7lqbUKABMel16oBa3FpLFgahiXDwEP9PFh9aFCXkZJBgszKO71zrF0_RB5og-aeVRf2xWANapjY8k0WgTvRYuL270H5b-MASafWEixSnBLyk5Lk6bTSO_4DyIAua5DzDuRxOx3y3YQaKpA"/>
-<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
-<span class="material-symbols-outlined text-on-surface">favorite</span>
-</div>
-</div>
-<div class="aspect-square bg-surface-container relative group overflow-hidden border border-white/10">
-<img class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" alt="Technical data visualization on a tablet screen in a dark gym environment. The screen shows heart rate variability graphs and muscular recovery percentages in bright acid lime green. The lighting is low-key, focusing on the technology and data-driven approach of the coaching system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCroHN_OBxm1houn0WssjOwk3AMpEM_yxDAtw-HkXT7_WdgB6spWj8aDV2Y1FIRwfSJVT5ZWTmR4ym0wAtvJgKSOZavtA5Tnj4Bc03eBooNOlJ_HQNp_95aYVwuweBVWJpdXwdHAmmBTFDKV8Ve8jJmq3ZsFpI-ht2h6o2FXw2FSnkvJW9jXXzS2zKia2wYYcPC6jHk7JpOtnI7FJoBz1ztUGKv41auBG-orzGBMospZOvHXdbxyINAIXZ_nzC1c0YGGjvB5ZeySn4"/>
-<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
-<span class="material-symbols-outlined text-on-surface">favorite</span>
-</div>
-</div>
-<div class="aspect-square bg-surface-container relative group overflow-hidden border border-white/10">
-<img class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" alt="An artistic view of a sterile white laboratory hallway with sleek, modern architectural lines. Deep shadows create a sense of mystery and exclusivity. The aesthetic is clean, professional, and high-end, representing the clinical science side of the Brayer brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsZV0n6JrhvXASTrCAeXewYcGOyxiNhPoWaah_Qq12e4eadTFdGp7ZZgaSS4y4KtyLb40DGEUfIskYByxduRUvLjiG5umwuTwW8ShVrmB9CVCtNOKuNYuyzO0QqLp0SRdK_dekqCaaMRbunxoVwVlpOJAGASBG0vxn3kdGIIICIop3XlUIU1Zq-LJ5RW71z-W0_24DZ5CHeWKAGPXIzA9Fbo4ueA06akrvkxnB6rKGY-z8nctGRCbIrPlO-2JuXQjr4wAuCIkvpUQ"/>
-<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
-<span class="material-symbols-outlined text-on-surface">favorite</span>
-</div>
-</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4" data-stagger>
+
+  <!-- Protocol Design -->
+  <div class="flat-card p-8 flex flex-col">
+    <div class="w-12 h-12 flex items-center justify-center mb-8" style="background:#1a3a2a">
+      <span class="material-symbols-outlined" style="font-size:24px;color:#4a8a5a">analytics</span>
+    </div>
+    <h3 class="headline-lg mb-5">PROTOCOL DESIGN</h3>
+    <p class="mb-10 flex-1" style="font-size:14px;line-height:1.7;color:#8a8a85">Empirically-driven research protocols tailored to your physiology and performance objectives. No templates. No guesswork. Every variable dialed to your specific biology.</p>
+    <button type="button" class="btn-primary" style="justify-content:center">
+      APPLY
+      <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span>
+    </button>
+  </div>
+
+  <!-- Lab Panel Monitoring -->
+  <div class="flat-card p-8 flex flex-col">
+    <div class="w-12 h-12 flex items-center justify-center mb-8" style="background:#1a3a2a">
+      <span class="material-symbols-outlined" style="font-size:24px;color:#4a8a5a">biotech</span>
+    </div>
+    <h3 class="headline-lg mb-5">LAB PANEL MONITORING</h3>
+    <p class="mb-10 flex-1" style="font-size:14px;line-height:1.7;color:#8a8a85">Full-spectrum bloodwork interpretation and longitudinal biomarker tracking. We read the data so you don't have to — and adjust your protocol in real-time for continuous optimization.</p>
+    <button type="button" class="btn-primary" style="justify-content:center">
+      APPLY
+      <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span>
+    </button>
+  </div>
+
+  <!-- Performance Optimization -->
+  <div class="flat-card p-8 flex flex-col">
+    <div class="w-12 h-12 flex items-center justify-center mb-8" style="background:#1a3a2a">
+      <span class="material-symbols-outlined" style="font-size:24px;color:#4a8a5a">fitness_center</span>
+    </div>
+    <h3 class="headline-lg mb-5">PERFORMANCE OPTIMIZATION</h3>
+    <p class="mb-10 flex-1" style="font-size:14px;line-height:1.7;color:#8a8a85">Periodized training methodologies integrated with compound research data. Every training block engineered for maximum physiological output — power, speed, endurance, recovery.</p>
+    <button type="button" class="btn-primary" style="justify-content:center">
+      APPLY
+      <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span>
+    </button>
+  </div>
+
 </div>
 </section>
-<!-- CTA Section -->
-<section class="bg-primary py-20 px-margin-desktop text-center" data-animate>
-<h2 class="font-headline-xl text-headline-xl text-on-primary mb-6">READY TO OPTIMIZE?</h2>
-<p class="font-body-md text-on-primary/80 mb-10 max-w-xl mx-auto">Applications are currently open for the Performance Mastery program. Space is limited to maintain our high standard of data-driven individual attention.</p>
-<button type="button" class="bg-base text-on-surface px-12 py-5 font-label-caps text-label-caps uppercase tracking-[0.3em] hover:bg-pure-white hover:text-base transition-all">Apply for Intake</button>
+
+<!-- ══════════════════════════════════════════════════════════════
+     APPLICATION SECTION — DARK GREEN
+     ══════════════════════════════════════════════════════════════ -->
+<section class="py-28 px-6 md:px-16" style="background:#1a3a2a" data-animate>
+<div class="max-w-[1400px] mx-auto text-center">
+  <p class="label-caps mb-5" style="color:rgba(240,237,232,0.45)">Limited Intake · By Application Only</p>
+  <h2 class="headline-hero mb-6" style="color:#f0ede8">READY TO<br/>OPTIMIZE?</h2>
+  <div class="mx-auto mb-10" style="width:72px;height:2px;background:rgba(240,237,232,0.2)"></div>
+  <p class="mb-12 mx-auto" style="font-size:15px;line-height:1.65;color:rgba(240,237,232,0.6);max-width:480px">Applications are reviewed individually. We only onboard athletes we can genuinely move the needle for. Qualify, and you'll hear back within 48 hours.</p>
+  <button type="button" style="background:#000000;color:#f0ede8;border:1px solid rgba(240,237,232,0.15);padding:18px 56px;font-family:'Bebas Neue',cursive;font-size:15px;letter-spacing:0.14em;cursor:pointer;transition:border-color 0.2s">
+    APPLY FOR COACHING
+  </button>
+</div>
 </section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     TESTIMONIALS
+     ══════════════════════════════════════════════════════════════ -->
+<section class="py-24 px-6 md:px-16 max-w-[1400px] mx-auto">
+
+<div class="flex items-end justify-between mb-12 pb-6" style="border-bottom:1px solid rgba(240,237,232,0.07)">
+  <div data-animate>
+    <p class="label-caps mb-3" style="color:#4a8a5a">Client Feedback</p>
+    <h2 class="headline-xl">RESULTS SPEAK.</h2>
+  </div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4" data-stagger>
+
+  <div class="flat-card p-8 flex flex-col justify-between" style="min-height:220px">
+    <div>
+      <div class="mb-6" style="width:32px;height:2px;background:#1a3a2a"></div>
+      <p style="font-size:14px;line-height:1.7;color:#8a8a85;font-style:italic">— Client feedback coming soon</p>
+    </div>
+    <div class="mt-8 pt-6" style="border-top:1px solid rgba(240,237,232,0.07)">
+      <p class="label-caps" style="color:#4a8a5a">ATHLETE</p>
+      <p class="label-caps mt-1" style="color:#8a8a85">Pending</p>
+    </div>
+  </div>
+
+  <div class="flat-card p-8 flex flex-col justify-between" style="min-height:220px">
+    <div>
+      <div class="mb-6" style="width:32px;height:2px;background:#1a3a2a"></div>
+      <p style="font-size:14px;line-height:1.7;color:#8a8a85;font-style:italic">— Client feedback coming soon</p>
+    </div>
+    <div class="mt-8 pt-6" style="border-top:1px solid rgba(240,237,232,0.07)">
+      <p class="label-caps" style="color:#4a8a5a">ATHLETE</p>
+      <p class="label-caps mt-1" style="color:#8a8a85">Pending</p>
+    </div>
+  </div>
+
+  <div class="flat-card p-8 flex flex-col justify-between" style="min-height:220px">
+    <div>
+      <div class="mb-6" style="width:32px;height:2px;background:#1a3a2a"></div>
+      <p style="font-size:14px;line-height:1.7;color:#8a8a85;font-style:italic">— Client feedback coming soon</p>
+    </div>
+    <div class="mt-8 pt-6" style="border-top:1px solid rgba(240,237,232,0.07)">
+      <p class="label-caps" style="color:#4a8a5a">ATHLETE</p>
+      <p class="label-caps mt-1" style="color:#8a8a85">Pending</p>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     COMPLIANCE CALLOUT
+     ══════════════════════════════════════════════════════════════ -->
+<section class="px-6 md:px-16 py-12 max-w-[1400px] mx-auto mb-8">
+<div class="flex items-center gap-4 px-8 py-5" style="border:1px solid rgba(240,237,232,0.07);background:#0a0a0a" data-animate>
+  <span class="material-symbols-outlined shrink-0" style="font-size:18px;color:#8a8a85">info</span>
+  <p class="label-caps" style="color:#8a8a85">BRAYER PEPTIDES products are strictly for laboratory and research purposes only. Not for human consumption. Not for therapeutic or diagnostic use.</p>
+</div>
+</section>
+
 </main>
-<!-- Footer -->
-<footer class="bg-surface-container-lowest border-t border-white/10 py-8">
-<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop w-full max-w-container-max mx-auto gap-4">
-<div class="font-label-caps text-label-caps text-on-surface-variant">BRAYER PEPTIDES</div>
-<div class="flex gap-6">
-<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
-<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
-<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Regulatory Compliance</a>
-<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a>
-</div>
-<div class="font-body-sm text-body-sm text-on-surface-variant opacity-80 text-center md:text-right">
-                © 2024 BRAYER PEPTIDES RESEARCH • FOR LABORATORY USE ONLY. NOT FOR HUMAN CONSUMPTION.
-            </div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════════════════════════ -->
+<footer style="border-top:1px solid rgba(240,237,232,0.07);background:#000000">
+<div class="flex flex-col md:flex-row items-center justify-between gap-4 px-6 md:px-16 py-6 max-w-[1400px] mx-auto">
+  <span class="font-display text-[20px]" style="color:#f0ede8">BRAYER PEPTIDES</span>
+  <div class="flex items-center gap-8">
+    <a href="#" class="label-caps" style="color:#8a8a85;text-decoration:none">Terms</a>
+    <a href="#" class="label-caps" style="color:#8a8a85;text-decoration:none">Privacy</a>
+    <a href="#" class="label-caps" style="color:#8a8a85;text-decoration:none">Compliance</a>
+    <a href="#" class="label-caps" style="color:#8a8a85;text-decoration:none">Contact</a>
+  </div>
+  <p class="label-caps text-center" style="color:#8a8a85">© 2024 BRAYER PEPTIDES · FOR LAB USE ONLY</p>
 </div>
 </footer>
-</body></html>
+
+</body>
+</html>
