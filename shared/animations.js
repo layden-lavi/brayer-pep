@@ -75,4 +75,155 @@
       }
     });
   });
+
+  // ── Capability flags ──────────────────────────────────────────
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const hasHover       = window.matchMedia('(hover: hover)').matches;
+
+  // ════════════════════════════════════════════════════════════
+  // MAGNETIC CURSOR
+  // Dual-layer: lagging ring (lerp) + instant dot
+  // ════════════════════════════════════════════════════════════
+  if (!prefersReduced && hasHover) {
+    const ring = document.createElement('div');
+    const dot  = document.createElement('div');
+    ring.className = 'cursor-ring';
+    dot.className  = 'cursor-dot';
+    document.body.appendChild(ring);
+    document.body.appendChild(dot);
+    document.body.classList.add('has-custom-cursor');
+
+    let mx = -300, my = -300;   // mouse position
+    let rx = -300, ry = -300;   // ring lerp position
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX;
+      my = e.clientY;
+      dot.style.transform = `translate(${mx}px,${my}px)`;
+    });
+    document.addEventListener('mouseleave', () => { ring.style.opacity = '0'; dot.style.opacity = '0'; });
+    document.addEventListener('mouseenter', () => { ring.style.opacity = '';  dot.style.opacity = '';  });
+
+    // Expand ring on interactive elements
+    document.querySelectorAll('button,a,input,select,.variant-btn,.filter-pill').forEach(el => {
+      el.addEventListener('mouseenter', () => ring.classList.add('cursor-hover'));
+      el.addEventListener('mouseleave', () => ring.classList.remove('cursor-hover'));
+    });
+
+    (function cursorLoop() {
+      rx += (mx - rx) * 0.13;
+      ry += (my - ry) * 0.13;
+      ring.style.transform = `translate(${rx}px,${ry}px)`;
+      requestAnimationFrame(cursorLoop);
+    })();
+  }
+
+  // ════════════════════════════════════════════════════════════
+  // SMOOTH SCROLL MOMENTUM
+  // Intercepts wheel events on desktop and lerps scrollY.
+  // Skipped on touch/trackpad (reduced-motion or no hover).
+  // ════════════════════════════════════════════════════════════
+  if (!prefersReduced && hasHover) {
+    let scrollCurrent = window.scrollY;
+    let scrollTarget  = window.scrollY;
+    let scrollActive  = false;
+    const ease        = 0.1;
+
+    // Keep targets in sync when native scroll fires (anchor jumps, etc.)
+    let externalScroll = false;
+    window.addEventListener('scroll', () => {
+      if (externalScroll) {
+        scrollTarget  = window.scrollY;
+        scrollCurrent = window.scrollY;
+        externalScroll = false;
+      }
+    }, { passive: true });
+
+    window.addEventListener('wheel', e => {
+      e.preventDefault();
+      const delta = e.deltaMode === 1 ? e.deltaY * 32 : e.deltaY; // lines → px
+      scrollTarget = Math.max(
+        0,
+        Math.min(scrollTarget + delta * 0.88, document.documentElement.scrollHeight - window.innerHeight)
+      );
+      if (!scrollActive) { scrollActive = true; rafScroll(); }
+    }, { passive: false });
+
+    // Keyboard scroll (arrows / page up-down / home / end)
+    const keyMap = { 38: -80, 40: 80, 33: -window.innerHeight * 0.88, 34: window.innerHeight * 0.88 };
+    document.addEventListener('keydown', e => {
+      if (['INPUT','SELECT','TEXTAREA'].includes(document.activeElement.tagName)) return;
+      if (e.key === 'Home') { scrollTarget = 0; }
+      else if (e.key === 'End')  { scrollTarget = document.documentElement.scrollHeight - window.innerHeight; }
+      else {
+        const delta = keyMap[e.keyCode];
+        if (!delta) return;
+        scrollTarget = Math.max(0, Math.min(scrollTarget + delta, document.documentElement.scrollHeight - window.innerHeight));
+      }
+      if (!scrollActive) { scrollActive = true; rafScroll(); }
+    });
+
+    function rafScroll() {
+      const diff = scrollTarget - scrollCurrent;
+      scrollCurrent += diff * ease;
+      window.scrollTo(0, scrollCurrent);
+      if (Math.abs(diff) > 0.5) {
+        requestAnimationFrame(rafScroll);
+      } else {
+        window.scrollTo(0, scrollTarget);
+        scrollCurrent = scrollTarget;
+        scrollActive  = false;
+      }
+    }
+  }
+
+  // ════════════════════════════════════════════════════════════
+  // 3D CARD TILT ON HOVER
+  // Applies perspective rotateX/Y based on mouse position
+  // within each .glass-card. Resets smoothly on mouseleave.
+  // ════════════════════════════════════════════════════════════
+  if (!prefersReduced && hasHover) {
+    document.querySelectorAll('.glass-card').forEach(card => {
+      card.style.willChange = 'transform';
+
+      card.addEventListener('mousemove', e => {
+        const r  = card.getBoundingClientRect();
+        const x  = (e.clientX - r.left)  / r.width  - 0.5;   // -0.5 → 0.5
+        const y  = (e.clientY - r.top)   / r.height - 0.5;
+        const tX = -y * 7;    // rotateX (tilt toward cursor vertically)
+        const tY =  x * 7;    // rotateY (tilt toward cursor horizontally)
+        card.style.transition = 'transform 0.08s linear, box-shadow 0.08s linear';
+        card.style.transform  = `perspective(900px) rotateX(${tX}deg) rotateY(${tY}deg) scale3d(1.02,1.02,1.02)`;
+        card.style.boxShadow  = `${-tY * 2}px ${tX * 2}px 32px rgba(172,207,179,0.07)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transition = 'transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.6s ease';
+        card.style.transform  = '';
+        card.style.boxShadow  = '';
+      });
+    });
+  }
+
+  // ════════════════════════════════════════════════════════════
+  // SCROLL-LINKED NAV SHRINK
+  // Compacts inner content on scroll and hides on scroll-down
+  // then reveals instantly on scroll-up.
+  // ════════════════════════════════════════════════════════════
+  const navEl = document.querySelector('nav.fixed, header.fixed');
+  if (navEl) {
+    let lastScrollY = window.scrollY;
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      navEl.classList.toggle('nav-scrolled', y > 60);
+      // Hide when scrolling down past 200px; reveal on any upward movement
+      if (y > lastScrollY && y > 200) {
+        navEl.classList.add('nav-hidden');
+      } else {
+        navEl.classList.remove('nav-hidden');
+      }
+      lastScrollY = y;
+    }, { passive: true });
+  }
+
 })();
