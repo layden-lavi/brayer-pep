@@ -81,44 +81,6 @@
   const hasHover       = window.matchMedia('(hover: hover)').matches;
 
   // ════════════════════════════════════════════════════════════
-  // MAGNETIC CURSOR
-  // Dual-layer: lagging ring (lerp) + instant dot
-  // ════════════════════════════════════════════════════════════
-  if (!prefersReduced && hasHover) {
-    const ring = document.createElement('div');
-    const dot  = document.createElement('div');
-    ring.className = 'cursor-ring';
-    dot.className  = 'cursor-dot';
-    document.body.appendChild(ring);
-    document.body.appendChild(dot);
-    document.body.classList.add('has-custom-cursor');
-
-    let mx = -300, my = -300;   // mouse position
-    let rx = -300, ry = -300;   // ring lerp position
-
-    document.addEventListener('mousemove', e => {
-      mx = e.clientX;
-      my = e.clientY;
-      dot.style.transform = `translate(${mx}px,${my}px)`;
-    });
-    document.addEventListener('mouseleave', () => { ring.style.opacity = '0'; dot.style.opacity = '0'; });
-    document.addEventListener('mouseenter', () => { ring.style.opacity = '';  dot.style.opacity = '';  });
-
-    // Expand ring on interactive elements
-    document.querySelectorAll('button,a,input,select,.variant-btn,.filter-pill').forEach(el => {
-      el.addEventListener('mouseenter', () => ring.classList.add('cursor-hover'));
-      el.addEventListener('mouseleave', () => ring.classList.remove('cursor-hover'));
-    });
-
-    (function cursorLoop() {
-      rx += (mx - rx) * 0.13;
-      ry += (my - ry) * 0.13;
-      ring.style.transform = `translate(${rx}px,${ry}px)`;
-      requestAnimationFrame(cursorLoop);
-    })();
-  }
-
-  // ════════════════════════════════════════════════════════════
   // SMOOTH SCROLL MOMENTUM
   // Intercepts wheel events on desktop and lerps scrollY.
   // Skipped on touch/trackpad (reduced-motion or no hover).
