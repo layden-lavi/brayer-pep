@@ -10,6 +10,7 @@
 <script src="../shared/tailwind.config.js"></script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script src="../shared/animations.js" defer></script>
+<script src="../shared/cart.js" defer></script>
 </head>
 <body style="background:#000000;color:#f0ede8;overflow-x:hidden">
 
@@ -23,12 +24,12 @@
     <a href="../home_brayer_peptides/code.html" class="label-caps hover:text-[#f0ede8] transition-colors" style="color:#8a8a85;text-decoration:none">Home</a>
     <a href="../research_shop_brayer_peptides/code.html" class="label-caps" style="color:#f0ede8;text-decoration:none;border-bottom:1px solid #1a3a2a;padding-bottom:2px">Shop</a>
     <a href="../coach_brayer_performance_coaching/code.html" class="label-caps hover:text-[#f0ede8] transition-colors" style="color:#8a8a85;text-decoration:none">Coaching</a>
-    <a href="#" class="label-caps hover:text-[#f0ede8] transition-colors" style="color:#8a8a85;text-decoration:none">Science</a>
+    <a href="../science_purity_brayer_peptides/code.html" class="label-caps hover:text-[#f0ede8] transition-colors" style="color:#8a8a85;text-decoration:none">Science</a>
   </div>
   <div class="flex items-center gap-4">
-    <button type="button" class="relative" style="color:#8a8a85;background:none;border:none;cursor:pointer">
+    <button type="button" id="cart-btn" class="relative" style="color:#8a8a85;background:none;border:none;cursor:pointer">
       <span class="material-symbols-outlined">shopping_cart</span>
-      <span class="absolute -top-1 -right-1 w-4 h-4 flex items-center justify-center font-display text-[11px]" style="background:#1a3a2a;color:#f0ede8">0</span>
+      <span id="cart-count" class="absolute -top-1 -right-1 w-4 h-4 flex items-center justify-center font-display text-[11px]" style="background:#1a3a2a;color:#f0ede8">0</span>
     </button>
     <button type="button" class="btn-primary" style="padding:9px 22px;font-size:10px">LOGIN</button>
     <button type="button" class="hamburger" style="color:#f0ede8" aria-label="Toggle navigation" aria-expanded="false">
@@ -40,7 +41,7 @@
   <a href="../home_brayer_peptides/code.html" class="label-caps" style="color:#8a8a85;text-decoration:none">Home</a>
   <a href="../research_shop_brayer_peptides/code.html" class="label-caps" style="color:#f0ede8;text-decoration:none">Shop</a>
   <a href="../coach_brayer_performance_coaching/code.html" class="label-caps" style="color:#8a8a85;text-decoration:none">Coaching</a>
-  <a href="#" class="label-caps" style="color:#8a8a85;text-decoration:none">Science</a>
+  <a href="../science_purity_brayer_peptides/code.html" class="label-caps" style="color:#8a8a85;text-decoration:none">Science</a>
 </div>
 </nav>
 
@@ -1305,6 +1306,61 @@
         group.querySelectorAll('.variant-btn').forEach(function (b) { b.classList.remove('active'); });
       }
       btn.classList.add('active');
+    });
+  });
+
+  // ── Card click → product page ─────────────────────────────────
+  var PRODUCT_URLS = {
+    'BPC-157':                    '../product_pages/bpc157.html',
+    'BPC-157 10MG':               '../product_pages/bpc157.html',
+    'TB500 10MG':                 '../product_pages/tb500.html',
+    'BPC-157 + TB500 10MG':       '../product_pages/bpc157_tb500.html',
+    'CJC-1295 NO DAC 5MG':        '../product_pages/cjc1295_nodac.html',
+    'CJC-1295 NO DAC + IPA 10MG': '../product_pages/cjc1295_nodac_ipa.html',
+    'IPAMORELIN 5MG':             '../product_pages/ipamorelin.html',
+    'TESAMORELIN 10MG':           '../product_pages/tesamorelin.html',
+    'IGF-1 LR3 1MG':              '../product_pages/igf1_lr3.html',
+    'AOD 5MG':                    '../product_pages/aod.html',
+    'HGH FRAG 5MG':               '../product_pages/hgh_frag.html',
+    'TIRZEPATIDE 10MG':           '../product_pages/tirzepatide.html',
+    'TIRZEPATIDE 20MG':           '../product_pages/tirzepatide.html',
+    'TIRZEPATIDE 30MG':           '../product_pages/tirzepatide.html',
+    'RETATRUTIDE 10MG':           '../product_pages/retatrutide.html',
+    'RETATRUTIDE 20MG':           '../product_pages/retatrutide.html',
+    'RETATRUTIDE 30MG':           '../product_pages/retatrutide.html',
+    'CAGRILINTIDE 10MG':          '../product_pages/cagrilintide.html',
+    'SURVODUTIDE 10MG':           '../product_pages/survodutide.html',
+    'MAZDUTIDE 5MG':              '../product_pages/mazdutide.html',
+    'MT-2 10MG':                  '../product_pages/mt2.html',
+    'PT-141 10MG':                '../product_pages/pt141.html',
+    'SLU-PP-332 5MG':             '../product_pages/slu_pp_332.html',
+    'OXYTOCIN 10MG':              '../product_pages/oxytocin.html',
+    'HCG 5000 IU':                '../product_pages/hcg.html',
+    'GHK-CU 50MG':                '../product_pages/ghk_cu.html',
+    'GHK-CU 100MG':               '../product_pages/ghk_cu_100.html',
+    'GLOW BLEND':                 '../product_pages/glow_blend.html',
+    'KLOW BLEND':                 '../product_pages/klow_blend.html',
+    'MOTS-C 40MG':                '../product_pages/mots_c.html',
+    'NAD+ 500':                   '../product_pages/nad_plus.html',
+    '5-AMINO-1MQ 50MG':           '../product_pages/5_amino_1mq.html',
+    'SS-31 10MG':                 '../product_pages/ss31.html',
+    'SELANK 10MG':                '../product_pages/selank.html',
+    'KPV 10MG':                   '../product_pages/kpv.html',
+    'THYMOSIN ALPHA-1 5MG':       '../product_pages/thymosin_alpha1.html',
+    'SEMAX 10MG':                 '../product_pages/semax.html',
+    'CEREBROLYSIN 60MG':          '../product_pages/cerebrolysin.html',
+    'DSIP 10MG':                  '../product_pages/dsip.html',
+    'VIP 10MG':                   '../product_pages/vip.html'
+  };
+
+  document.querySelectorAll('article[data-name]').forEach(function (card) {
+    var url = PRODUCT_URLS[card.getAttribute('data-name')];
+    if (!url) return;
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', function (e) {
+      if (!e.target.closest('button')) {
+        window.location.href = url;
+      }
     });
   });
 })();
