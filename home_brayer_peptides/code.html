@@ -3,324 +3,1038 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>BRAYER PEPTIDES | Performance Research</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<title>BRAYER PEPTIDES | Premium Research Compounds</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <link href="../shared/tokens.css" rel="stylesheet"/>
 <script src="../shared/tailwind.config.js"></script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script src="../shared/animations.js" defer></script>
+<script src="../shared/cart.js" defer></script>
+<style>
+/* ── Announcement bar ─────────────────────────────── */
+#announcement-bar {
+  position: fixed; top: 0; left: 0; right: 0; height: 30px;
+  background: #0f1a0f; z-index: 70; overflow: hidden;
+  display: flex; align-items: center;
+  border-bottom: 1px solid rgba(58,154,92,0.2);
+}
+.ann-track {
+  display: inline-block; white-space: nowrap;
+  animation: ann-scroll 30s linear infinite;
+  font-family: Inter, sans-serif; font-size: 11px;
+  letter-spacing: 3px; text-transform: uppercase; color: #3a9a5c;
+}
+@keyframes ann-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── Nav ──────────────────────────────────────────── */
+#main-nav {
+  position: fixed; top: 30px; left: 0; right: 0; height: 64px;
+  z-index: 60; transition: background 0.4s ease, border-color 0.4s ease,
+                            backdrop-filter 0.4s ease;
+  border-bottom: 1px solid transparent;
+}
+#main-nav.scrolled {
+  background: rgba(10,10,10,0.97) !important;
+  border-bottom-color: rgba(26,58,42,0.45) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ── Hero ─────────────────────────────────────────── */
+#hero { position: relative; height: 100vh; min-height: 640px; overflow: hidden; }
+#hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero-content {
+  position: relative; z-index: 10;
+  height: 100%; display: flex; align-items: center;
+  padding-left: 8vw; padding-top: 94px; padding-right: 44vw;
+}
+@media (max-width: 900px) {
+  .hero-content { padding-right: 24px; }
+  .hero-vial-wrap { display: none; }
+}
+.hero-vial-wrap {
+  position: absolute; right: 5vw; top: 50%;
+  transform: translateY(-50%); z-index: 10;
+}
+.hero-vial-glow {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 360px; height: 360px;
+  background: radial-gradient(circle, rgba(26,107,60,0.22) 0%, transparent 68%);
+  border-radius: 50%; pointer-events: none;
+}
+.hero-vial-img {
+  height: 360px; width: auto; display: block; position: relative; z-index: 2;
+  -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+  animation: vial-float 4s ease-in-out infinite;
+}
+@keyframes vial-float {
+  0%, 100% { transform: translateY(-12px); }
+  50%       { transform: translateY(12px);  }
+}
+
+/* Ghost / outline text */
+.text-ghost {
+  -webkit-text-stroke: 1.5px #1a6b3c;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Hero stat divider */
+.hero-stat-divider {
+  width: 1px; height: 32px; background: rgba(240,237,232,0.12); flex-shrink: 0;
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+  z-index: 10; display: flex; flex-direction: column; align-items: center; gap: 6px;
+}
+.scroll-arrow {
+  width: 16px; height: 16px;
+  border-right: 1.5px solid #3a9a5c;
+  border-bottom: 1.5px solid #3a9a5c;
+  transform: rotate(45deg);
+  animation: bounce-down 1.6s ease-in-out infinite;
+}
+@keyframes bounce-down {
+  0%, 100% { transform: rotate(45deg) translateY(0); opacity: 0.4; }
+  50%       { transform: rotate(45deg) translateY(5px); opacity: 1; }
+}
+
+/* ── Trust marquee strip ──────────────────────────── */
+#trust-marquee {
+  background: #0d0d0d;
+  border-top: 1px solid #1a1a1a;
+  border-bottom: 1px solid #1a1a1a;
+  overflow: hidden; height: 44px; display: flex; align-items: center;
+}
+.trust-track {
+  display: inline-block; white-space: nowrap;
+  animation: trust-scroll 35s linear infinite;
+  font-family: Inter, sans-serif; font-size: 11px;
+  letter-spacing: 4px; text-transform: uppercase; color: #444;
+}
+@keyframes trust-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── Product grid cards ───────────────────────────── */
+.feat-card {
+  background: #111; border: 1px solid rgba(240,237,232,0.07);
+  overflow: hidden; display: flex; flex-direction: column;
+  transition: border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+  cursor: pointer;
+}
+.feat-card:hover {
+  border-color: #4a8a5a;
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(26,107,60,0.2);
+}
+.feat-img-wrap {
+  width: 100%; height: 280px; flex-shrink: 0; position: relative; overflow: hidden;
+  background: linear-gradient(160deg, #c8c8c8 0%, #a0a0a0 50%, #787878 100%);
+}
+.feat-img-wrap img {
+  width: 100%; height: 100%; object-fit: contain;
+  padding: 16px 24px 24px; box-sizing: border-box;
+  transition: transform 0.5s ease;
+}
+.feat-card:hover .feat-img-wrap img { transform: scale(1.04); }
+.feat-img-wrap::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 60px;
+  background: linear-gradient(to bottom, transparent, #111); pointer-events: none;
+}
+
+/* ── Features strip ───────────────────────────────── */
+.feature-col {
+  flex: 1; padding: 52px 40px; text-align: center;
+  border-right: 1px solid rgba(240,237,232,0.06);
+}
+.feature-col:last-child { border-right: none; }
+@media (max-width: 767px) {
+  .feature-col { border-right: none; border-bottom: 1px solid rgba(240,237,232,0.06); }
+  .feature-col:last-child { border-bottom: none; }
+}
+
+/* ── About section ────────────────────────────────── */
+.about-vial-badge {
+  position: absolute; bottom: 28px; left: 28px;
+  background: rgba(10,10,10,0.9); border: 1px solid #1a6b3c;
+  padding: 14px 18px; z-index: 10;
+}
+
+/* ── FAQ accordion ────────────────────────────────── */
+.faq-acc-item { border-bottom: 1px solid rgba(240,237,232,0.07); }
+.faq-acc-btn {
+  width: 100%; background: none; border: none; text-align: left;
+  padding: 20px 0; cursor: pointer; display: flex; align-items: center;
+  justify-content: space-between; gap: 16px;
+  font-family: Inter, sans-serif; font-size: 14px; font-weight: 600;
+  color: #f0ede8; transition: color 0.2s;
+}
+.faq-acc-btn:hover { color: #4a8a5a; }
+.faq-acc-icon {
+  font-size: 18px; color: #4a8a5a; flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+.faq-acc-item.open .faq-acc-icon { transform: rotate(45deg); }
+.faq-acc-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  padding-bottom: 0;
+}
+.faq-acc-item.open .faq-acc-body { max-height: 300px; }
+.faq-acc-body p {
+  font-family: Inter, sans-serif; font-size: 13px;
+  color: #8a8a85; line-height: 1.75; padding-bottom: 20px; margin: 0;
+}
+
+/* ── Purity CTA ───────────────────────────────────── */
+#purity-cta-btn {
+  background: #f0ede8; color: #0a0a0a;
+  font-family: Inter, sans-serif; font-size: 12px;
+  font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 16px 48px; border: 1px solid #f0ede8; cursor: pointer;
+  transition: background 0.2s, color 0.2s; white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+#purity-cta-btn:hover { background: #0a0a0a; color: #f0ede8; }
+
+/* ── Scroll animations ────────────────────────────── */
+.scroll-anim {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.scroll-anim.animate-in { opacity: 1; transform: translateY(0); }
+
+/* ── Mobile nav ───────────────────────────────────── */
+.hamburger { display: none; }
+@media (max-width: 767px) {
+  .hamburger {
+    display: flex; flex-direction: column; gap: 5px;
+    cursor: pointer; padding: 4px; background: none; border: none;
+  }
+  .hamburger span {
+    display: block; width: 22px; height: 2px;
+    background: currentColor; transition: all 0.3s ease;
+  }
+}
+.mobile-nav {
+  display: none; position: fixed; left: 0; right: 0;
+  background: #0a0a0a; border-bottom: 1px solid rgba(240,237,232,0.06);
+  z-index: 59; padding: 24px; flex-direction: column; gap: 16px;
+  top: 94px; /* 30px ann + 64px nav */
+}
+.mobile-nav.open { display: flex; }
+</style>
 </head>
 <body style="background:#000000;color:#f0ede8;overflow-x:hidden">
 
-<!-- ══════════════════════════════════════════════════════════════
+<!-- ═══════════════════════════════════════════════════════
+     ANNOUNCEMENT BAR
+     ═══════════════════════════════════════════════════════ -->
+<div id="announcement-bar">
+  <span class="ann-track">
+    FREE SHIPPING ON ORDERS OVER $250 &nbsp;·&nbsp; FOR RESEARCH USE ONLY &nbsp;·&nbsp; 99%+ PURITY GUARANTEED &nbsp;·&nbsp; HPLC VERIFIED &nbsp;·&nbsp; BATCH TESTED &nbsp;·&nbsp; COA WITH EVERY ORDER &nbsp;·&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+    FREE SHIPPING ON ORDERS OVER $250 &nbsp;·&nbsp; FOR RESEARCH USE ONLY &nbsp;·&nbsp; 99%+ PURITY GUARANTEED &nbsp;·&nbsp; HPLC VERIFIED &nbsp;·&nbsp; BATCH TESTED &nbsp;·&nbsp; COA WITH EVERY ORDER &nbsp;·&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+  </span>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
      NAV
-     ══════════════════════════════════════════════════════════════ -->
-<nav class="fixed top-0 left-0 right-0 z-50 h-[60px]" style="background:#000000;border-bottom:1px solid rgba(240,237,232,0.06)">
+     ═══════════════════════════════════════════════════════ -->
+<nav id="main-nav">
 <div class="flex items-center justify-between px-6 md:px-16 h-full max-w-[1400px] mx-auto">
-  <!-- Logo -->
   <a href="../home_brayer_peptides/code.html" class="font-display text-[30px] tracking-wider" style="color:#f0ede8;text-decoration:none">BRAYER PEPTIDES</a>
-  <!-- Nav links -->
-  <div class="hidden md:flex items-center gap-10">    <a href="../home_brayer_peptides/code.html" class="label-caps" style="color:#f0ede8;text-decoration:none;border-bottom:1px solid #1a3a2a;padding-bottom:2px">HOME</a>
+  <div class="hidden md:flex items-center gap-10">
+    <a href="../home_brayer_peptides/code.html" class="label-caps" style="color:#f0ede8;text-decoration:none;border-bottom:1px solid #1a6b3c;padding-bottom:2px">HOME</a>
     <a href="../research_shop_brayer_peptides/code.html" class="label-caps hover:text-[#f0ede8] transition-colors" style="color:#8a8a85;text-decoration:none">SHOP</a>
     <a href="../coa/index.html" class="label-caps hover:text-[#f0ede8] transition-colors" style="color:#8a8a85;text-decoration:none">COA</a>
     <a href="../faq/index.html" class="label-caps hover:text-[#f0ede8] transition-colors" style="color:#8a8a85;text-decoration:none">FAQ</a>
     <a href="../science_purity_brayer_peptides/code.html" class="label-caps hover:text-[#f0ede8] transition-colors" style="color:#8a8a85;text-decoration:none">ABOUT</a>
   </div>
-  <!-- Actions -->
   <div class="flex items-center gap-4">
+    <button type="button" id="cart-btn" class="relative" style="color:#8a8a85;background:none;border:none;cursor:pointer">
+      <span class="material-symbols-outlined">shopping_cart</span>
+      <span id="cart-count" class="absolute -top-1 -right-1 w-4 h-4 flex items-center justify-center font-display text-[11px]" style="background:#1a3a2a;color:#f0ede8">0</span>
+    </button>
     <button type="button" class="btn-primary" style="padding:9px 22px;font-size:10px">LOGIN</button>
-    <button type="button" class="hamburger" style="color:#f0ede8" aria-label="Toggle navigation" aria-expanded="false">
+    <button type="button" class="hamburger" id="hamburger-btn" style="color:#f0ede8" aria-label="Toggle navigation">
       <span></span><span></span><span></span>
     </button>
   </div>
 </div>
-<div class="mobile-nav">    <a href="../home_brayer_peptides/code.html" class="label-caps" style="color:#f0ede8;text-decoration:none;border-bottom:1px solid #1a3a2a;padding-bottom:2px">HOME</a>
-    <a href="../research_shop_brayer_peptides/code.html" class="label-caps hover:text-[#f0ede8] transition-colors" style="color:#8a8a85;text-decoration:none">SHOP</a>
-    <a href="../coa/index.html" class="label-caps hover:text-[#f0ede8] transition-colors" style="color:#8a8a85;text-decoration:none">COA</a>
-    <a href="../faq/index.html" class="label-caps hover:text-[#f0ede8] transition-colors" style="color:#8a8a85;text-decoration:none">FAQ</a>
-    <a href="../science_purity_brayer_peptides/code.html" class="label-caps hover:text-[#f0ede8] transition-colors" style="color:#8a8a85;text-decoration:none">ABOUT</a>
+<div class="mobile-nav" id="mobile-nav">
+  <a href="../home_brayer_peptides/code.html" class="label-caps" style="color:#f0ede8;text-decoration:none">HOME</a>
+  <a href="../research_shop_brayer_peptides/code.html" class="label-caps" style="color:#8a8a85;text-decoration:none">SHOP</a>
+  <a href="../coa/index.html" class="label-caps" style="color:#8a8a85;text-decoration:none">COA</a>
+  <a href="../faq/index.html" class="label-caps" style="color:#8a8a85;text-decoration:none">FAQ</a>
+  <a href="../science_purity_brayer_peptides/code.html" class="label-caps" style="color:#8a8a85;text-decoration:none">ABOUT</a>
 </div>
 </nav>
 
-<!-- ══════════════════════════════════════════════════════════════
-     TRUST MARQUEE BAR
-     ══════════════════════════════════════════════════════════════ -->
-<div class="fixed left-0 right-0 z-40 h-[36px] flex items-center overflow-hidden" style="top:60px;background:#0a0a0a;border-bottom:1px solid rgba(240,237,232,0.04)">
-<div class="marquee-wrapper">
-  <span class="marquee-track label-caps" style="color:#4a8a5a">
-    HPLC VERIFIED &nbsp;·&nbsp; 99%+ PURITY GUARANTEED &nbsp;·&nbsp; SAME-DAY DISPATCH &nbsp;·&nbsp; COA EVERY BATCH &nbsp;·&nbsp; 3RD PARTY TESTED &nbsp;·&nbsp; PHARMACEUTICAL GRADE &nbsp;·&nbsp; NO FILLER COMPOUNDS &nbsp;·&nbsp;&nbsp;&nbsp;&nbsp;
-    HPLC VERIFIED &nbsp;·&nbsp; 99%+ PURITY GUARANTEED &nbsp;·&nbsp; SAME-DAY DISPATCH &nbsp;·&nbsp; COA EVERY BATCH &nbsp;·&nbsp; 3RD PARTY TESTED &nbsp;·&nbsp; PHARMACEUTICAL GRADE &nbsp;·&nbsp; NO FILLER COMPOUNDS &nbsp;·&nbsp;&nbsp;&nbsp;&nbsp;
+<!-- ═══════════════════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════════════════ -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+
+  <!-- Right: floating vial -->
+  <div class="hero-vial-wrap">
+    <div class="hero-vial-glow"></div>
+    <img src="../assets/images/bpc157_10mg.png" alt="BPC-157 research vial" class="hero-vial-img"/>
+  </div>
+
+  <!-- Left: content -->
+  <div class="hero-content">
+    <div style="max-width:640px">
+      <p class="label-caps" style="color:#3a9a5c;letter-spacing:5px;margin-bottom:20px;font-size:10px" data-hero-fade>RESEARCH GRADE COMPOUNDS</p>
+      <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,9vw,120px);line-height:0.9;letter-spacing:0.02em;margin-bottom:0" data-hero-fade>
+        <span style="display:block;color:#f0ede8">PRECISION</span>
+        <span class="text-ghost" style="display:block;font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,9vw,120px);line-height:0.9;letter-spacing:0.02em">PEPTIDE RESEARCH</span>
+        <span style="display:block;color:#f0ede8">YOU CAN TRUST.</span>
+      </h1>
+      <p style="font-family:Inter,sans-serif;font-size:15px;color:#888;line-height:1.7;max-width:480px;margin:24px 0 32px" data-hero-fade>
+        Laboratory-grade research compounds with 99%+ independently verified purity. Trusted by researchers worldwide.
+      </p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px" data-hero-fade>
+        <a href="../research_shop_brayer_peptides/code.html" style="text-decoration:none">
+          <button class="btn-primary" style="background:#1a6b3c;border:none;padding:14px 32px;font-size:11px">
+            SHOP NOW <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span>
+          </button>
+        </a>
+        <a href="../coa/index.html" style="text-decoration:none">
+          <button style="background:transparent;border:1px solid #333;color:#888;font-family:Inter,sans-serif;font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:14px 32px;cursor:pointer;transition:border-color 0.2s,color 0.2s" onmouseover="this.style.borderColor='#1a6b3c';this.style.color='#f0ede8'" onmouseout="this.style.borderColor='#333';this.style.color='#888'">VIEW COAs</button>
+        </a>
+      </div>
+      <!-- Stats row -->
+      <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap" data-hero-fade>
+        <div>
+          <p style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:#f0ede8;letter-spacing:0.04em;line-height:1">99%+</p>
+          <p class="label-caps" style="color:#555;font-size:9px">PURITY</p>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div>
+          <p style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:#f0ede8;letter-spacing:0.04em;line-height:1">$250+</p>
+          <p class="label-caps" style="color:#555;font-size:9px">FREE SHIP</p>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div>
+          <p style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:#f0ede8;letter-spacing:0.04em;line-height:1">39</p>
+          <p class="label-caps" style="color:#555;font-size:9px">COMPOUNDS</p>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div>
+          <p style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:#f0ede8;letter-spacing:0.04em;line-height:1">COA</p>
+          <p class="label-caps" style="color:#555;font-size:9px">INCLUDED</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator">
+    <span class="label-caps" style="color:#555;font-size:9px;letter-spacing:4px">SCROLL</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     TRUST MARQUEE
+     ═══════════════════════════════════════════════════════ -->
+<div id="trust-marquee">
+  <span class="trust-track">
+    COAS PROVIDED &nbsp;✦&nbsp; 99%+ PURITY GUARANTEED &nbsp;✦&nbsp; HPLC VERIFIED &nbsp;✦&nbsp; BATCH TESTED &nbsp;✦&nbsp; AUSTRALIAN SHIPPING &nbsp;✦&nbsp; LAB CERTIFIED &nbsp;✦&nbsp; RESEARCH USE ONLY &nbsp;✦&nbsp; INDEPENDENT TESTING &nbsp;✦&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    COAS PROVIDED &nbsp;✦&nbsp; 99%+ PURITY GUARANTEED &nbsp;✦&nbsp; HPLC VERIFIED &nbsp;✦&nbsp; BATCH TESTED &nbsp;✦&nbsp; AUSTRALIAN SHIPPING &nbsp;✦&nbsp; LAB CERTIFIED &nbsp;✦&nbsp; RESEARCH USE ONLY &nbsp;✦&nbsp; INDEPENDENT TESTING &nbsp;✦&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   </span>
 </div>
-</div>
 
-<main style="padding-top:96px">
+<!-- ═══════════════════════════════════════════════════════
+     FEATURED PRODUCTS
+     ═══════════════════════════════════════════════════════ -->
+<section style="background:#0a0a0a;padding:80px 24px">
+<div style="max-width:1400px;margin:0 auto">
 
-<!-- ══════════════════════════════════════════════════════════════
-     HERO
-     ══════════════════════════════════════════════════════════════ -->
-<section class="relative flex items-end min-h-screen pb-20 hero-grain overflow-hidden" data-animate>
-<!-- Background image -->
-<div class="absolute inset-0">
-  <img class="w-full h-full object-cover" style="opacity:0.38" alt="Dark clinical laboratory with sophisticated stainless steel equipment and dramatic focused lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDZ86x1gMGfVUOLE3_U5gpchHpG1a7TjGj0TYkMs-Y3S0vxH2iiCFWEgj8UXMURYBdlEKqGVxWFvkdJZh0TsXrn9GY-EXCArCNT94qozLfBpxULjhUiYwX8tip_0PZtVnVjIQzK8veuVo_zzlB-bNdLrV2SORc2tLk94ONRL68XFIzu3ZJdyqbaytNeCFaexLfbZnv62A-XAkbkaDONElDNL4tLMonsxspC1qA7Haidmb6vbTTSqCr-4ZWz1pZzn2NIQ8_4KSZ4l0"/>
-  <div class="absolute inset-0" style="background:linear-gradient(to top,#000000 0%,rgba(0,0,0,0.2) 55%,rgba(0,0,0,0.55) 100%)"></div>
-</div>
-<!-- Content -->
-<div class="relative z-10 px-6 md:px-16 w-full max-w-[1400px] mx-auto">
-  <p class="label-caps mb-6" style="color:#4a8a5a">Research-Grade Peptides &nbsp;·&nbsp; Authorized Laboratory Use Only</p>
-  <h1 class="headline-hero mb-6">OPTIMIZE YOUR<br/>PHYSIOLOGY.</h1>
-  <!-- Thin green separator -->
-  <div class="mb-8" style="width:72px;height:2px;background:#1a3a2a"></div>
-  <p class="mb-10 max-w-md" style="font-size:15px;line-height:1.65;color:#8a8a85">Elite-grade synthetic peptides engineered for laboratory investigation. Every compound HPLC and mass-spectrometry certified to &gt;99% purity.</p>
-  <div class="flex flex-col sm:flex-row gap-4">
-    <a href="../research_shop_brayer_peptides/code.html" style="text-decoration:none"><button type="button" class="btn-primary">
-      VIEW CATALOG
-      <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
-    </button></a>
-    <button type="button" class="btn-outlined">READ SCIENCE</button>
+  <!-- Header -->
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px" class="scroll-anim">
+    <div>
+      <p class="label-caps" style="color:#4a8a5a;margin-bottom:10px">OUR COLLECTION</p>
+      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,60px);letter-spacing:0.03em;color:#f0ede8;line-height:1;margin:0">FEATURED COMPOUNDS</h2>
+    </div>
+    <a href="../research_shop_brayer_peptides/code.html" class="label-caps" style="color:#4a8a5a;text-decoration:none;display:flex;align-items:center;gap:6px;white-space:nowrap">
+      VIEW ALL <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span>
+    </a>
   </div>
-  <!-- Vertical scroll label -->
-  <div class="absolute hidden md:flex items-center gap-3" style="bottom:0;right:64px;color:#8a8a85">
-    <div style="width:1px;height:48px;background:rgba(240,237,232,0.15)"></div>
-    <span class="label-caps" style="writing-mode:vertical-rl">SCROLL</span>
+
+  <!-- 4-col grid -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-bottom:40px" id="featured-grid">
+
+    <!-- Card 1: BPC-157 10mg -->
+    <article class="feat-card" data-name="BPC-157 10MG" data-product-url="../product_pages/bpc157.html">
+      <div class="feat-img-wrap">
+        <img src="../assets/images/bpc157_10mg.png" alt="BPC-157 10mg"/>
+        <div class="purity-badge">99.6%</div>
+        <div style="position:absolute;bottom:10px;left:12px;display:flex;align-items:center;gap:5px">
+          <span class="stock-dot"></span><span class="label-caps" style="color:#4a8a5a;font-size:9px">IN STOCK</span>
+        </div>
+      </div>
+      <div style="padding:18px 20px 20px;display:flex;flex-direction:column;flex:1">
+        <span class="label-caps" style="color:#4a8a5a;font-size:9px;margin-bottom:6px">Recovery</span>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:#f0ede8;margin:0 0 10px;line-height:1.1">BPC-157 10MG</h3>
+        <div style="display:flex;align-items:baseline;gap:5px;margin-bottom:14px">
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:#f0ede8">$148.00</span>
+          <span class="label-caps" style="color:#8a8a85;font-size:9px">/ vial</span>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:auto">
+          <button type="button" class="btn-outlined" style="padding:8px 12px;font-size:9px;display:flex;align-items:center;gap:4px">
+            <span class="material-symbols-outlined" style="font-size:12px">description</span>COA
+          </button>
+          <button type="button" class="btn-primary" style="flex:1;justify-content:center;padding:8px 10px;font-size:9px;background:#1a6b3c">
+            <span class="material-symbols-outlined" style="font-size:12px">add_shopping_cart</span>ADD TO CART
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 2: Tirzepatide 10mg -->
+    <article class="feat-card" data-name="TIRZEPATIDE 10MG" data-product-url="../product_pages/tirzepatide.html">
+      <div class="feat-img-wrap">
+        <img src="../assets/images/tirzepatide_10mg.png" alt="Tirzepatide 10mg"/>
+        <div class="purity-badge">99.2%</div>
+        <div style="position:absolute;bottom:10px;left:12px;display:flex;align-items:center;gap:5px">
+          <span class="stock-dot"></span><span class="label-caps" style="color:#4a8a5a;font-size:9px">IN STOCK</span>
+        </div>
+      </div>
+      <div style="padding:18px 20px 20px;display:flex;flex-direction:column;flex:1">
+        <span class="label-caps" style="color:#4a8a5a;font-size:9px;margin-bottom:6px">GLP-1 / Fat Loss</span>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:#f0ede8;margin:0 0 10px;line-height:1.1">TIRZEPATIDE 10MG</h3>
+        <div style="display:flex;align-items:baseline;gap:5px;margin-bottom:14px">
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:#f0ede8">$185.00</span>
+          <span class="label-caps" style="color:#8a8a85;font-size:9px">/ vial</span>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:auto">
+          <button type="button" class="btn-outlined" style="padding:8px 12px;font-size:9px;display:flex;align-items:center;gap:4px">
+            <span class="material-symbols-outlined" style="font-size:12px">description</span>COA
+          </button>
+          <button type="button" class="btn-primary" style="flex:1;justify-content:center;padding:8px 10px;font-size:9px;background:#1a6b3c">
+            <span class="material-symbols-outlined" style="font-size:12px">add_shopping_cart</span>ADD TO CART
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 3: CJC-1295 No DAC + IPA -->
+    <article class="feat-card" data-name="CJC-1295 NO DAC + IPA 10MG" data-product-url="../product_pages/cjc1295_nodac_ipa.html">
+      <div class="feat-img-wrap">
+        <img src="../assets/images/cjc1295_nodac_ipa_10mg.png" alt="CJC-1295 No DAC + IPA 10mg"/>
+        <div class="purity-badge">99.2%</div>
+        <div style="position:absolute;bottom:10px;left:12px;display:flex;align-items:center;gap:5px">
+          <span class="stock-dot"></span><span class="label-caps" style="color:#4a8a5a;font-size:9px">IN STOCK</span>
+        </div>
+      </div>
+      <div style="padding:18px 20px 20px;display:flex;flex-direction:column;flex:1">
+        <span class="label-caps" style="color:#4a8a5a;font-size:9px;margin-bottom:6px">GH Axis</span>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:#f0ede8;margin:0 0 10px;line-height:1.1">CJC-1295 + IPA 10MG</h3>
+        <div style="display:flex;align-items:baseline;gap:5px;margin-bottom:14px">
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:#f0ede8">$82.00</span>
+          <span class="label-caps" style="color:#8a8a85;font-size:9px">/ vial</span>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:auto">
+          <button type="button" class="btn-outlined" style="padding:8px 12px;font-size:9px;display:flex;align-items:center;gap:4px">
+            <span class="material-symbols-outlined" style="font-size:12px">description</span>COA
+          </button>
+          <button type="button" class="btn-primary" style="flex:1;justify-content:center;padding:8px 10px;font-size:9px;background:#1a6b3c">
+            <span class="material-symbols-outlined" style="font-size:12px">add_shopping_cart</span>ADD TO CART
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 4: GHK-Cu 50mg -->
+    <article class="feat-card" data-name="GHK-CU 50MG" data-product-url="../product_pages/ghk_cu.html">
+      <div class="feat-img-wrap">
+        <img src="../assets/images/ghk_cu_50mg.png" alt="GHK-Cu 50mg"/>
+        <div class="purity-badge">99.7%</div>
+        <div style="position:absolute;bottom:10px;left:12px;display:flex;align-items:center;gap:5px">
+          <span class="stock-dot"></span><span class="label-caps" style="color:#4a8a5a;font-size:9px">IN STOCK</span>
+        </div>
+      </div>
+      <div style="padding:18px 20px 20px;display:flex;flex-direction:column;flex:1">
+        <span class="label-caps" style="color:#4a8a5a;font-size:9px;margin-bottom:6px">Longevity</span>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:#f0ede8;margin:0 0 10px;line-height:1.1">GHK-CU 50MG</h3>
+        <div style="display:flex;align-items:baseline;gap:5px;margin-bottom:14px">
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:#f0ede8">$46.00</span>
+          <span class="label-caps" style="color:#8a8a85;font-size:9px">/ vial</span>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:auto">
+          <button type="button" class="btn-outlined" style="padding:8px 12px;font-size:9px;display:flex;align-items:center;gap:4px">
+            <span class="material-symbols-outlined" style="font-size:12px">description</span>COA
+          </button>
+          <button type="button" class="btn-primary" style="flex:1;justify-content:center;padding:8px 10px;font-size:9px;background:#1a6b3c">
+            <span class="material-symbols-outlined" style="font-size:12px">add_shopping_cart</span>ADD TO CART
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 5: Retatrutide 10mg -->
+    <article class="feat-card" data-name="RETATRUTIDE 10MG" data-product-url="../product_pages/retatrutide.html">
+      <div class="feat-img-wrap">
+        <img src="../assets/images/retatrutide_10mg.png" alt="Retatrutide 10mg"/>
+        <div class="purity-badge">98.9%</div>
+        <div style="position:absolute;bottom:10px;left:12px;display:flex;align-items:center;gap:5px">
+          <span class="stock-dot"></span><span class="label-caps" style="color:#4a8a5a;font-size:9px">IN STOCK</span>
+        </div>
+      </div>
+      <div style="padding:18px 20px 20px;display:flex;flex-direction:column;flex:1">
+        <span class="label-caps" style="color:#4a8a5a;font-size:9px;margin-bottom:6px">GLP-1 / Fat Loss</span>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:#f0ede8;margin:0 0 10px;line-height:1.1">RETATRUTIDE 10MG</h3>
+        <div style="display:flex;align-items:baseline;gap:5px;margin-bottom:14px">
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:#f0ede8">$195.00</span>
+          <span class="label-caps" style="color:#8a8a85;font-size:9px">/ vial</span>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:auto">
+          <button type="button" class="btn-outlined" style="padding:8px 12px;font-size:9px;display:flex;align-items:center;gap:4px">
+            <span class="material-symbols-outlined" style="font-size:12px">description</span>COA
+          </button>
+          <button type="button" class="btn-primary" style="flex:1;justify-content:center;padding:8px 10px;font-size:9px;background:#1a6b3c">
+            <span class="material-symbols-outlined" style="font-size:12px">add_shopping_cart</span>ADD TO CART
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 6: NAD+ 500 -->
+    <article class="feat-card" data-name="NAD+ 500" data-product-url="../product_pages/nad_plus.html">
+      <div class="feat-img-wrap">
+        <img src="../assets/images/nad_plus_500.png" alt="NAD+ 500"/>
+        <div class="purity-badge">99.6%</div>
+        <div style="position:absolute;bottom:10px;left:12px;display:flex;align-items:center;gap:5px">
+          <span class="stock-dot"></span><span class="label-caps" style="color:#4a8a5a;font-size:9px">IN STOCK</span>
+        </div>
+      </div>
+      <div style="padding:18px 20px 20px;display:flex;flex-direction:column;flex:1">
+        <span class="label-caps" style="color:#4a8a5a;font-size:9px;margin-bottom:6px">Longevity</span>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:#f0ede8;margin:0 0 10px;line-height:1.1">NAD+ 500MG</h3>
+        <div style="display:flex;align-items:baseline;gap:5px;margin-bottom:14px">
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:#f0ede8">$95.00</span>
+          <span class="label-caps" style="color:#8a8a85;font-size:9px">/ vial</span>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:auto">
+          <button type="button" class="btn-outlined" style="padding:8px 12px;font-size:9px;display:flex;align-items:center;gap:4px">
+            <span class="material-symbols-outlined" style="font-size:12px">description</span>COA
+          </button>
+          <button type="button" class="btn-primary" style="flex:1;justify-content:center;padding:8px 10px;font-size:9px;background:#1a6b3c">
+            <span class="material-symbols-outlined" style="font-size:12px">add_shopping_cart</span>ADD TO CART
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 7: Semax 10mg -->
+    <article class="feat-card" data-name="SEMAX 10MG" data-product-url="../product_pages/semax.html">
+      <div class="feat-img-wrap">
+        <img src="../assets/images/semax_10mg.png" alt="Semax 10mg"/>
+        <div class="purity-badge">99.0%</div>
+        <div style="position:absolute;bottom:10px;left:12px;display:flex;align-items:center;gap:5px">
+          <span class="stock-dot"></span><span class="label-caps" style="color:#4a8a5a;font-size:9px">IN STOCK</span>
+        </div>
+      </div>
+      <div style="padding:18px 20px 20px;display:flex;flex-direction:column;flex:1">
+        <span class="label-caps" style="color:#4a8a5a;font-size:9px;margin-bottom:6px">Nootropic</span>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:#f0ede8;margin:0 0 10px;line-height:1.1">SEMAX 10MG</h3>
+        <div style="display:flex;align-items:baseline;gap:5px;margin-bottom:14px">
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:#f0ede8">$98.00</span>
+          <span class="label-caps" style="color:#8a8a85;font-size:9px">/ vial</span>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:auto">
+          <button type="button" class="btn-outlined" style="padding:8px 12px;font-size:9px;display:flex;align-items:center;gap:4px">
+            <span class="material-symbols-outlined" style="font-size:12px">description</span>COA
+          </button>
+          <button type="button" class="btn-primary" style="flex:1;justify-content:center;padding:8px 10px;font-size:9px;background:#1a6b3c">
+            <span class="material-symbols-outlined" style="font-size:12px">add_shopping_cart</span>ADD TO CART
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 8: Glow Blend -->
+    <article class="feat-card" data-name="GLOW BLEND" data-product-url="../product_pages/glow_blend.html">
+      <div class="feat-img-wrap">
+        <img src="../assets/images/glow_blend.png" alt="Glow Blend"/>
+        <div class="purity-badge">99.1%</div>
+        <div style="position:absolute;bottom:10px;left:12px;display:flex;align-items:center;gap:5px">
+          <span class="stock-dot"></span><span class="label-caps" style="color:#4a8a5a;font-size:9px">IN STOCK</span>
+        </div>
+      </div>
+      <div style="padding:18px 20px 20px;display:flex;flex-direction:column;flex:1">
+        <span class="label-caps" style="color:#4a8a5a;font-size:9px;margin-bottom:6px">Longevity</span>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:#f0ede8;margin:0 0 10px;line-height:1.1">GLOW BLEND</h3>
+        <div style="display:flex;align-items:baseline;gap:5px;margin-bottom:14px">
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:#f0ede8">$125.00</span>
+          <span class="label-caps" style="color:#8a8a85;font-size:9px">/ vial</span>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:auto">
+          <button type="button" class="btn-outlined" style="padding:8px 12px;font-size:9px;display:flex;align-items:center;gap:4px">
+            <span class="material-symbols-outlined" style="font-size:12px">description</span>COA
+          </button>
+          <button type="button" class="btn-primary" style="flex:1;justify-content:center;padding:8px 10px;font-size:9px;background:#1a6b3c">
+            <span class="material-symbols-outlined" style="font-size:12px">add_shopping_cart</span>ADD TO CART
+          </button>
+        </div>
+      </div>
+    </article>
+
   </div>
+
+  <!-- View all button -->
+  <div style="text-align:center" class="scroll-anim">
+    <a href="../research_shop_brayer_peptides/code.html" style="text-decoration:none">
+      <button class="btn-outlined" style="padding:13px 36px;font-size:11px">
+        VIEW ALL 39 COMPOUNDS <span class="material-symbols-outlined" style="font-size:13px">arrow_forward</span>
+      </button>
+    </a>
+  </div>
+
 </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════════════
-     PRODUCTS BENTO
-     ══════════════════════════════════════════════════════════════ -->
-<section class="py-24 px-6 md:px-16 max-w-[1400px] mx-auto">
+<!-- ═══════════════════════════════════════════════════════
+     FEATURES STRIP
+     ═══════════════════════════════════════════════════════ -->
+<section style="background:#0d0d0d;border-top:2px solid #1a6b3c">
+<div style="max-width:1400px;margin:0 auto;display:flex;flex-wrap:wrap">
 
-<!-- Section header -->
-<div class="flex items-end justify-between mb-12 pb-6" style="border-bottom:1px solid rgba(240,237,232,0.07)">
-  <div data-animate>
-    <p class="label-caps mb-3" style="color:#4a8a5a">Research Catalog</p>
-    <h2 class="headline-xl">TOP RESEARCH COMPOUNDS</h2>
+  <div class="feature-col scroll-anim" style="--delay:0ms">
+    <div style="width:52px;height:52px;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(26,107,60,0.4)">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1a6b3c" stroke-width="1.5">
+        <path d="M9 3H15M10 3V8L7 21H17L14 8V3" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="10.5" cy="13" r="1" fill="#1a6b3c" stroke="none"/>
+      </svg>
+    </div>
+    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.06em;color:#f0ede8;margin:0 0 12px">99%+ PURITY</h3>
+    <p style="font-family:Inter,sans-serif;font-size:13px;color:#8a8a85;line-height:1.7;margin:0">Independently tested by accredited third-party labs on every batch. HPLC and mass spec verified.</p>
   </div>
-  <a href="../research_shop_brayer_peptides/code.html" class="hidden md:flex items-center gap-2 label-caps" style="color:#8a8a85;text-decoration:none">
-    VIEW ALL <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span>
+
+  <div class="feature-col scroll-anim" style="--delay:150ms;transition-delay:150ms">
+    <div style="width:52px;height:52px;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(26,107,60,0.4)">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1a6b3c" stroke-width="1.5">
+        <path d="M12 3L4 7V12C4 16.4 7.4 20.5 12 21.5C16.6 20.5 20 16.4 20 12V7L12 3Z" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M9 12L11 14L15 10" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.06em;color:#f0ede8;margin:0 0 12px">COA WITH EVERY ORDER</h3>
+    <p style="font-family:Inter,sans-serif;font-size:13px;color:#8a8a85;line-height:1.7;margin:0">Certificate of Analysis included for complete transparency on every compound we supply.</p>
+  </div>
+
+  <div class="feature-col scroll-anim" style="--delay:300ms;transition-delay:300ms">
+    <div style="width:52px;height:52px;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(26,107,60,0.4)">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1a6b3c" stroke-width="1.5">
+        <rect x="2" y="7" width="20" height="14" rx="1" stroke-linecap="round"/>
+        <path d="M16 7V5C16 3.9 15.1 3 14 3H10C8.9 3 8 3.9 8 5V7" stroke-linecap="round"/>
+        <path d="M12 12V17M9 14.5H15" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.06em;color:#f0ede8;margin:0 0 12px">FAST AUSTRALIAN SHIPPING</h3>
+    <p style="font-family:Inter,sans-serif;font-size:13px;color:#8a8a85;line-height:1.7;margin:0">Orders dispatched within 1–2 business days. Express and standard options available at checkout.</p>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     ABOUT / TRUST SECTION
+     ═══════════════════════════════════════════════════════ -->
+<section style="background:#000000">
+<div style="max-width:1400px;margin:0 auto;display:flex;flex-wrap:wrap;min-height:520px">
+
+  <!-- Left 55% -->
+  <div style="flex:0 0 55%;min-width:300px;padding:80px 48px 80px 24px;display:flex;flex-direction:column;justify-content:center" class="scroll-anim">
+    <p class="label-caps" style="color:#4a8a5a;margin-bottom:14px">ABOUT US</p>
+    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,5vw,72px);letter-spacing:0.03em;line-height:0.95;margin:0 0 24px">
+      <span style="display:block;color:#f0ede8">PREMIUM RESEARCH</span>
+      <span class="text-ghost" style="display:block;font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,5vw,72px);letter-spacing:0.03em;line-height:0.95">YOU CAN TRUST.</span>
+    </h2>
+    <p style="font-family:Inter,sans-serif;font-size:14px;color:#8a8a85;line-height:1.75;margin-bottom:16px;max-width:520px">
+      Brayer Peptides is an Australian supplier of research-grade compounds, committed to delivering exceptional purity at competitive prices. Every compound is independently tested and ships with a full Certificate of Analysis.
+    </p>
+    <p style="font-family:Inter,sans-serif;font-size:14px;color:#8a8a85;line-height:1.75;margin-bottom:40px;max-width:520px">
+      We pride ourselves on fast, reliable shipping and transparent quality standards. Trusted by researchers across Australia for 99%+ purity compounds.
+    </p>
+    <!-- Stats -->
+    <div style="display:flex;gap:32px;flex-wrap:wrap;margin-bottom:40px">
+      <div>
+        <p style="font-family:'Bebas Neue',sans-serif;font-size:52px;color:#1a6b3c;letter-spacing:0.04em;line-height:1;margin:0" data-counter="39" data-suffix="+">39+</p>
+        <p class="label-caps" style="color:#555;font-size:9px">COMPOUNDS</p>
+      </div>
+      <div>
+        <p style="font-family:'Bebas Neue',sans-serif;font-size:52px;color:#1a6b3c;letter-spacing:0.04em;line-height:1;margin:0">99%+</p>
+        <p class="label-caps" style="color:#555;font-size:9px">PURITY</p>
+      </div>
+      <div>
+        <p style="font-family:'Bebas Neue',sans-serif;font-size:52px;color:#1a6b3c;letter-spacing:0.04em;line-height:1;margin:0">COA</p>
+        <p class="label-caps" style="color:#555;font-size:9px">EVERY ORDER</p>
+      </div>
+    </div>
+    <a href="../science_purity_brayer_peptides/code.html" style="text-decoration:none;display:inline-flex">
+      <button class="btn-outlined" style="border-color:#1a6b3c;color:#4a8a5a;padding:12px 28px;font-size:10px">
+        LEARN MORE <span class="material-symbols-outlined" style="font-size:13px">arrow_forward</span>
+      </button>
+    </a>
+  </div>
+
+  <!-- Right 45% -->
+  <div style="flex:0 0 45%;min-width:280px;position:relative;min-height:480px;overflow:hidden">
+    <img src="../assets/images/tirzepatide_10mg.png" alt="Research compound vial"
+      style="width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(0.75)"/>
+    <!-- Badge -->
+    <div class="about-vial-badge">
+      <p style="font-family:'Bebas Neue',sans-serif;font-size:42px;color:#1a6b3c;letter-spacing:0.04em;line-height:1;margin:0">99%</p>
+      <p class="label-caps" style="color:#f0ede8;font-size:9px;margin:4px 0 2px">PURITY GUARANTEED</p>
+      <p class="label-caps" style="color:#8a8a85;font-size:8px;margin:0">THIRD-PARTY TESTED</p>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     FAQ PREVIEW
+     ═══════════════════════════════════════════════════════ -->
+<section style="background:#0a0a0a;border-top:1px solid rgba(240,237,232,0.06)">
+<div style="max-width:1400px;margin:0 auto;display:flex;flex-wrap:wrap">
+
+  <!-- Left 45%: visual -->
+  <div style="flex:0 0 45%;min-width:280px;position:relative;min-height:600px;overflow:hidden;background:#080808">
+    <!-- Geometric bg shapes -->
+    <div style="position:absolute;width:280px;height:400px;background:#0f0f0f;top:40px;left:20px;transform:rotate(-8deg);clip-path:polygon(0 0,100% 0,100% 85%,0 100%)"></div>
+    <div style="position:absolute;width:200px;height:300px;background:#0c0c0c;bottom:60px;right:30px;transform:rotate(5deg)"></div>
+    <!-- Green glow -->
+    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:280px;height:280px;background:radial-gradient(circle,rgba(26,107,60,0.18) 0%,transparent 70%);border-radius:50%;pointer-events:none"></div>
+    <!-- Vial -->
+    <img src="../assets/images/bpc157_10mg.png" alt="BPC-157 vial"
+      style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:340px;width:auto;object-fit:contain;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.6));z-index:2"/>
+  </div>
+
+  <!-- Right 55%: content -->
+  <div style="flex:0 0 55%;min-width:300px;padding:72px 32px 72px 48px;display:flex;flex-direction:column;justify-content:center" class="scroll-anim">
+    <p class="label-caps" style="color:#4a8a5a;margin-bottom:14px">FAQ</p>
+    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5vw,66px);letter-spacing:0.03em;line-height:0.95;margin:0 0 40px">
+      <span style="display:block;color:#f0ede8">HERE'S WHAT YOU</span>
+      <span class="text-ghost" style="display:block;font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5vw,66px);letter-spacing:0.03em;line-height:0.95">SHOULD KNOW.</span>
+    </h2>
+
+    <!-- Accordion -->
+    <div id="faq-preview">
+      <div class="faq-acc-item open">
+        <button class="faq-acc-btn" onclick="toggleAccordion(this)">
+          What are research compounds, and how are they used?
+          <span class="material-symbols-outlined faq-acc-icon">add</span>
+        </button>
+        <div class="faq-acc-body"><p>Research compounds are molecules designed strictly for scientific and laboratory research. They are not intended for human or veterinary use and are used in preclinical experiments, academic studies, and product development testing.</p></div>
+      </div>
+      <div class="faq-acc-item">
+        <button class="faq-acc-btn" onclick="toggleAccordion(this)">
+          Are your compounds tested for purity?
+          <span class="material-symbols-outlined faq-acc-icon">add</span>
+        </button>
+        <div class="faq-acc-body"><p>Yes — all compounds undergo rigorous third-party testing to ensure 99%+ purity. Each product comes with a Certificate of Analysis detailing testing results and confirming the quality of the compound.</p></div>
+      </div>
+      <div class="faq-acc-item">
+        <button class="faq-acc-btn" onclick="toggleAccordion(this)">
+          Are your products legal to purchase in Australia?
+          <span class="material-symbols-outlined faq-acc-icon">add</span>
+        </button>
+        <div class="faq-acc-body"><p>Research peptides occupy a complex regulatory space. It is the purchaser's responsibility to ensure compliance with all applicable local and federal laws. Our compounds are sold strictly for in vitro research purposes.</p></div>
+      </div>
+      <div class="faq-acc-item">
+        <button class="faq-acc-btn" onclick="toggleAccordion(this)">
+          How does shipping work?
+          <span class="material-symbols-outlined faq-acc-icon">add</span>
+        </button>
+        <div class="faq-acc-body"><p>Orders are dispatched within 1–2 business days. Standard shipping takes 5–10 business days. Express (2–4 business days) is available at checkout. Free shipping on all Australian orders over $250.</p></div>
+      </div>
+      <div class="faq-acc-item">
+        <button class="faq-acc-btn" onclick="toggleAccordion(this)">
+          Who can order from Brayer Peptides?
+          <span class="material-symbols-outlined faq-acc-icon">add</span>
+        </button>
+        <div class="faq-acc-body"><p>Brayer Peptides serves researchers, academic institutions, and laboratories conducting legitimate scientific research. All customers must agree to our research-use-only terms at checkout.</p></div>
+      </div>
+    </div>
+
+    <a href="../faq/index.html" class="label-caps" style="color:#4a8a5a;text-decoration:none;display:flex;align-items:center;gap:6px;margin-top:28px">
+      VIEW ALL FAQs <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span>
+    </a>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     PURITY CTA
+     ═══════════════════════════════════════════════════════ -->
+<section style="background:#000000;padding:80px 24px">
+<div style="max-width:860px;margin:0 auto;background:#111;border:1px solid #1a1a1a;padding:72px 48px;text-align:center;position:relative;overflow:hidden" class="scroll-anim">
+  <!-- Glow -->
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:300px;background:radial-gradient(ellipse,rgba(26,107,60,0.12) 0%,transparent 70%);pointer-events:none"></div>
+  <p class="label-caps" style="color:#4a8a5a;letter-spacing:5px;margin-bottom:16px;position:relative">PURITY STANDARD</p>
+  <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,7vw,80px);letter-spacing:0.03em;line-height:0.92;margin:0 0 24px;position:relative">
+    <span style="display:block;color:#f0ede8">THIRD-PARTY VERIFIED</span>
+    <span class="text-ghost" style="display:block;font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,7vw,80px);letter-spacing:0.03em;line-height:0.92">EVERY SINGLE BATCH.</span>
+  </h2>
+  <p style="font-family:Inter,sans-serif;font-size:14px;color:#8a8a85;line-height:1.75;max-width:580px;margin:0 auto 36px;position:relative">
+    Every compound in our catalog is independently tested by accredited laboratories. Certificates of Analysis available for all products.
+  </p>
+  <a href="../research_shop_brayer_peptides/code.html" style="text-decoration:none;display:inline-block;position:relative">
+    <button id="purity-cta-btn">
+      SHOP COLLECTION <span class="material-symbols-outlined" style="font-size:15px">arrow_forward</span>
+    </button>
   </a>
 </div>
-
-<!-- Bento grid: large left + 3 stacked right -->
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4" data-stagger>
-
-  <!-- Large card: BPC-157 -->
-  <div class="flat-card flex flex-col overflow-hidden" style="min-height:560px">
-    <div class="relative overflow-hidden flex-1" style="min-height:300px">
-      <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style="opacity:0.72" alt="BPC-157 research vial in sterile laboratory setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYGF7B2C-HhbmcqMtutHnCzzmq18FF6e_idre4MbC4cZbg4BW8IE1PnRkbU30wosu0UP4JwNKgur3untZqo1MViXqZmvhFVlsE_n5MqojrzR_hauPF1HFDrbBS8kQeVbzMD1Ey55aCl2_JeNY-dSejxxtlziup_qLQ7-yn0gQuyAMVkMfvsn8YJe8UaSEJo8jZdF4TUiKqrRl36zMOoAwfzcHYSRBkdxEInicxSrAOtH2JCpxRWbAmYS819JXaooK2E6JRkwCSuA8"/>
-      <div class="absolute inset-0" style="background:linear-gradient(to top,#1c1c1c 0%,transparent 50%)"></div>
-      <div class="purity-badge">99.4% PURE</div>
-      <div class="absolute bottom-4 left-4 flex items-center gap-2">
-        <span class="stock-dot"></span>
-        <span class="label-caps" style="color:#4a8a5a">IN STOCK</span>
-      </div>
-    </div>
-    <div class="p-8 flex flex-col flex-1">
-      <p class="label-caps mb-2" style="color:#4a8a5a">Recovery Agent &nbsp;·&nbsp; Batch #BP-1124-09</p>
-      <h3 class="headline-lg mb-4">BPC-157</h3>
-      <p class="mb-8" style="font-size:14px;line-height:1.65;color:#8a8a85;flex:1">Body Protective Compound. A 15 amino acid sequence studied for its role in tissue repair, angiogenesis signaling, and cellular recovery mechanisms in controlled laboratory environments.</p>
-      <div class="flex items-center justify-between">
-        <div>
-          <p class="label-caps mb-1" style="color:#8a8a85">Starting from</p>
-          <p class="font-display text-[28px]" style="color:#f0ede8">$48.00</p>
-        </div>
-        <button type="button" class="btn-primary">
-          VIEW DOCS
-          <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Right column: 3 stacked cards -->
-  <div class="flex flex-col gap-4">
-
-    <!-- TB-500 -->
-    <div class="flat-card flex overflow-hidden" style="height:176px">
-      <div class="relative w-48 shrink-0 overflow-hidden">
-        <img class="w-full h-full object-cover" style="opacity:0.72" alt="TB-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP-I17FG5-55aEGUfmBjjtKTmcLIzTY-3ni92OBJP3luB_V7YeJZxEj3hREJrctTQDJqQldD4hl3ySSNgPNyRtvfPlG6j1IUEJc_-AebvJI5Ef7bACPuGKZPo9vIJavDmA3JH2LEYwoh3-R-NaNp4c19T2WwLAN5cPuI7GWqKDT5wR_pMeT7SIl4ti4ApulXB_oXYkFQ7Sq_U67GGS_wKrwohCnugaRjtMfRQlHXwhRhCSCR76rpwumB2xNyafTqe8fKBs232eMrk"/>
-        <div class="purity-badge">99.2%</div>
-      </div>
-      <div class="p-6 flex flex-col justify-between flex-1">
-        <div>
-          <p class="label-caps mb-1" style="color:#4a8a5a">Tissue Repair</p>
-          <h3 class="headline-md">TB-500</h3>
-          <p class="mt-2" style="font-size:13px;color:#8a8a85">Thymosin Beta-4 fragment. 2mg / 5mg vials.</p>
-        </div>
-        <p class="font-display text-[22px]" style="color:#f0ede8">$54.00</p>
-      </div>
-    </div>
-
-    <!-- CJC-1295 -->
-    <div class="flat-card flex overflow-hidden" style="height:176px">
-      <div class="relative w-48 shrink-0 overflow-hidden">
-        <img class="w-full h-full object-cover" style="opacity:0.72" alt="CJC-1295" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGBA1OLow-EfugOtc6ouzFR0NDwLQKVLJyB_Tf2KNpbqExX3_gMHW8Yd6CxVHl_02MS6DB8DIO5GSg8Zdz527Ux-eHF6olOt7JVrGRiX67n-dt2lV4qxSA66_JWljRvemYWRH-Otetp6upRLT2GGoYOApQ-OsNbJvYyFvngiBPlztYVT7LXmwRg5M6v-Q69v8e1Rv3f7qi6nmCSNkblIanRb4aJ6DeJOz8"/>
-        <div class="purity-badge">99.8%</div>
-      </div>
-      <div class="p-6 flex flex-col justify-between flex-1">
-        <div>
-          <p class="label-caps mb-1" style="color:#4a8a5a">GH Optimization</p>
-          <h3 class="headline-md">CJC-1295</h3>
-          <p class="mt-2" style="font-size:13px;color:#8a8a85">GHRH analogue with DAC. 2mg / 5mg / 10mg.</p>
-        </div>
-        <p class="font-display text-[22px]" style="color:#f0ede8">$52.00</p>
-      </div>
-    </div>
-
-    <!-- IPAMORELIN -->
-    <div class="flat-card flex overflow-hidden" style="height:176px">
-      <div class="relative w-48 shrink-0 overflow-hidden">
-        <img class="w-full h-full object-cover" style="opacity:0.72" alt="Ipamorelin" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsFEKzRrT7GYsE42gr2sC3iXmH5IjpUYyT8hhYonj-TJ_Ml2ti1R13zfTzgkGYNlXqPDG_2QAeKaOEgjLjFVMBjOPy0EYz2fsMNsarpqxro2ZPREip7Gr1tpF99W4qL9YG4TruQDzT0MQX3bnr4vdonCvcfMmIo1j9nwQ8kd0k3ShTRkfsz1hMN7fMlIamB2SoXxCUYgp3FFhFMYiyq3cnx_UdnFMGZ_eRMHz6PUEqjXs91xop60GCk09gXx_Kkwpynu6sc36etYA"/>
-        <div class="purity-badge">99.5%</div>
-      </div>
-      <div class="p-6 flex flex-col justify-between flex-1">
-        <div>
-          <p class="label-caps mb-1" style="color:#4a8a5a">GH Secretagogue</p>
-          <h3 class="headline-md">IPAMORELIN</h3>
-          <p class="mt-2" style="font-size:13px;color:#8a8a85">Selective ghrelin receptor agonist. 2mg / 5mg.</p>
-        </div>
-        <p class="font-display text-[22px]" style="color:#f0ede8">$44.00</p>
-      </div>
-    </div>
-
-  </div>
-</div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════════════
-     STATS STRIP
-     ══════════════════════════════════════════════════════════════ -->
-<section class="py-20 px-6 md:px-16" style="background:#1a3a2a">
-<div class="max-w-[1400px] mx-auto">
-  <div class="grid grid-cols-1 md:grid-cols-3" data-stagger>
-
-    <div class="py-8 md:py-0 md:pr-16" style="border-bottom:1px solid rgba(240,237,232,0.1)" data-animate>
-      <p class="font-display text-[clamp(64px,10vw,120px)]" style="line-height:0.88;color:#f0ede8">99.4%</p>
-      <p class="label-caps mt-4" style="color:rgba(240,237,232,0.45)">Average Purity</p>
-      <div class="mt-4" style="width:40px;height:2px;background:rgba(240,237,232,0.2)"></div>
-    </div>
-
-    <div class="py-8 md:py-0 md:px-16" style="border-bottom:1px solid rgba(240,237,232,0.1);border-left:1px solid rgba(240,237,232,0.1)" data-animate>
-      <p class="font-display text-[clamp(64px,10vw,120px)]" style="line-height:0.88;color:#f0ede8" data-counter="100" data-counter-suffix="%">100%</p>
-      <p class="label-caps mt-4" style="color:rgba(240,237,232,0.45)">3rd Party Tested</p>
-      <div class="mt-4" style="width:40px;height:2px;background:rgba(240,237,232,0.2)"></div>
-    </div>
-
-    <div class="py-8 md:py-0 md:pl-16" style="border-left:1px solid rgba(240,237,232,0.1)" data-animate>
-      <p class="font-display text-[clamp(64px,10vw,120px)]" style="line-height:0.88;color:#f0ede8" data-counter="10" data-counter-suffix="+">10+</p>
-      <p class="label-caps mt-4" style="color:rgba(240,237,232,0.45)">Active Compounds</p>
-      <div class="mt-4" style="width:40px;height:2px;background:rgba(240,237,232,0.2)"></div>
-    </div>
-
-  </div>
-</div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════════════
-     COACHING SECTION
-     ══════════════════════════════════════════════════════════════ -->
-<section class="py-24 px-6 md:px-16 max-w-[1400px] mx-auto">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-
-  <!-- Left: heading + service cards -->
-  <div>
-    <p class="label-caps mb-4" style="color:#4a8a5a" data-animate>Performance Coaching</p>
-    <h2 class="headline-xl mb-12" data-animate>COACHING<br/>BY BRAYER</h2>
-
-    <div class="flex flex-col gap-4" data-stagger>
-
-      <div class="flat-card p-6">
-        <div class="flex items-start gap-4">
-          <div class="shrink-0 w-10 h-10 flex items-center justify-center" style="background:#1a3a2a">
-            <span class="material-symbols-outlined" style="font-size:20px;color:#4a8a5a">analytics</span>
-          </div>
-          <div>
-            <h4 class="font-display text-[22px] mb-2" style="color:#f0ede8">Protocol Design</h4>
-            <p style="font-size:13px;color:#8a8a85;line-height:1.6">Empirically-driven research protocols tailored to your physiology and laboratory investigation objectives.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="flat-card p-6">
-        <div class="flex items-start gap-4">
-          <div class="shrink-0 w-10 h-10 flex items-center justify-center" style="background:#1a3a2a">
-            <span class="material-symbols-outlined" style="font-size:20px;color:#4a8a5a">biotech</span>
-          </div>
-          <div>
-            <h4 class="font-display text-[22px] mb-2" style="color:#f0ede8">Lab Panel Monitoring</h4>
-            <p style="font-size:13px;color:#8a8a85;line-height:1.6">Full-spectrum bloodwork interpretation and longitudinal biomarker tracking for optimization benchmarking.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="flat-card p-6">
-        <div class="flex items-start gap-4">
-          <div class="shrink-0 w-10 h-10 flex items-center justify-center" style="background:#1a3a2a">
-            <span class="material-symbols-outlined" style="font-size:20px;color:#4a8a5a">fitness_center</span>
-          </div>
-          <div>
-            <h4 class="font-display text-[22px] mb-2" style="color:#f0ede8">Performance Optimization</h4>
-            <p style="font-size:13px;color:#8a8a85;line-height:1.6">Periodized training methodologies integrated with compound research data for peak physical output.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="mt-10 flex items-center gap-6" data-animate>
-      <a href="../coach_brayer_performance_coaching/code.html" style="text-decoration:none"><button type="button" class="btn-primary">APPLY FOR COACHING</button></a>
-      <a href="../coach_brayer_performance_coaching/code.html" class="label-caps flex items-center gap-2" style="color:#8a8a85;text-decoration:none">
-        VIEW PROTOCOL <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- Right: large image -->
-  <div class="relative overflow-hidden" style="min-height:600px" data-animate-img>
-    <img class="w-full h-full object-cover absolute inset-0" style="opacity:0.85" alt="Elite athlete in a dark disciplined training environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE2e9wCH8_6qYv7x198N4tb1YI6dTdPLM6NnH79YXbCog49ytm8928NnQept5DRXR2wkNjQKMmr0ZaTAROOWWYS10X5FJGWTf0ayzovLdT-6wnNbZ596vdk2rV0z6ojuMlTIaFJ5FWB_8Etw26nflZHmBuOhelOXTajoNKF8DyrjEbUmB6t5uHuCR4N_SPwH5fzqtzPnYM7MrJO6bjJX29MDRQuiKLhbHJZ4gNwTdnA8drxS0uoZ3-fO-3DS2203v0ZKw_CewXEbQ"/>
-    <div class="absolute inset-0" style="background:linear-gradient(to right,rgba(0,0,0,0.3) 0%,transparent 60%)"></div>
-    <!-- Stat overlay -->
-    <div class="absolute bottom-8 left-8">
-      <div class="p-4" style="background:rgba(0,0,0,0.7);border:1px solid rgba(240,237,232,0.08);display:inline-block">
-        <p class="font-display text-[32px]" style="color:#f0ede8;line-height:1">2+</p>
-        <p class="label-caps mt-1" style="color:#8a8a85">Years Experience</p>
-      </div>
-    </div>
-  </div>
-
-</div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════════════
-     COMPLIANCE CALLOUT
-     ══════════════════════════════════════════════════════════════ -->
-<section class="px-6 md:px-16 py-12 max-w-[1400px] mx-auto mb-8">
-<div class="flex items-center gap-4 px-8 py-5" style="border:1px solid rgba(240,237,232,0.07);background:#0a0a0a" data-animate>
-  <span class="material-symbols-outlined shrink-0" style="font-size:18px;color:#8a8a85">info</span>
-  <p class="label-caps" style="color:#8a8a85">BRAYER PEPTIDES products are strictly for laboratory and research purposes only. Not for human consumption. Not for therapeutic or diagnostic use.</p>
-</div>
-</section>
-
-</main>
-
-<!-- ══════════════════════════════════════════════════════════════
+<!-- ═══════════════════════════════════════════════════════
      FOOTER
-     ══════════════════════════════════════════════════════════════ -->
-<footer style="border-top:1px solid rgba(240,237,232,0.07);background:#000000">
-<div class="flex flex-col md:flex-row items-center justify-between gap-4 px-6 md:px-16 py-6 max-w-[1400px] mx-auto">
-  <span class="font-display text-[20px]" style="color:#f0ede8">BRAYER PEPTIDES</span>
-  <div class="flex items-center gap-8">
-    <a href="#" class="label-caps" style="color:#8a8a85;text-decoration:none">Terms</a>
-    <a href="#" class="label-caps" style="color:#8a8a85;text-decoration:none">Privacy</a>
-    <a href="#" class="label-caps" style="color:#8a8a85;text-decoration:none">Compliance</a>
-    <a href="#" class="label-caps" style="color:#8a8a85;text-decoration:none">Contact</a>
+     ═══════════════════════════════════════════════════════ -->
+<footer style="background:#000000;border-top:1px solid rgba(240,237,232,0.07)">
+<div style="max-width:1400px;margin:0 auto;padding:64px 24px 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px">
+
+  <!-- Col 1: Brand -->
+  <div>
+    <p style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:0.06em;color:#f0ede8;margin:0 0 12px">BRAYER PEPTIDES</p>
+    <p style="font-family:Inter,sans-serif;font-size:13px;color:#8a8a85;line-height:1.7;margin:0 0 20px">Premium Australian research compounds.<br/>99%+ purity. Third-party tested.</p>
+    <div style="display:flex;gap:10px">
+      <div style="width:32px;height:32px;border:1px solid rgba(240,237,232,0.1);display:flex;align-items:center;justify-content:center;cursor:pointer">
+        <span class="material-symbols-outlined" style="font-size:16px;color:#8a8a85">language</span>
+      </div>
+    </div>
   </div>
-  <p class="label-caps text-center" style="color:#8a8a85">© 2024 BRAYER PEPTIDES · FOR LAB USE ONLY</p>
+
+  <!-- Col 2: Navigation -->
+  <div>
+    <p class="label-caps" style="color:#f0ede8;margin-bottom:20px">NAVIGATION</p>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <a href="../home_brayer_peptides/code.html" class="label-caps" style="color:#8a8a85;text-decoration:none;font-size:10px">HOME</a>
+      <a href="../research_shop_brayer_peptides/code.html" class="label-caps" style="color:#8a8a85;text-decoration:none;font-size:10px">SHOP</a>
+      <a href="../coa/index.html" class="label-caps" style="color:#8a8a85;text-decoration:none;font-size:10px">COA</a>
+      <a href="../faq/index.html" class="label-caps" style="color:#8a8a85;text-decoration:none;font-size:10px">FAQ</a>
+      <a href="../science_purity_brayer_peptides/code.html" class="label-caps" style="color:#8a8a85;text-decoration:none;font-size:10px">ABOUT</a>
+    </div>
+  </div>
+
+  <!-- Col 3: Legal -->
+  <div>
+    <p class="label-caps" style="color:#f0ede8;margin-bottom:20px">LEGAL</p>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <a href="#" class="label-caps" style="color:#8a8a85;text-decoration:none;font-size:10px">TERMS &amp; CONDITIONS</a>
+      <a href="#" class="label-caps" style="color:#8a8a85;text-decoration:none;font-size:10px">PRIVACY POLICY</a>
+      <a href="#" class="label-caps" style="color:#8a8a85;text-decoration:none;font-size:10px">REFUND &amp; RETURN</a>
+      <a href="#" class="label-caps" style="color:#8a8a85;text-decoration:none;font-size:10px">SHIPPING POLICY</a>
+    </div>
+  </div>
+
+  <!-- Col 4: Contact -->
+  <div>
+    <p class="label-caps" style="color:#f0ede8;margin-bottom:20px">CONTACT</p>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;align-items:flex-start;gap:10px">
+        <span class="material-symbols-outlined" style="font-size:14px;color:#4a8a5a;margin-top:1px;flex-shrink:0">mail</span>
+        <a href="mailto:support@brayerpeptides.com" style="font-family:Inter,sans-serif;font-size:12px;color:#8a8a85;text-decoration:none">support@brayerpeptides.com</a>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:10px">
+        <span class="material-symbols-outlined" style="font-size:14px;color:#4a8a5a;margin-top:1px;flex-shrink:0">location_on</span>
+        <span style="font-family:Inter,sans-serif;font-size:12px;color:#8a8a85">Australia</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Disclaimer -->
+<div style="max-width:1400px;margin:0 auto;padding:0 24px 32px">
+  <div style="border:1px solid rgba(240,237,232,0.06);padding:16px 20px">
+    <p style="font-family:Inter,sans-serif;font-size:10px;color:#444;line-height:1.65;margin:0">
+      All products on this site are for research and development use only — not for human use of any kind. These statements have not been evaluated by the TGA. Brayer Peptides is a research chemical supplier, not a compounding pharmacy.
+    </p>
+  </div>
+</div>
+
+<!-- Copyright -->
+<div style="max-width:1400px;margin:0 auto;padding:0 24px 28px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;border-top:1px solid rgba(240,237,232,0.04);padding-top:20px">
+  <p class="label-caps" style="color:#3a3a38;font-size:9px">© 2026 BRAYER PEPTIDES. ALL RIGHTS RESERVED.</p>
+  <p class="label-caps" style="color:#3a3a38;font-size:9px">FOR RESEARCH AND LABORATORY USE ONLY. NOT FOR HUMAN OR ANIMAL CONSUMPTION.</p>
 </div>
 </footer>
+
+<!-- ═══════════════════════════════════════════════════════
+     SCRIPTS
+     ═══════════════════════════════════════════════════════ -->
+<script>
+/* ── Nav scroll behavior ── */
+var nav = document.getElementById('main-nav');
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 80) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+}, { passive: true });
+
+/* ── Hamburger ── */
+document.getElementById('hamburger-btn').addEventListener('click', function() {
+  document.getElementById('mobile-nav').classList.toggle('open');
+});
+
+/* ── Hero canvas particles ── */
+(function() {
+  var canvas = document.getElementById('hero-canvas');
+  var ctx = canvas.getContext('2d');
+  var particles = [];
+  var NUM = 90;
+  var W, H;
+
+  function resize() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+
+  function init() {
+    particles = [];
+    for (var i = 0; i < NUM; i++) {
+      particles.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        r: Math.random() * 1.8 + 0.6
+      });
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    var len = particles.length;
+    for (var i = 0; i < len; i++) {
+      var p = particles[i];
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, 6.28318);
+      ctx.fillStyle = 'rgba(26,107,60,0.55)';
+      ctx.fill();
+
+      for (var j = i + 1; j < len; j++) {
+        var q = particles[j];
+        var dx = p.x - q.x, dy = p.y - q.y;
+        var dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < 130) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(q.x, q.y);
+          ctx.strokeStyle = 'rgba(26,107,60,' + (0.14 * (1 - dist / 130)) + ')';
+          ctx.lineWidth = 0.6;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+
+  resize(); init(); draw();
+  window.addEventListener('resize', function() { resize(); init(); }, { passive: true });
+})();
+
+/* ── Hero fade-in ── */
+(function() {
+  var els = document.querySelectorAll('[data-hero-fade]');
+  els.forEach(function(el, i) {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+    el.style.transitionDelay = (300 + i * 160) + 'ms';
+    setTimeout(function() {
+      el.style.opacity = '1'; el.style.transform = 'translateY(0)';
+    }, 50);
+  });
+})();
+
+/* ── Scroll animations ── */
+var io = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      var el = entry.target;
+      var delay = el.style.getPropertyValue('--delay') || '0ms';
+      el.style.transitionDelay = delay;
+      el.classList.add('animate-in');
+      io.unobserve(el);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.scroll-anim').forEach(function(el) { io.observe(el); });
+
+/* ── Stat counter animation ── */
+var counterIO = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (!entry.isIntersecting) return;
+    var el = entry.target;
+    var target = parseInt(el.getAttribute('data-counter'));
+    var suffix = el.getAttribute('data-suffix') || '';
+    var start = performance.now();
+    var dur = 1500;
+    (function tick(now) {
+      var p = Math.min((now - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.floor(eased * target) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+      else el.textContent = target + suffix;
+    })(start);
+    counterIO.unobserve(el);
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-counter]').forEach(function(el) { counterIO.observe(el); });
+
+/* ── FAQ accordion ── */
+function toggleAccordion(btn) {
+  var item = btn.closest('.faq-acc-item');
+  var wasOpen = item.classList.contains('open');
+  document.querySelectorAll('#faq-preview .faq-acc-item.open').forEach(function(i) { i.classList.remove('open'); });
+  if (!wasOpen) item.classList.add('open');
+}
+
+/* ── Featured product card click → product page ── */
+document.querySelectorAll('[data-product-url]').forEach(function(card) {
+  card.addEventListener('click', function(e) {
+    if (e.target.closest('button')) return;
+    var url = this.getAttribute('data-product-url');
+    if (url) window.location.href = url;
+  });
+});
+
+/* ── Cursor trail ── */
+(function() {
+  var trail = [];
+  var MAX = 8;
+  document.addEventListener('mousemove', function(e) {
+    var dot = document.createElement('div');
+    dot.style.cssText = 'position:fixed;pointer-events:none;z-index:9998;width:5px;height:5px;border-radius:50%;background:rgba(26,107,60,0.4);transform:translate(-50%,-50%);left:' + e.clientX + 'px;top:' + e.clientY + 'px;transition:opacity 0.7s ease;';
+    document.body.appendChild(dot);
+    trail.push(dot);
+    if (trail.length > MAX) {
+      var old = trail.shift();
+      old.style.opacity = '0';
+      setTimeout(function() { if (old.parentNode) old.parentNode.removeChild(old); }, 700);
+    }
+    setTimeout(function() { dot.style.opacity = '0'; }, 80);
+  }, { passive: true });
+})();
+</script>
 
 </body>
 </html>
