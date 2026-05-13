@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BRAYER PEPTIDES | Certificates of Analysis</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="../shared/tokens.css" rel="stylesheet"/>
+<script src="../shared/tailwind.config.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="../shared/animations.js" defer></script>
+<script src="../shared/cart.js" defer></script>
+<style>
+/* Notice bar */
+#coa-notice {
+  background: rgba(120, 80, 0, 0.18); border-bottom: 1px solid rgba(200,140,0,0.25);
+  padding: 12px 24px; display: flex; align-items: center; justify-content: center;
+  gap: 10px; position: relative;
+}
+#coa-notice-close {
+  position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+  background: none; border: none; color: #8a8a85; cursor: pointer; display: flex;
+}
+
+/* Sticky filter bar */
+#coa-filter-bar {
+  position: sticky; top: 96px; z-index: 30; background: rgba(0,0,0,0.96);
+  border-bottom: 1px solid rgba(240,237,232,0.06); padding: 14px 0;
+  backdrop-filter: blur(20px);
+}
+
+/* COA card */
+.coa-card {
+  background: #111; border: 1px solid rgba(240,237,232,0.07);
+  transition: border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.coa-card:hover {
+  border-color: #4a8a5a; transform: scale(1.02);
+  box-shadow: 0 8px 32px rgba(26,58,42,0.3);
+}
+.coa-img-wrap {
+  height: 200px; background: linear-gradient(160deg, #c8c8c8 0%, #a0a0a0 50%, #787878 100%);
+  display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0;
+}
+.coa-img-wrap img {
+  width: 100%; height: 100%; object-fit: contain;
+  padding: 16px 24px; box-sizing: border-box;
+}
+
+/* Modal */
+#coa-modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 1000;
+  display: none; align-items: center; justify-content: center;
+}
+#coa-modal-overlay.open { display: flex; }
+#coa-modal {
+  background: #0d0d0d; border: 1px solid rgba(240,237,232,0.1);
+  padding: 40px; max-width: 480px; width: 90%; text-align: center;
+}
+
+/* Search input */
+.coa-search {
+  background: #0d0d0d; border: 1px solid rgba(240,237,232,0.12);
+  color: #f0ede8; font-family: Inter,sans-serif; font-size: 13px;
+  padding: 9px 14px 9px 38px; outline: none; width: 220px;
+  transition: border-color 0.2s; min-width: 0;
+}
+.coa-search:focus { border-color: #4a8a5a; }
+.coa-search::placeholder { color: #4a4a45; }
+</style>
+</head>
+<body style="background:#000000;color:#f0ede8;overflow-x:hidden">
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 right-0 z-50 h-[60px]" style="background:#000000;border-bottom:1px solid rgba(240,237,232,0.06)">
+<div class="flex items-center justify-between px-6 md:px-16 h-full max-w-[1400px] mx-auto">
+  <a href="../home_brayer_peptides/code.html" class="font-display text-[30px] tracking-wider" style="color:#f0ede8;text-decoration:none">BRAYER PEPTIDES</a>
+  <div class="hidden md:flex items-center gap-10">
+    <a href="../home_brayer_peptides/code.html" class="label-caps hover:text-[#f0ede8] transition-colors" style="color:#8a8a85;text-decoration:none">HOME</a>
+    <a href="../research_shop_brayer_peptides/code.html" class="label-caps hover:text-[#f0ede8] transition-colors" style="color:#8a8a85;text-decoration:none">SHOP</a>
+    <a href="../coa/index.html" class="label-caps" style="color:#f0ede8;text-decoration:none;border-bottom:1px solid #1a3a2a;padding-bottom:2px">COA</a>
+    <a href="../faq/index.html" class="label-caps hover:text-[#f0ede8] transition-colors" style="color:#8a8a85;text-decoration:none">FAQ</a>
+    <a href="../science_purity_brayer_peptides/code.html" class="label-caps hover:text-[#f0ede8] transition-colors" style="color:#8a8a85;text-decoration:none">ABOUT</a>
+  </div>
+  <div class="flex items-center gap-4">
+    <button type="button" id="cart-btn" class="relative" style="color:#8a8a85;background:none;border:none;cursor:pointer">
+      <span class="material-symbols-outlined">shopping_cart</span>
+      <span id="cart-count" class="absolute -top-1 -right-1 w-4 h-4 flex items-center justify-center font-display text-[11px]" style="background:#1a3a2a;color:#f0ede8">0</span>
+    </button>
+    <button type="button" class="btn-primary" style="padding:9px 22px;font-size:10px">LOGIN</button>
+    <button type="button" class="hamburger" style="color:#f0ede8" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</div>
+<div class="mobile-nav">
+  <a href="../home_brayer_peptides/code.html" class="label-caps" style="color:#8a8a85;text-decoration:none">HOME</a>
+  <a href="../research_shop_brayer_peptides/code.html" class="label-caps" style="color:#8a8a85;text-decoration:none">SHOP</a>
+  <a href="../coa/index.html" class="label-caps" style="color:#f0ede8;text-decoration:none">COA</a>
+  <a href="../faq/index.html" class="label-caps" style="color:#8a8a85;text-decoration:none">FAQ</a>
+  <a href="../science_purity_brayer_peptides/code.html" class="label-caps" style="color:#8a8a85;text-decoration:none">ABOUT</a>
+</div>
+</nav>
+
+<!-- TRUST MARQUEE -->
+<div class="fixed left-0 right-0 z-40 h-[36px] flex items-center overflow-hidden" style="top:60px;background:#0a0a0a;border-bottom:1px solid rgba(240,237,232,0.04)">
+<div class="marquee-wrapper">
+  <span class="marquee-track label-caps" style="color:#4a8a5a">
+    HPLC VERIFIED &nbsp;·&nbsp; 99%+ PURITY GUARANTEED &nbsp;·&nbsp; SAME-DAY DISPATCH &nbsp;·&nbsp; COA EVERY BATCH &nbsp;·&nbsp; 3RD PARTY TESTED &nbsp;·&nbsp; PHARMACEUTICAL GRADE &nbsp;·&nbsp; NO FILLER COMPOUNDS &nbsp;·&nbsp;&nbsp;&nbsp;&nbsp;
+    HPLC VERIFIED &nbsp;·&nbsp; 99%+ PURITY GUARANTEED &nbsp;·&nbsp; SAME-DAY DISPATCH &nbsp;·&nbsp; COA EVERY BATCH &nbsp;·&nbsp; 3RD PARTY TESTED &nbsp;·&nbsp; PHARMACEUTICAL GRADE &nbsp;·&nbsp; NO FILLER COMPOUNDS &nbsp;·&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>
+</div>
+</div>
+
+<main style="padding-top:96px">
+
+<!-- NOTICE BAR -->
+<div id="coa-notice">
+  <span class="material-symbols-outlined" style="font-size:16px;color:#c8960c;flex-shrink:0">info</span>
+  <p style="font-family:Inter,sans-serif;font-size:11px;color:#c8960c;margin:0;letter-spacing:0.04em">
+    COA documents are currently being uploaded for all batches. Request a COA directly via email for any batch below.
+  </p>
+  <button id="coa-notice-close" aria-label="Dismiss" onclick="document.getElementById('coa-notice').style.display='none'">
+    <span class="material-symbols-outlined" style="font-size:16px">close</span>
+  </button>
+</div>
+
+<!-- HEADER -->
+<section class="glow-accent" style="padding:72px 24px 56px;text-align:center;border-bottom:1px solid rgba(240,237,232,0.06)">
+  <div style="max-width:900px;margin:0 auto">
+    <p class="label-caps" style="color:#4a8a5a;margin-bottom:16px" data-animate>TRANSPARENCY BY DEFAULT</p>
+    <h1 class="headline-xl" style="margin-bottom:20px" data-animate data-stagger-i="1">CERTIFICATES OF<br/>ANALYSIS</h1>
+    <p style="font-family:Inter,sans-serif;font-size:15px;color:#8a8a85;max-width:560px;margin:0 auto 48px;line-height:1.7" data-animate data-stagger-i="2">
+      Every compound we ship is independently tested for identity, purity, and potency. Download or request the COA for any batch below.
+    </p>
+    <!-- Stats -->
+    <div class="flex flex-wrap justify-center gap-8 md:gap-16" data-animate data-stagger-i="3">
+      <div>
+        <p class="font-display" style="font-size:48px;color:#4a8a5a;letter-spacing:0.04em">99.2%</p>
+        <p class="label-caps" style="color:#8a8a85">Avg Purity</p>
+      </div>
+      <div>
+        <p class="font-display" style="font-size:48px;color:#4a8a5a;letter-spacing:0.04em">39</p>
+        <p class="label-caps" style="color:#8a8a85">Compounds</p>
+      </div>
+      <div>
+        <p class="font-display" style="font-size:48px;color:#4a8a5a;letter-spacing:0.04em">100%</p>
+        <p class="label-caps" style="color:#8a8a85">3rd Party Tested</p>
+      </div>
+      <div>
+        <p class="font-display" style="font-size:48px;color:#4a8a5a;letter-spacing:0.04em">HPLC</p>
+        <p class="label-caps" style="color:#8a8a85">Analysis Method</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div id="coa-filter-bar">
+  <div style="max-width:1400px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+    <!-- Search -->
+    <div style="position:relative;flex-shrink:0">
+      <span class="material-symbols-outlined" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:16px;color:#4a4a45">search</span>
+      <input type="text" class="coa-search" id="coa-search" placeholder="Search compounds..." oninput="filterCOA()"/>
+    </div>
+    <!-- Pills -->
+    <div style="display:flex;gap:8px;flex-wrap:wrap;flex:1;min-width:0">
+      <button class="filter-pill active" data-filter="all" onclick="setCOAFilter(this,'all')">ALL</button>
+      <button class="filter-pill" data-filter="glp1" onclick="setCOAFilter(this,'glp1')">GLP-1</button>
+      <button class="filter-pill" data-filter="fat-loss" onclick="setCOAFilter(this,'fat-loss')">FAT LOSS</button>
+      <button class="filter-pill" data-filter="recovery" onclick="setCOAFilter(this,'recovery')">RECOVERY</button>
+      <button class="filter-pill" data-filter="gh-axis" onclick="setCOAFilter(this,'gh-axis')">GH AXIS</button>
+      <button class="filter-pill" data-filter="performance" onclick="setCOAFilter(this,'performance')">PERFORMANCE</button>
+      <button class="filter-pill" data-filter="longevity" onclick="setCOAFilter(this,'longevity')">LONGEVITY</button>
+      <button class="filter-pill" data-filter="immune" onclick="setCOAFilter(this,'immune')">IMMUNE</button>
+      <button class="filter-pill" data-filter="nootropic" onclick="setCOAFilter(this,'nootropic')">NOOTROPIC</button>
+    </div>
+    <p id="coa-count" class="label-caps" style="color:#8a8a85;flex-shrink:0">39 compounds</p>
+  </div>
+</div>
+
+<!-- COA GRID -->
+<section style="max-width:1400px;margin:0 auto;padding:40px 24px">
+  <div id="coa-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px"></div>
+  <p id="coa-empty" style="display:none;text-align:center;padding:80px 0;font-family:Inter,sans-serif;color:#4a4a45">No compounds match your search.</p>
+</section>
+
+<!-- TESTING PROCESS -->
+<section style="background:#0a0a0a;border-top:1px solid rgba(240,237,232,0.06);padding:72px 24px">
+  <div style="max-width:1100px;margin:0 auto">
+    <p class="label-caps" style="color:#4a8a5a;text-align:center;margin-bottom:12px" data-animate>OUR PROCESS</p>
+    <h2 class="headline-lg" style="text-align:center;margin-bottom:56px" data-animate data-stagger-i="1">HOW WE VERIFY PURITY</h2>
+    <div class="flex flex-col md:flex-row gap-8">
+      <div style="flex:1;text-align:center" data-animate>
+        <div style="width:64px;height:64px;border:1px solid rgba(74,138,90,0.4);display:flex;align-items:center;justify-content:center;margin:0 auto 20px">
+          <span class="material-symbols-outlined" style="font-size:28px;color:#4a8a5a">science</span>
+        </div>
+        <h3 class="font-display" style="font-size:24px;margin-bottom:10px;letter-spacing:0.05em">INDEPENDENT TESTING</h3>
+        <p style="font-family:Inter,sans-serif;font-size:13px;color:#8a8a85;line-height:1.7">All compounds are sent to accredited third-party laboratories with no affiliation to Brayer Peptides. Results are unaltered and published as received.</p>
+      </div>
+      <div style="flex:1;text-align:center" data-animate data-stagger-i="1">
+        <div style="width:64px;height:64px;border:1px solid rgba(74,138,90,0.4);display:flex;align-items:center;justify-content:center;margin:0 auto 20px">
+          <span class="material-symbols-outlined" style="font-size:28px;color:#4a8a5a">analytics</span>
+        </div>
+        <h3 class="font-display" style="font-size:24px;margin-bottom:10px;letter-spacing:0.05em">HPLC ANALYSIS</h3>
+        <p style="font-family:Inter,sans-serif;font-size:13px;color:#8a8a85;line-height:1.7">High-Performance Liquid Chromatography measures identity and purity to four decimal places. We only release batches exceeding 98% purity by HPLC.</p>
+      </div>
+      <div style="flex:1;text-align:center" data-animate data-stagger-i="2">
+        <div style="width:64px;height:64px;border:1px solid rgba(74,138,90,0.4);display:flex;align-items:center;justify-content:center;margin:0 auto 20px">
+          <span class="material-symbols-outlined" style="font-size:28px;color:#4a8a5a">inventory_2</span>
+        </div>
+        <h3 class="font-display" style="font-size:24px;margin-bottom:10px;letter-spacing:0.05em">BATCH TRACEABILITY</h3>
+        <p style="font-family:Inter,sans-serif;font-size:13px;color:#8a8a85;line-height:1.7">Every vial carries a unique batch number traceable to a specific production run and COA document. You can verify any batch at any time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="border-top:1px solid rgba(240,237,232,0.07);background:#000000">
+<div class="flex flex-col md:flex-row items-center justify-between gap-4 px-6 md:px-16 py-6 max-w-[1400px] mx-auto">
+  <span class="font-display text-[20px]" style="color:#f0ede8">BRAYER PEPTIDES</span>
+  <div class="flex items-center gap-8 flex-wrap justify-center">
+    <a href="../home_brayer_peptides/code.html" class="label-caps" style="color:#4a4a45;text-decoration:none">HOME</a>
+    <a href="../research_shop_brayer_peptides/code.html" class="label-caps" style="color:#4a4a45;text-decoration:none">SHOP</a>
+    <a href="../coa/index.html" class="label-caps" style="color:#4a4a45;text-decoration:none">COA</a>
+    <a href="../faq/index.html" class="label-caps" style="color:#4a4a45;text-decoration:none">FAQ</a>
+  </div>
+  <p style="font-family:Inter,sans-serif;font-size:10px;color:#3a3a38;font-style:italic">For laboratory research use only.</p>
+</div>
+</footer>
+
+<!-- COA MODAL -->
+<div id="coa-modal-overlay" role="dialog" aria-modal="true" aria-label="COA Download">
+  <div id="coa-modal">
+    <span class="material-symbols-outlined" style="font-size:48px;color:#4a8a5a;display:block;margin-bottom:16px">description</span>
+    <h2 class="font-display" style="font-size:32px;letter-spacing:0.05em;margin-bottom:8px">COA DOWNLOAD</h2>
+    <p style="font-family:Inter,sans-serif;font-size:13px;color:#8a8a85;margin-bottom:24px;line-height:1.6">
+      Full COA documents are currently being uploaded to our portal. In the meantime, request your batch COA directly via email and we'll respond within 2 business hours.
+    </p>
+    <p class="label-caps" style="color:#4a8a5a;margin-bottom:20px" id="modal-batch-info"></p>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+      <a href="mailto:coa@brayerpeptides.com?subject=COA Request" class="btn-primary" style="text-decoration:none;padding:12px 24px;font-size:10px">
+        <span class="material-symbols-outlined" style="font-size:14px">mail</span>REQUEST VIA EMAIL
+      </a>
+      <button type="button" class="btn-outlined" style="padding:12px 24px;font-size:10px" onclick="closeModal()">CLOSE</button>
+    </div>
+  </div>
+</div>
+
+<script>
+var COA_PRODUCTS = [
+  { name:'TIRZEPATIDE 10MG',    cat:'glp1',        purity:'99.2', batch:'BP-2401', date:'Jan 2025', img:'../assets/images/tirzepatide_10mg.png' },
+  { name:'TIRZEPATIDE 20MG',    cat:'glp1',        purity:'99.2', batch:'BP-2402', date:'Jan 2025', img:'../assets/images/tirzepatide_20mg.png' },
+  { name:'TIRZEPATIDE 30MG',    cat:'glp1',        purity:'99.1', batch:'BP-2403', date:'Jan 2025', img:'../assets/images/tirzepatide_30mg.png' },
+  { name:'RETATRUTIDE 10MG',    cat:'glp1',        purity:'98.9', batch:'BP-2404', date:'Feb 2025', img:'../assets/images/retatrutide_10mg.png' },
+  { name:'RETATRUTIDE 20MG',    cat:'glp1',        purity:'98.7', batch:'BP-2405', date:'Feb 2025', img:'../assets/images/retatrutide_20mg.png' },
+  { name:'RETATRUTIDE 30MG',    cat:'glp1',        purity:'98.8', batch:'BP-2406', date:'Feb 2025', img:'../assets/images/retatrutide_30mg.png' },
+  { name:'CAGRILINTIDE 10MG',   cat:'glp1',        purity:'99.0', batch:'BP-2407', date:'Feb 2025', img:'../assets/images/cagrilintide_10mg.png' },
+  { name:'SURVODUTIDE 10MG',    cat:'glp1',        purity:'98.8', batch:'BP-2408', date:'Mar 2025', img:'../assets/images/survodutide_10mg.png' },
+  { name:'MAZDUTIDE 5MG',       cat:'glp1',        purity:'98.6', batch:'BP-2409', date:'Mar 2025', img:'../assets/images/mazdutide_5mg.png' },
+  { name:'AOD 5MG',             cat:'fat-loss',    purity:'99.4', batch:'BP-2410', date:'Dec 2024', img:'../assets/images/aod_5mg.png' },
+  { name:'HGH FRAG 5MG',        cat:'fat-loss',    purity:'99.3', batch:'BP-2411', date:'Dec 2024', img:'../assets/images/hgh_frag_5mg.png' },
+  { name:'BPC-157 10MG',        cat:'recovery',    purity:'99.6', batch:'BP-2412', date:'Nov 2024', img:'../assets/images/bpc157_10mg.png' },
+  { name:'TB500 10MG',          cat:'recovery',    purity:'99.5', batch:'BP-2413', date:'Nov 2024', img:'../assets/images/tb500_10mg.png' },
+  { name:'BPC-157 + TB500 10MG',cat:'recovery',    purity:'99.1', batch:'BP-2414', date:'Nov 2024', img:'../assets/images/bpc157_tb500_10mg.png' },
+  { name:'DSIP 10MG',           cat:'recovery',    purity:'98.8', batch:'BP-2415', date:'Dec 2024', img:'../assets/images/dsip_10mg.png' },
+  { name:'VIP 10MG',            cat:'recovery',    purity:'99.0', batch:'BP-2416', date:'Dec 2024', img:'../assets/images/vip_10mg.png' },
+  { name:'CJC-1295 NO DAC 5MG', cat:'gh-axis',     purity:'99.4', batch:'BP-2417', date:'Oct 2024', img:'../assets/images/cjc1295_nodac_5mg.png' },
+  { name:'CJC-1295 NO DAC + IPA 10MG',cat:'gh-axis',purity:'99.2',batch:'BP-2418',date:'Oct 2024', img:'../assets/images/cjc1295_ipa_10mg.png' },
+  { name:'IPAMORELIN 5MG',      cat:'gh-axis',     purity:'99.5', batch:'BP-2419', date:'Oct 2024', img:'../assets/images/ipamorelin_5mg.png' },
+  { name:'TESAMORELIN 10MG',    cat:'gh-axis',     purity:'99.1', batch:'BP-2420', date:'Nov 2024', img:'../assets/images/tesamorelin_10mg.png' },
+  { name:'IGF-1 LR3 1MG',       cat:'gh-axis',     purity:'98.9', batch:'BP-2421', date:'Nov 2024', img:'../assets/images/igf1_lr3_1mg.png' },
+  { name:'MT-2 10MG',           cat:'performance', purity:'99.3', batch:'BP-2422', date:'Jan 2025', img:'../assets/images/mt2_10mg.png' },
+  { name:'PT-141 10MG',         cat:'performance', purity:'99.4', batch:'BP-2423', date:'Jan 2025', img:'../assets/images/pt141_10mg.png' },
+  { name:'SLU-PP-332 5MG',      cat:'performance', purity:'98.7', batch:'BP-2424', date:'Feb 2025', img:'../assets/images/slupp332_5mg.png' },
+  { name:'OXYTOCIN 10MG',       cat:'performance', purity:'99.0', batch:'BP-2425', date:'Feb 2025', img:'../assets/images/oxytocin_10mg.png' },
+  { name:'HCG 5000 IU',         cat:'performance', purity:'99.2', batch:'BP-2426', date:'Mar 2025', img:'../assets/images/hcg_5000iu.png' },
+  { name:'GHK-CU 50MG',         cat:'longevity',   purity:'99.7', batch:'BP-2427', date:'Sep 2024', img:'../assets/images/ghkcu_50mg.png' },
+  { name:'GHK-CU 100MG',        cat:'longevity',   purity:'99.8', batch:'BP-2428', date:'Sep 2024', img:'../assets/images/ghkcu_100mg.png' },
+  { name:'GLOW BLEND',          cat:'longevity',   purity:'99.1', batch:'BP-2429', date:'Oct 2024', img:'../assets/images/glow_blend.png' },
+  { name:'KLOW BLEND',          cat:'longevity',   purity:'99.0', batch:'BP-2430', date:'Oct 2024', img:'../assets/images/klow_blend.png' },
+  { name:'MOTS-C 40MG',         cat:'longevity',   purity:'98.9', batch:'BP-2431', date:'Nov 2024', img:'../assets/images/motsc_40mg.png' },
+  { name:'NAD+ 500',            cat:'longevity',   purity:'99.6', batch:'BP-2432', date:'Dec 2024', img:'../assets/images/nad_500.png' },
+  { name:'5-AMINO-1MQ 50MG',    cat:'longevity',   purity:'99.2', batch:'BP-2433', date:'Dec 2024', img:'../assets/images/5amino1mq_50mg.png' },
+  { name:'SS-31 10MG',          cat:'longevity',   purity:'99.4', batch:'BP-2434', date:'Jan 2025', img:'../assets/images/ss31_10mg.png' },
+  { name:'SELANK 10MG',         cat:'immune',      purity:'99.1', batch:'BP-2435', date:'Nov 2024', img:'../assets/images/selank_10mg.png' },
+  { name:'KPV 10MG',            cat:'immune',      purity:'99.3', batch:'BP-2436', date:'Nov 2024', img:'../assets/images/kpv_10mg.png' },
+  { name:'THYMOSIN ALPHA-1 5MG',cat:'immune',      purity:'99.5', batch:'BP-2437', date:'Dec 2024', img:'../assets/images/thymosin_alpha1_5mg.png' },
+  { name:'SEMAX 10MG',          cat:'nootropic',   purity:'99.0', batch:'BP-2438', date:'Jan 2025', img:'../assets/images/semax_10mg.png' },
+  { name:'CEREBROLYSIN 60MG',   cat:'nootropic',   purity:'98.8', batch:'BP-2439', date:'Jan 2025', img:'../assets/images/cerebrolysin_60mg.png' }
+];
+
+var CAT_LABELS = {
+  'glp1':'GLP-1', 'fat-loss':'Fat Loss', 'recovery':'Recovery',
+  'gh-axis':'GH Axis', 'performance':'Performance', 'longevity':'Longevity',
+  'immune':'Immune', 'nootropic':'Nootropic'
+};
+
+var _activeFilter = 'all';
+var _searchQuery = '';
+
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function renderGrid() {
+  var grid = document.getElementById('coa-grid');
+  var empty = document.getElementById('coa-empty');
+  var q = _searchQuery.toLowerCase();
+
+  var visible = COA_PRODUCTS.filter(function(p) {
+    var matchCat = _activeFilter === 'all' || p.cat === _activeFilter;
+    var matchQ = !q || p.name.toLowerCase().indexOf(q) !== -1 || p.batch.toLowerCase().indexOf(q) !== -1;
+    return matchCat && matchQ;
+  });
+
+  document.getElementById('coa-count').textContent = visible.length + ' compound' + (visible.length !== 1 ? 's' : '');
+
+  if (visible.length === 0) {
+    grid.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+
+  grid.innerHTML = visible.map(function(p) {
+    return '<div class="coa-card">' +
+      '<div class="coa-img-wrap"><img src="' + esc(p.img) + '" alt="' + esc(p.name) + '" onerror="this.style.display=\'none\'"/></div>' +
+      '<div style="padding:18px 20px 20px;display:flex;flex-direction:column;flex:1">' +
+        '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">' +
+          '<span class="label-caps" style="color:#4a8a5a;font-size:9px">' + esc(CAT_LABELS[p.cat] || p.cat) + '</span>' +
+          '<span style="font-family:Inter,sans-serif;font-size:11px;font-weight:700;color:#4a8a5a">' + esc(p.purity) + '%</span>' +
+        '</div>' +
+        '<h3 class="font-display" style="font-size:20px;letter-spacing:0.05em;margin:0 0 12px;line-height:1.1">' + esc(p.name) + '</h3>' +
+        '<div style="display:flex;gap:16px;margin-bottom:16px">' +
+          '<div>' +
+            '<p class="label-caps" style="color:#4a4a45;margin-bottom:3px;font-size:8px">BATCH</p>' +
+            '<p style="font-family:Inter,sans-serif;font-size:11px;color:#8a8a85">' + esc(p.batch) + '</p>' +
+          '</div>' +
+          '<div>' +
+            '<p class="label-caps" style="color:#4a4a45;margin-bottom:3px;font-size:8px">TEST DATE</p>' +
+            '<p style="font-family:Inter,sans-serif;font-size:11px;color:#8a8a85">' + esc(p.date) + '</p>' +
+          '</div>' +
+        '</div>' +
+        '<div style="display:flex;gap:8px;margin-top:auto">' +
+          '<button type="button" class="btn-outlined" style="flex:1;justify-content:center;padding:9px 8px;font-size:9px" onclick="openModal(\'' + esc(p.batch) + '\',\'' + esc(p.name) + '\')">' +
+            '<span class="material-symbols-outlined" style="font-size:12px">download</span>COA' +
+          '</button>' +
+          '<a href="mailto:coa@brayerpeptides.com?subject=COA Request - ' + esc(p.name) + ' ' + esc(p.batch) + '" class="btn-primary" style="flex:1;justify-content:center;padding:9px 8px;font-size:9px;text-decoration:none;display:flex;align-items:center;gap:4px">' +
+            '<span class="material-symbols-outlined" style="font-size:12px">mail</span>REQUEST' +
+          '</a>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+}
+
+function setCOAFilter(btn, filter) {
+  _activeFilter = filter;
+  document.querySelectorAll('[data-filter]').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+  renderGrid();
+}
+
+function filterCOA() {
+  _searchQuery = document.getElementById('coa-search').value;
+  renderGrid();
+}
+
+function openModal(batch, name) {
+  document.getElementById('modal-batch-info').textContent = name + ' · ' + batch;
+  document.getElementById('coa-modal-overlay').classList.add('open');
+}
+function closeModal() {
+  document.getElementById('coa-modal-overlay').classList.remove('open');
+}
+document.getElementById('coa-modal-overlay').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+
+renderGrid();
+</script>
+
+</body>
+</html>

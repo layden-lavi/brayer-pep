@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BRAYER PEPTIDES | FAQ</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="../shared/tokens.css" rel="stylesheet"/>
+<script src="../shared/tailwind.config.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="../shared/animations.js" defer></script>
+<script src="../shared/cart.js" defer></script>
+<style>
+/* Tab bar */
+.faq-tab {
+  padding: 10px 20px; border: none; background: transparent;
+  font-family: Inter, sans-serif; font-size: 10px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: #8a8a85;
+  cursor: pointer; border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s; white-space: nowrap; flex-shrink: 0;
+}
+.faq-tab:hover { color: #f0ede8; }
+.faq-tab.active { color: #f0ede8; border-bottom-color: #4a8a5a; }
+
+/* Accordion */
+.faq-item { border-bottom: 1px solid rgba(240,237,232,0.07); }
+.faq-q {
+  width: 100%; background: none; border: none; text-align: left;
+  padding: 22px 0; cursor: pointer; display: flex; align-items: center;
+  justify-content: space-between; gap: 16px;
+  font-family: Inter, sans-serif; font-size: 15px; font-weight: 600;
+  color: #f0ede8; transition: color 0.2s;
+}
+.faq-q:hover { color: #4a8a5a; }
+.faq-q .faq-icon {
+  font-size: 20px; color: #4a8a5a; flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-a {
+  overflow: hidden; max-height: 0;
+  transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), padding 0.3s ease;
+  padding-bottom: 0;
+}
+.faq-item.open .faq-a { max-height: 600px; padding-bottom: 20px; }
+.faq-a p {
+  font-family: Inter, sans-serif; font-size: 13px; color: #8a8a85;
+  line-height: 1.75; margin: 0;
+}
+.faq-a a { color: #4a8a5a; text-decoration: underline; }
+
+/* Tab content */
+.faq-tab-panel { display: none; }
+.faq-tab-panel.active { display: block; }
+
+/* Search */
+.faq-search {
+  width: 100%; max-width: 520px; background: #0d0d0d;
+  border: 1px solid rgba(240,237,232,0.12); color: #f0ede8;
+  font-family: Inter, sans-serif; font-size: 14px; padding: 13px 16px 13px 44px;
+  outline: none; transition: border-color 0.2s; margin: 0 auto; display: block;
+}
+.faq-search:focus { border-color: #4a8a5a; }
+.faq-search::placeholder { color: #4a4a45; }
+
+/* Highlight match */
+mark { background: rgba(74,138,90,0.25); color: #f0ede8; padding: 0 2px; }
+</style>
+</head>
+<body style="background:#000000;color:#f0ede8;overflow-x:hidden">
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 right-0 z-50 h-[60px]" style="background:#000000;border-bottom:1px solid rgba(240,237,232,0.06)">
+<div class="flex items-center justify-between px-6 md:px-16 h-full max-w-[1400px] mx-auto">
+  <a href="../home_brayer_peptides/code.html" class="font-display text-[30px] tracking-wider" style="color:#f0ede8;text-decoration:none">BRAYER PEPTIDES</a>
+  <div class="hidden md:flex items-center gap-10">
+    <a href="../home_brayer_peptides/code.html" class="label-caps hover:text-[#f0ede8] transition-colors" style="color:#8a8a85;text-decoration:none">HOME</a>
+    <a href="../research_shop_brayer_peptides/code.html" class="label-caps hover:text-[#f0ede8] transition-colors" style="color:#8a8a85;text-decoration:none">SHOP</a>
+    <a href="../coa/index.html" class="label-caps hover:text-[#f0ede8] transition-colors" style="color:#8a8a85;text-decoration:none">COA</a>
+    <a href="../faq/index.html" class="label-caps" style="color:#f0ede8;text-decoration:none;border-bottom:1px solid #1a3a2a;padding-bottom:2px">FAQ</a>
+    <a href="../science_purity_brayer_peptides/code.html" class="label-caps hover:text-[#f0ede8] transition-colors" style="color:#8a8a85;text-decoration:none">ABOUT</a>
+  </div>
+  <div class="flex items-center gap-4">
+    <button type="button" id="cart-btn" class="relative" style="color:#8a8a85;background:none;border:none;cursor:pointer">
+      <span class="material-symbols-outlined">shopping_cart</span>
+      <span id="cart-count" class="absolute -top-1 -right-1 w-4 h-4 flex items-center justify-center font-display text-[11px]" style="background:#1a3a2a;color:#f0ede8">0</span>
+    </button>
+    <button type="button" class="btn-primary" style="padding:9px 22px;font-size:10px">LOGIN</button>
+    <button type="button" class="hamburger" style="color:#f0ede8" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</div>
+<div class="mobile-nav">
+  <a href="../home_brayer_peptides/code.html" class="label-caps" style="color:#8a8a85;text-decoration:none">HOME</a>
+  <a href="../research_shop_brayer_peptides/code.html" class="label-caps" style="color:#8a8a85;text-decoration:none">SHOP</a>
+  <a href="../coa/index.html" class="label-caps" style="color:#8a8a85;text-decoration:none">COA</a>
+  <a href="../faq/index.html" class="label-caps" style="color:#f0ede8;text-decoration:none">FAQ</a>
+  <a href="../science_purity_brayer_peptides/code.html" class="label-caps" style="color:#8a8a85;text-decoration:none">ABOUT</a>
+</div>
+</nav>
+
+<!-- TRUST MARQUEE -->
+<div class="fixed left-0 right-0 z-40 h-[36px] flex items-center overflow-hidden" style="top:60px;background:#0a0a0a;border-bottom:1px solid rgba(240,237,232,0.04)">
+<div class="marquee-wrapper">
+  <span class="marquee-track label-caps" style="color:#4a8a5a">
+    HPLC VERIFIED &nbsp;·&nbsp; 99%+ PURITY GUARANTEED &nbsp;·&nbsp; SAME-DAY DISPATCH &nbsp;·&nbsp; COA EVERY BATCH &nbsp;·&nbsp; 3RD PARTY TESTED &nbsp;·&nbsp; PHARMACEUTICAL GRADE &nbsp;·&nbsp; NO FILLER COMPOUNDS &nbsp;·&nbsp;&nbsp;&nbsp;&nbsp;
+    HPLC VERIFIED &nbsp;·&nbsp; 99%+ PURITY GUARANTEED &nbsp;·&nbsp; SAME-DAY DISPATCH &nbsp;·&nbsp; COA EVERY BATCH &nbsp;·&nbsp; 3RD PARTY TESTED &nbsp;·&nbsp; PHARMACEUTICAL GRADE &nbsp;·&nbsp; NO FILLER COMPOUNDS &nbsp;·&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>
+</div>
+</div>
+
+<main style="padding-top:96px">
+
+<!-- HEADER -->
+<section class="glow-accent" style="padding:72px 24px 48px;text-align:center;border-bottom:1px solid rgba(240,237,232,0.06)">
+  <div style="max-width:760px;margin:0 auto">
+    <p class="label-caps" style="color:#4a8a5a;margin-bottom:16px" data-animate>SUPPORT CENTER</p>
+    <h1 class="headline-xl" style="margin-bottom:20px" data-animate data-stagger-i="1">FREQUENTLY ASKED<br/>QUESTIONS</h1>
+    <p style="font-family:Inter,sans-serif;font-size:15px;color:#8a8a85;margin-bottom:36px;line-height:1.7" data-animate data-stagger-i="2">
+      Can't find an answer? Email us at <a href="mailto:support@brayerpeptides.com" style="color:#4a8a5a">support@brayerpeptides.com</a>
+    </p>
+    <!-- Search -->
+    <div style="position:relative;max-width:520px;margin:0 auto" data-animate data-stagger-i="3">
+      <span class="material-symbols-outlined" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:18px;color:#4a4a45;pointer-events:none">search</span>
+      <input type="text" class="faq-search" id="faq-search" placeholder="Search questions..." oninput="searchFAQ(this.value)"/>
+    </div>
+  </div>
+</section>
+
+<!-- TABS + ACCORDION -->
+<section style="max-width:880px;margin:0 auto;padding:0 24px 80px">
+
+  <!-- Tab bar -->
+  <div id="faq-tab-bar" style="display:flex;overflow-x:auto;border-bottom:1px solid rgba(240,237,232,0.07);margin-bottom:40px;-webkit-overflow-scrolling:touch;scrollbar-width:none">
+    <button class="faq-tab active" onclick="setTab(0,this)">ORDERING &amp; SHIPPING</button>
+    <button class="faq-tab" onclick="setTab(1,this)">PRODUCTS &amp; QUALITY</button>
+    <button class="faq-tab" onclick="setTab(2,this)">RESEARCH &amp; LEGAL</button>
+    <button class="faq-tab" onclick="setTab(3,this)">PAYMENTS &amp; RETURNS</button>
+    <button class="faq-tab" onclick="setTab(4,this)">ACCOUNT &amp; SUPPORT</button>
+  </div>
+
+  <!-- Search results -->
+  <div id="faq-search-results" style="display:none"></div>
+
+  <!-- Tab panels -->
+  <div id="faq-panels">
+
+    <!-- 0: Ordering & Shipping -->
+    <div class="faq-tab-panel active" data-tab="0">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          How do I place an order?
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a"><p>Browse our compound library at the Shop, select your product, choose quantity, and click Add to Cart. When ready, click the cart icon and proceed through our three-step secure checkout. Orders are confirmed by email within minutes.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          How long does shipping take?
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a"><p>Standard shipping takes 5–7 business days. Express (2–3 days) and Overnight options are available at checkout. We dispatch same-day for orders placed before 12pm on business days. Tracking is provided by email once dispatched.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          Do you ship internationally?
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a"><p>We currently ship to the United States, Canada, United Kingdom, Australia, and most of the European Union. Import regulations for research compounds vary by country — you are responsible for ensuring compliance with your local laws. We ship discreetly with no identifying product labels on the outer packaging.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          How is my order packaged?
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a"><p>All compounds are shipped in temperature-controlled packaging to preserve peptide integrity. Vials are wrapped in foam and sealed in discreet outer packaging with no reference to product contents. Orders requiring cold chain (lyophilised peptides) include dry ice for overnight shipments.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          Can I change or cancel my order?
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a"><p>Order changes and cancellations are accepted within 2 hours of placement, before our fulfilment team processes your order. Contact <a href="mailto:support@brayerpeptides.com">support@brayerpeptides.com</a> immediately with your order reference number. Same-day dispatch orders may not be cancellable after 12pm.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          What if my order arrives damaged?
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a"><p>All orders are insured during transit. If your order arrives damaged, photograph the outer packaging and vials immediately and email us at <a href="mailto:support@brayerpeptides.com">support@brayerpeptides.com</a> within 48 hours. We will arrange a replacement or full refund at no cost to you.</p></div>
+      </div>
+    </div>
+
+    <!-- 1: Products & Quality -->
+    <div class="faq-tab-panel" data-tab="1">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          What purity levels do your compounds reach?
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a"><p>Our compounds average 99.2% purity by HPLC. We set a minimum release threshold of 98% — any batch that tests below this is destroyed and remanufactured. Purity certificates are available for every batch via our <a href="../coa/index.html">COA page</a>.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          How should I store the compounds?
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a"><p>Lyophilised (freeze-dried) peptides should be stored at −20°C (−4°F) in a sealed container protected from light and moisture. Once reconstituted with bacteriostatic water, peptides should be kept at 4°C (39°F) and used within 21–28 days. GLP-1 compounds (semaglutide, tirzepatide, etc.) are stable at 4°C for up to 90 days unopened.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          What testing methods do you use?
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a"><p>Every batch is tested using High-Performance Liquid Chromatography (HPLC) for purity and identity, Mass Spectrometry (MS) to confirm molecular weight and structure, and Endotoxin testing (LAL assay) to verify sterility. All testing is performed by accredited third-party laboratories.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          Are your compounds pharmaceutical grade?
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a"><p>Our compounds are synthesised to pharmaceutical-grade specifications using GMP-certified facilities. However, they are supplied solely for laboratory research purposes and are not licensed for human or veterinary therapeutic use. They have not been evaluated or approved by the FDA or equivalent regulatory bodies.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          Do you offer custom synthesis or bulk orders?
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a"><p>Yes. We support institutional and research facility bulk orders and can accommodate custom synthesis requests for derivatives or analogues not listed in our standard catalog. Contact our research partnerships team at <a href="mailto:research@brayerpeptides.com">research@brayerpeptides.com</a> with your requirements.</p></div>
+      </div>
+    </div>
+
+    <!-- 2: Research & Legal -->
+    <div class="faq-tab-panel" data-tab="2">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          Who can purchase these compounds?
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a"><p>Our compounds are sold exclusively for legitimate scientific research purposes. By purchasing, you confirm that you are a licensed researcher, academic institution, pharmaceutical company, or approved research organisation. You are solely responsible for compliance with all applicable local, state, and federal regulations.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          Are these compounds legal to purchase?
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a"><p>Research peptides exist in a nuanced legal landscape. In the United States, most peptides are legal to purchase for research purposes but are not approved for human use. Legality varies significantly by country and compound. It is your responsibility to verify that purchasing and possessing these compounds is legal in your jurisdiction before ordering.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          Can I use these for human or animal administration?
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a"><p>No. All products are sold strictly for in-vitro laboratory research use only. They are not intended for human or veterinary diagnostic or therapeutic use. This is a firm policy and a legal requirement. Brayer Peptides accepts no liability for any misuse of research compounds.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          Do I need a licence or special credentials to order?
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a"><p>We do not require proof of credentials for standard orders, but by completing a purchase you legally attest to being a qualified researcher. For bulk institutional orders or certain controlled compounds, we may request institutional affiliation or a research licence number. We reserve the right to decline any order at our discretion.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          How do you handle data privacy?
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a"><p>We collect only the minimum data required to process your order. We do not sell, share, or rent your personal data to third parties. All data is stored encrypted and we comply with applicable data protection regulations. For our full privacy policy, contact <a href="mailto:legal@brayerpeptides.com">legal@brayerpeptides.com</a>.</p></div>
+      </div>
+    </div>
+
+    <!-- 3: Payments & Returns -->
+    <div class="faq-tab-panel" data-tab="3">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          What payment methods do you accept?
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a"><p>We accept all major credit and debit cards (Visa, Mastercard, Amex), cryptocurrency (Bitcoin, Ethereum, USDC), and bank transfer for orders over $500. All card payments are processed over TLS-encrypted connections. We do not store card details on our servers.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          Are there any promo codes or discounts?
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a"><p>Yes. We periodically release promo codes via our newsletter and social channels. Codes can be entered at the cart review step during checkout. Institutional and bulk discounts are also available — email <a href="mailto:wholesale@brayerpeptides.com">wholesale@brayerpeptides.com</a> for a quote.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          What is your return policy?
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a"><p>Due to the nature of research compounds, we cannot accept returns of opened or used products. Unopened products in original condition may be returned within 7 days of delivery for store credit. Damaged, incorrectly fulfilled, or quality-failing orders are fully refunded or replaced at our cost — no questions asked.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          How long do refunds take?
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a"><p>Once a refund is approved, card refunds typically appear within 3–5 business days depending on your bank. Cryptocurrency refunds are processed within 24 hours to the originating wallet. Bank transfer refunds take 1–2 business days.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          Is my payment information secure?
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a"><p>All payments are processed through PCI-DSS Level 1 compliant payment processors. We use TLS 1.3 encryption for all data in transit. We never store full card numbers, CVV codes, or banking credentials on our servers.</p></div>
+      </div>
+    </div>
+
+    <!-- 4: Account & Support -->
+    <div class="faq-tab-panel" data-tab="4">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          Do I need an account to order?
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a"><p>Guest checkout is available — no account required. Creating an account allows you to track orders, view order history, save shipping addresses, and receive early access to new compounds and batch releases.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          How do I track my order?
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a"><p>A tracking number is sent to your email address once your order ships. You can also log into your account and view live shipment status from the Orders section. If you haven't received a tracking email within 24 hours of your order, check your spam folder or contact support.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          How do I contact customer support?
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a"><p>Email is our primary support channel: <a href="mailto:support@brayerpeptides.com">support@brayerpeptides.com</a>. We aim to respond within 2 business hours during operating hours (Mon–Fri, 8am–6pm EST). For urgent issues related to a dispatched order, include your order reference number in the subject line for priority handling.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          I forgot my password — what do I do?
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a"><p>Click "Forgot Password" on the login page and enter your registered email address. You'll receive a reset link within 5 minutes. If the email doesn't arrive, check your spam folder or contact <a href="mailto:support@brayerpeptides.com">support@brayerpeptides.com</a> to reset manually.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          Can I subscribe to batch release notifications?
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a"><p>Yes. Subscribe to our research newsletter at the bottom of the home page to receive notifications when new compounds are added, batch restocks occur, or COAs are published. We typically send 1–2 emails per month and never spam.</p></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:#0a0a0a;border-top:1px solid rgba(240,237,232,0.06);padding:64px 24px;text-align:center">
+  <div style="max-width:640px;margin:0 auto">
+    <p class="label-caps" style="color:#4a8a5a;margin-bottom:12px" data-animate>STILL HAVE QUESTIONS?</p>
+    <h2 class="headline-lg" style="margin-bottom:16px" data-animate data-stagger-i="1">WE'RE HERE TO HELP</h2>
+    <p style="font-family:Inter,sans-serif;font-size:14px;color:#8a8a85;margin-bottom:32px;line-height:1.7" data-animate data-stagger-i="2">Our research support team responds within 2 business hours.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap" data-animate data-stagger-i="3">
+      <a href="mailto:support@brayerpeptides.com" class="btn-primary" style="text-decoration:none;padding:13px 28px;font-size:11px">
+        <span class="material-symbols-outlined" style="font-size:15px">mail</span>EMAIL SUPPORT
+      </a>
+      <a href="../research_shop_brayer_peptides/code.html" class="btn-outlined" style="text-decoration:none;padding:13px 28px;font-size:11px;display:inline-flex;align-items:center;gap:8px;color:inherit">
+        <span class="material-symbols-outlined" style="font-size:15px">storefront</span>BROWSE COMPOUNDS
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="border-top:1px solid rgba(240,237,232,0.07);background:#000000">
+<div class="flex flex-col md:flex-row items-center justify-between gap-4 px-6 md:px-16 py-6 max-w-[1400px] mx-auto">
+  <span class="font-display text-[20px]" style="color:#f0ede8">BRAYER PEPTIDES</span>
+  <div class="flex items-center gap-8 flex-wrap justify-center">
+    <a href="../home_brayer_peptides/code.html" class="label-caps" style="color:#4a4a45;text-decoration:none">HOME</a>
+    <a href="../research_shop_brayer_peptides/code.html" class="label-caps" style="color:#4a4a45;text-decoration:none">SHOP</a>
+    <a href="../coa/index.html" class="label-caps" style="color:#4a4a45;text-decoration:none">COA</a>
+    <a href="../faq/index.html" class="label-caps" style="color:#4a4a45;text-decoration:none">FAQ</a>
+  </div>
+  <p style="font-family:Inter,sans-serif;font-size:10px;color:#3a3a38;font-style:italic">For laboratory research use only.</p>
+</div>
+</footer>
+
+<script>
+/* ── Tab switching ── */
+var _activeTab = 0;
+function setTab(idx, btn) {
+  document.querySelectorAll('.faq-tab').forEach(function(b) { b.classList.remove('active'); });
+  document.querySelectorAll('.faq-tab-panel').forEach(function(p) { p.classList.remove('active'); });
+  btn.classList.add('active');
+  document.querySelector('[data-tab="' + idx + '"]').classList.add('active');
+  _activeTab = idx;
+  document.getElementById('faq-search').value = '';
+  document.getElementById('faq-search-results').style.display = 'none';
+  document.getElementById('faq-panels').style.display = 'block';
+}
+
+/* ── Accordion ── */
+function toggleFAQ(btn) {
+  var item = btn.closest('.faq-item');
+  var wasOpen = item.classList.contains('open');
+  item.closest('.faq-tab-panel, #faq-search-results')
+    .querySelectorAll('.faq-item.open').forEach(function(i) { i.classList.remove('open'); });
+  if (!wasOpen) item.classList.add('open');
+}
+
+/* ── Search ── */
+var ALL_FAQS = [];
+document.querySelectorAll('.faq-item').forEach(function(item) {
+  ALL_FAQS.push({
+    q: item.querySelector('.faq-q').childNodes[0].textContent.trim(),
+    a: item.querySelector('.faq-a p').innerHTML,
+    tab: parseInt(item.closest('.faq-tab-panel').getAttribute('data-tab'))
+  });
+});
+
+function hl(text, q) {
+  if (!q) return text;
+  return text.replace(new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi'), '<mark>$1</mark>');
+}
+
+function searchFAQ(val) {
+  var q = val.trim();
+  var results = document.getElementById('faq-search-results');
+  var panels = document.getElementById('faq-panels');
+  if (!q) {
+    results.style.display = 'none';
+    panels.style.display = 'block';
+    return;
+  }
+  panels.style.display = 'none';
+  results.style.display = 'block';
+
+  var lq = q.toLowerCase();
+  var matches = ALL_FAQS.filter(function(f) {
+    return f.q.toLowerCase().indexOf(lq) !== -1 || f.a.toLowerCase().indexOf(lq) !== -1;
+  });
+
+  var TABS = ['Ordering & Shipping','Products & Quality','Research & Legal','Payments & Returns','Account & Support'];
+  if (matches.length === 0) {
+    results.innerHTML = '<p style="font-family:Inter,sans-serif;font-size:13px;color:#4a4a45;padding:40px 0;text-align:center">No results for &ldquo;' + q + '&rdquo;</p>';
+    return;
+  }
+  results.innerHTML = '<p class="label-caps" style="color:#8a8a85;margin-bottom:20px">' + matches.length + ' result' + (matches.length !== 1 ? 's' : '') + ' for &ldquo;' + q + '&rdquo;</p>' +
+    matches.map(function(f) {
+      return '<div class="faq-item">' +
+        '<button class="faq-q" onclick="toggleFAQ(this)">' +
+          '<span>' + hl(f.q, q) + '<br><span style="font-size:9px;font-weight:400;color:#4a4a45;letter-spacing:0.1em;text-transform:uppercase">' + TABS[f.tab] + '</span></span>' +
+          '<span class="material-symbols-outlined faq-icon">add</span>' +
+        '</button>' +
+        '<div class="faq-a"><p>' + hl(f.a, q) + '</p></div>' +
+      '</div>';
+    }).join('');
+}
+</script>
+
+</body>
+</html>

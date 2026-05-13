@@ -221,6 +221,38 @@
     return 0;
   }
 
+  /* ── Toast notification ──────────────────────────────────────── */
+  function _showToast(name) {
+    var container = document.getElementById('brayer-toast-container');
+    if (!container) {
+      container = document.createElement('div');
+      container.id = 'brayer-toast-container';
+      container.style.cssText = 'position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column-reverse;gap:10px;pointer-events:none;max-width:320px';
+      document.body.appendChild(container);
+    }
+    var label = name.length > 26 ? name.substring(0, 26) + '\u2026' : name;
+    var toast = document.createElement('div');
+    toast.className = 'brayer-toast';
+    toast.innerHTML =
+      '<span class="material-symbols-outlined" style="font-size:18px;color:#4a8a5a;flex-shrink:0;margin-top:1px">check_circle</span>' +
+      '<div style="flex:1">' +
+        '<p style="font-family:\'Bebas Neue\',sans-serif;font-size:15px;letter-spacing:0.06em;color:#f0ede8;margin:0 0 2px">' + _esc(label) + '</p>' +
+        '<p style="font-family:Inter,sans-serif;font-size:10px;color:#8a8a85;margin:0;letter-spacing:0.08em;text-transform:uppercase">Added to cart</p>' +
+      '</div>';
+    container.appendChild(toast);
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        toast.style.opacity = '1';
+        toast.style.transform = 'translateX(0)';
+      });
+    });
+    setTimeout(function () {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateX(20px)';
+      setTimeout(function () { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 300);
+    }, 2500);
+  }
+
   /* ── Init ────────────────────────────────────────────────────── */
   function _init() {
     _load();
@@ -233,7 +265,8 @@
     document.getElementById('cart-close').addEventListener('click', closeCart);
     document.getElementById('cart-continue').addEventListener('click', closeCart);
     document.getElementById('cart-checkout-btn').addEventListener('click', function () {
-      alert('Checkout coming soon.');
+      closeCart();
+      window.location.href = '../checkout/index.html';
     });
 
     /* cart icon in nav */
@@ -278,7 +311,7 @@
 
       addToCart({ id: id, name: name, price: price, dose: dose, image: img, quantity: 1 });
       _flashAdded(btn);
-      openCart();
+      _showToast(name);
     });
 
     /* Escape key */

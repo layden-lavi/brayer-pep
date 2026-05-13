@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BRAYER PEPTIDES | Checkout</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="../shared/tokens.css" rel="stylesheet"/>
+<script src="../shared/tailwind.config.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+/* Progress bar */
+#checkout-progress-bar {
+  position: fixed; top: 0; left: 0; right: 0; height: 3px;
+  background: #1a1a1a; z-index: 999; overflow: hidden;
+}
+#checkout-progress-fill {
+  height: 100%; background: linear-gradient(90deg, #1a3a2a, #4a8a5a);
+  transition: width 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Steps */
+.step-panel { display: none; }
+.step-panel.active { display: block; }
+
+/* Step indicator */
+.step-dot {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700;
+  border: 1px solid rgba(240,237,232,0.15); color: #8a8a85;
+  transition: all 0.3s ease;
+}
+.step-dot.active { background: #1a3a2a; border-color: #4a8a5a; color: #f0ede8; }
+.step-dot.done { background: #4a8a5a; border-color: #4a8a5a; color: #fff; }
+
+/* Form inputs */
+.form-input {
+  width: 100%; background: #0d0d0d;
+  border: 1px solid rgba(240,237,232,0.12); color: #f0ede8;
+  font-family: 'Inter', sans-serif; font-size: 13px;
+  padding: 11px 14px; outline: none;
+  transition: border-color 0.2s ease;
+}
+.form-input:focus { border-color: #4a8a5a; }
+.form-input::placeholder { color: #4a4a45; }
+.form-label {
+  font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: #8a8a85;
+  display: block; margin-bottom: 6px;
+}
+
+/* Shipping options */
+.shipping-option {
+  display: flex; align-items: center; gap: 12px; padding: 14px 16px;
+  border: 1px solid rgba(240,237,232,0.1); cursor: pointer;
+  transition: border-color 0.2s ease; background: #0d0d0d; margin-bottom: 8px;
+}
+.shipping-option.selected { border-color: #4a8a5a; }
+.shipping-option input[type="radio"] { accent-color: #4a8a5a; }
+
+/* Promo input */
+.promo-row { display: flex; gap: 0; }
+.promo-row .form-input { border-right: none; }
+.promo-btn {
+  padding: 11px 20px; background: #1a3a2a; border: 1px solid #1a3a2a;
+  color: #f0ede8; font-family: 'Inter', sans-serif; font-size: 10px;
+  font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  cursor: pointer; white-space: nowrap; transition: background 0.2s;
+  flex-shrink: 0;
+}
+.promo-btn:hover { background: #2d5a3d; }
+
+/* Order summary sidebar */
+.order-summary {
+  background: #0d0d0d; border: 1px solid rgba(240,237,232,0.07);
+  padding: 24px; position: sticky; top: 80px;
+}
+.summary-item {
+  display: flex; gap: 12px; padding: 12px 0;
+  border-bottom: 1px solid rgba(240,237,232,0.05);
+}
+.summary-item:last-child { border-bottom: none; }
+.summary-item img { width: 52px; height: 52px; object-fit: contain; background: #1a1a1a; flex-shrink: 0; }
+
+/* Confirmation */
+.confirm-check {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: #1a3a2a; border: 2px solid #4a8a5a;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 24px; animation: check-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes check-pop {
+  from { transform: scale(0); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+.divider { border: none; border-top: 1px solid rgba(240,237,232,0.07); margin: 20px 0; }
+</style>
+</head>
+<body style="background:#000000;color:#f0ede8;overflow-x:hidden">
+
+<!-- Progress bar -->
+<div id="checkout-progress-bar"><div id="checkout-progress-fill" style="width:33%"></div></div>
+
+<!-- Nav (minimal) -->
+<nav style="height:60px;background:#000000;border-bottom:1px solid rgba(240,237,232,0.06);display:flex;align-items:center;padding:0 24px;position:fixed;top:3px;left:0;right:0;z-index:50">
+  <a href="../home_brayer_peptides/code.html" class="font-display" style="font-size:26px;color:#f0ede8;text-decoration:none;letter-spacing:0.06em">BRAYER PEPTIDES</a>
+  <div style="margin-left:auto;display:flex;align-items:center;gap:6px">
+    <span class="label-caps" style="color:#8a8a85">SECURE CHECKOUT</span>
+    <span class="material-symbols-outlined" style="font-size:16px;color:#4a8a5a">lock</span>
+  </div>
+</nav>
+
+<main style="padding-top:80px;min-height:100vh;padding-bottom:60px">
+<div style="max-width:1100px;margin:0 auto;padding:40px 24px 0">
+
+  <!-- Step indicator -->
+  <div style="display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:48px">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="step-dot active" id="dot-1">1</div>
+      <span class="label-caps" id="label-1" style="color:#f0ede8">Cart Review</span>
+    </div>
+    <div style="width:60px;height:1px;background:rgba(240,237,232,0.12);margin:0 16px"></div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="step-dot" id="dot-2">2</div>
+      <span class="label-caps" id="label-2" style="color:#4a4a45">Details</span>
+    </div>
+    <div style="width:60px;height:1px;background:rgba(240,237,232,0.12);margin:0 16px"></div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="step-dot" id="dot-3">3</div>
+      <span class="label-caps" id="label-3" style="color:#4a4a45">Confirmation</span>
+    </div>
+  </div>
+
+  <!-- ═══ STEP 1: CART REVIEW ═══ -->
+  <div class="step-panel active" id="step-1">
+    <div class="flex flex-col lg:flex-row gap-10">
+      <!-- Left: items -->
+      <div style="flex:1;min-width:0">
+        <h1 class="font-display" style="font-size:42px;letter-spacing:0.04em;margin-bottom:24px">CART REVIEW</h1>
+        <div id="step1-items"></div>
+        <hr class="divider"/>
+        <!-- Promo code -->
+        <div style="margin-bottom:24px">
+          <label class="form-label">Promo Code</label>
+          <div class="promo-row">
+            <input type="text" class="form-input" id="promo-input" placeholder="Enter code"/>
+            <button class="promo-btn" onclick="applyPromo()">APPLY</button>
+          </div>
+          <p id="promo-msg" style="font-size:11px;margin-top:6px;min-height:16px"></p>
+        </div>
+      </div>
+      <!-- Right: summary -->
+      <div style="width:100%;max-width:340px">
+        <div class="order-summary">
+          <p class="label-caps" style="color:#8a8a85;margin-bottom:16px">Order Summary</p>
+          <div style="display:flex;justify-content:space-between;margin-bottom:10px">
+            <span style="font-family:Inter,sans-serif;font-size:12px;color:#8a8a85">Subtotal</span>
+            <span class="font-display" style="font-size:18px" id="s1-subtotal">$0.00</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:10px">
+            <span style="font-family:Inter,sans-serif;font-size:12px;color:#8a8a85">Shipping</span>
+            <span style="font-family:Inter,sans-serif;font-size:12px;color:#8a8a85">Calculated next step</span>
+          </div>
+          <div id="s1-discount-row" style="display:none;justify-content:space-between;margin-bottom:10px">
+            <span style="font-family:Inter,sans-serif;font-size:12px;color:#4a8a5a">Discount</span>
+            <span style="font-family:Inter,sans-serif;font-size:12px;color:#4a8a5a" id="s1-discount-amt">-$0.00</span>
+          </div>
+          <hr class="divider"/>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:24px">
+            <span class="label-caps" style="color:#8a8a85">Total</span>
+            <span class="font-display" style="font-size:28px" id="s1-total">$0.00</span>
+          </div>
+          <button type="button" class="btn-primary" style="width:100%;justify-content:center;padding:14px;font-size:11px" onclick="goToStep(2)" id="btn-proceed-1">
+            <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span>PROCEED TO DETAILS
+          </button>
+          <a href="../research_shop_brayer_peptides/code.html" class="btn-outlined" style="display:flex;width:100%;justify-content:center;padding:11px;font-size:10px;margin-top:10px;box-sizing:border-box;text-decoration:none;color:inherit">
+            CONTINUE SHOPPING
+          </a>
+          <p style="font-family:Inter,sans-serif;font-size:10px;color:#4a4a45;text-align:center;margin-top:16px;font-style:italic">For laboratory research use only.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ STEP 2: CUSTOMER DETAILS ═══ -->
+  <div class="step-panel" id="step-2">
+    <div class="flex flex-col lg:flex-row gap-10">
+      <!-- Left: form -->
+      <div style="flex:1;min-width:0">
+        <h1 class="font-display" style="font-size:42px;letter-spacing:0.04em;margin-bottom:32px">CUSTOMER DETAILS</h1>
+
+        <p class="label-caps" style="color:#4a8a5a;margin-bottom:20px">Contact Information</p>
+        <div class="flex flex-col md:flex-row gap-4 mb-4">
+          <div style="flex:1">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-input" id="f-first" placeholder="John" autocomplete="given-name"/>
+          </div>
+          <div style="flex:1">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-input" id="f-last" placeholder="Smith" autocomplete="family-name"/>
+          </div>
+        </div>
+        <div class="flex flex-col md:flex-row gap-4 mb-4">
+          <div style="flex:1">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-input" id="f-email" placeholder="john@example.com" autocomplete="email"/>
+          </div>
+          <div style="flex:1">
+            <label class="form-label">Phone</label>
+            <input type="tel" class="form-input" id="f-phone" placeholder="+1 555 000 0000" autocomplete="tel"/>
+          </div>
+        </div>
+
+        <hr class="divider"/>
+        <p class="label-caps" style="color:#4a8a5a;margin-bottom:20px">Shipping Address</p>
+
+        <div style="margin-bottom:14px">
+          <label class="form-label">Address Line 1</label>
+          <input type="text" class="form-input" id="f-addr1" placeholder="123 Research Drive" autocomplete="address-line1"/>
+        </div>
+        <div style="margin-bottom:14px">
+          <label class="form-label">Address Line 2 <span style="font-weight:400;opacity:.5">(optional)</span></label>
+          <input type="text" class="form-input" id="f-addr2" placeholder="Suite, apt, etc." autocomplete="address-line2"/>
+        </div>
+        <div class="flex flex-col md:flex-row gap-4 mb-4">
+          <div style="flex:1">
+            <label class="form-label">City</label>
+            <input type="text" class="form-input" id="f-city" placeholder="New York" autocomplete="address-level2"/>
+          </div>
+          <div style="width:100px">
+            <label class="form-label">State</label>
+            <input type="text" class="form-input" id="f-state" placeholder="NY" maxlength="3" autocomplete="address-level1"/>
+          </div>
+          <div style="width:130px">
+            <label class="form-label">ZIP / Postcode</label>
+            <input type="text" class="form-input" id="f-zip" placeholder="10001" autocomplete="postal-code"/>
+          </div>
+        </div>
+        <div style="margin-bottom:24px">
+          <label class="form-label">Country</label>
+          <input type="text" class="form-input" id="f-country" placeholder="United States" autocomplete="country-name"/>
+        </div>
+
+        <hr class="divider"/>
+        <p class="label-caps" style="color:#4a8a5a;margin-bottom:16px">Shipping Method</p>
+        <label class="shipping-option selected" id="ship-std">
+          <input type="radio" name="shipping" value="0" checked onchange="selectShipping(this)"/>
+          <div style="flex:1">
+            <p style="font-family:Inter,sans-serif;font-size:13px;color:#f0ede8;margin:0 0 2px;font-weight:600">Standard Shipping</p>
+            <p style="font-family:Inter,sans-serif;font-size:11px;color:#8a8a85;margin:0">Estimated 5–7 business days</p>
+          </div>
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:16px;color:#4a8a5a;letter-spacing:0.04em">FREE</span>
+        </label>
+        <label class="shipping-option" id="ship-exp">
+          <input type="radio" name="shipping" value="15" onchange="selectShipping(this)"/>
+          <div style="flex:1">
+            <p style="font-family:Inter,sans-serif;font-size:13px;color:#f0ede8;margin:0 0 2px;font-weight:600">Express Shipping</p>
+            <p style="font-family:Inter,sans-serif;font-size:11px;color:#8a8a85;margin:0">Estimated 2–3 business days</p>
+          </div>
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:16px;color:#f0ede8;letter-spacing:0.04em">$15.00</span>
+        </label>
+        <label class="shipping-option" id="ship-ovn">
+          <input type="radio" name="shipping" value="35" onchange="selectShipping(this)"/>
+          <div style="flex:1">
+            <p style="font-family:Inter,sans-serif;font-size:13px;color:#f0ede8;margin:0 0 2px;font-weight:600">Overnight Shipping</p>
+            <p style="font-family:Inter,sans-serif;font-size:11px;color:#8a8a85;margin:0">Next business day</p>
+          </div>
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:16px;color:#f0ede8;letter-spacing:0.04em">$35.00</span>
+        </label>
+
+        <p id="form-error" style="font-family:Inter,sans-serif;font-size:11px;color:#cc4444;margin-top:12px;min-height:16px"></p>
+
+        <div style="display:flex;gap:12px;margin-top:24px">
+          <button type="button" class="btn-outlined" style="padding:12px 24px;font-size:10px" onclick="goToStep(1)">
+            <span class="material-symbols-outlined" style="font-size:13px">arrow_back</span>BACK
+          </button>
+          <button type="button" class="btn-primary" style="flex:1;justify-content:center;padding:14px;font-size:11px" onclick="placeOrder()">
+            <span class="material-symbols-outlined" style="font-size:14px">lock</span>PLACE ORDER
+          </button>
+        </div>
+        <p style="font-family:Inter,sans-serif;font-size:10px;color:#4a4a45;margin-top:12px;font-style:italic;text-align:center">All orders are for laboratory research use only. By placing an order you confirm you are a licensed researcher.</p>
+      </div>
+
+      <!-- Right: order summary -->
+      <div style="width:100%;max-width:320px">
+        <div class="order-summary">
+          <p class="label-caps" style="color:#8a8a85;margin-bottom:16px">Your Order</p>
+          <div id="step2-items" style="max-height:300px;overflow-y:auto;margin-bottom:16px"></div>
+          <hr class="divider" style="margin:12px 0"/>
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px">
+            <span style="font-family:Inter,sans-serif;font-size:12px;color:#8a8a85">Subtotal</span>
+            <span style="font-family:Inter,sans-serif;font-size:12px;color:#f0ede8" id="s2-subtotal">$0.00</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px">
+            <span style="font-family:Inter,sans-serif;font-size:12px;color:#8a8a85">Shipping</span>
+            <span style="font-family:Inter,sans-serif;font-size:12px;color:#f0ede8" id="s2-shipping">FREE</span>
+          </div>
+          <div id="s2-discount-row" style="display:none;justify-content:space-between;margin-bottom:8px">
+            <span style="font-family:Inter,sans-serif;font-size:12px;color:#4a8a5a">Discount</span>
+            <span style="font-family:Inter,sans-serif;font-size:12px;color:#4a8a5a" id="s2-discount-amt">-$0.00</span>
+          </div>
+          <hr class="divider" style="margin:12px 0"/>
+          <div style="display:flex;justify-content:space-between;align-items:baseline">
+            <span class="label-caps" style="color:#8a8a85">Total</span>
+            <span class="font-display" style="font-size:26px" id="s2-total">$0.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ STEP 3: CONFIRMATION ═══ -->
+  <div class="step-panel" id="step-3">
+    <div style="max-width:600px;margin:0 auto;text-align:center;padding:40px 0">
+      <div class="confirm-check">
+        <span class="material-symbols-outlined" style="font-size:40px;color:#4a8a5a">check</span>
+      </div>
+      <h1 class="font-display" style="font-size:56px;letter-spacing:0.04em;margin-bottom:8px">ORDER CONFIRMED</h1>
+      <p class="label-caps" style="color:#4a8a5a;margin-bottom:32px">Your research compounds have been queued for dispatch</p>
+
+      <div style="background:#0d0d0d;border:1px solid rgba(240,237,232,0.07);padding:32px;text-align:left;margin-bottom:32px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+          <span class="label-caps" style="color:#8a8a85">Reference Number</span>
+          <span class="font-display" style="font-size:20px;color:#4a8a5a;letter-spacing:0.1em" id="order-ref">BP-000000</span>
+        </div>
+        <hr class="divider" style="margin:16px 0"/>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div>
+            <p class="label-caps" style="color:#8a8a85;margin-bottom:4px">Estimated Delivery</p>
+            <p style="font-family:Inter,sans-serif;font-size:13px;color:#f0ede8" id="order-delivery">5–7 business days</p>
+          </div>
+          <div>
+            <p class="label-caps" style="color:#8a8a85;margin-bottom:4px">Order Total</p>
+            <p class="font-display" style="font-size:22px;color:#f0ede8" id="order-total">$0.00</p>
+          </div>
+        </div>
+        <hr class="divider" style="margin:16px 0"/>
+        <p style="font-family:Inter,sans-serif;font-size:12px;color:#8a8a85;margin:0">A confirmation will be sent to your email. All compounds are shipped discreetly in secure packaging.</p>
+      </div>
+
+      <a href="../research_shop_brayer_peptides/code.html" class="btn-primary" style="display:inline-flex;text-decoration:none;padding:14px 36px;font-size:11px;justify-content:center" id="btn-continue-shop">
+        <span class="material-symbols-outlined" style="font-size:14px">storefront</span>BROWSE MORE COMPOUNDS
+      </a>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<script>
+var CART_KEY = 'brayer_cart';
+var _discount = 0;
+var _shippingCost = 0;
+var _currentStep = 1;
+
+function getItems() {
+  try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
+  catch(e) { return []; }
+}
+
+function getSubtotal(items) {
+  return items.reduce(function(s, x) { return s + x.price * x.quantity; }, 0);
+}
+
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+/* ── Render step 1 items ── */
+function renderStep1() {
+  var items = getItems();
+  var el = document.getElementById('step1-items');
+  if (items.length === 0) {
+    el.innerHTML = '<div style="text-align:center;padding:60px 0"><span class="material-symbols-outlined" style="font-size:52px;color:#2a2a2a;display:block;margin-bottom:16px">shopping_bag</span><p class="label-caps" style="color:#8a8a85">YOUR CART IS EMPTY</p></div>';
+    document.getElementById('btn-proceed-1').disabled = true;
+    document.getElementById('btn-proceed-1').style.opacity = '0.4';
+  } else {
+    var html = '';
+    items.forEach(function(item) {
+      html += '<div style="display:flex;gap:14px;padding:16px 0;border-bottom:1px solid rgba(240,237,232,0.05);align-items:center">' +
+        '<img src="' + esc(item.image) + '" style="width:64px;height:64px;object-fit:contain;background:#1a1a1a;flex-shrink:0"/>' +
+        '<div style="flex:1;min-width:0">' +
+          '<p style="font-family:\'Bebas Neue\',sans-serif;font-size:18px;letter-spacing:0.05em;color:#f0ede8;margin:0 0 2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + esc(item.name) + '</p>' +
+          (item.dose ? '<p class="label-caps" style="color:#4a8a5a;margin:0 0 4px">' + esc(item.dose) + '</p>' : '') +
+          '<p style="font-family:Inter,sans-serif;font-size:11px;color:#8a8a85;margin:0">Qty: ' + item.quantity + ' &nbsp;·&nbsp; $' + item.price.toFixed(2) + ' / vial</p>' +
+        '</div>' +
+        '<p style="font-family:\'Bebas Neue\',sans-serif;font-size:20px;color:#f0ede8;margin:0;flex-shrink:0">$' + (item.price * item.quantity).toFixed(2) + '</p>' +
+      '</div>';
+    });
+    el.innerHTML = html;
+  }
+  updateTotals(items);
+}
+
+/* ── Render step 2 summary ── */
+function renderStep2Summary() {
+  var items = getItems();
+  var el = document.getElementById('step2-items');
+  var html = '';
+  items.forEach(function(item) {
+    html += '<div class="summary-item">' +
+      '<img src="' + esc(item.image) + '" alt="' + esc(item.name) + '"/>' +
+      '<div style="flex:1;min-width:0">' +
+        '<p style="font-family:\'Bebas Neue\',sans-serif;font-size:14px;color:#f0ede8;margin:0 0 2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + esc(item.name) + '</p>' +
+        '<p style="font-family:Inter,sans-serif;font-size:11px;color:#8a8a85;margin:0">× ' + item.quantity + '</p>' +
+      '</div>' +
+      '<p style="font-family:\'Bebas Neue\',sans-serif;font-size:16px;color:#f0ede8;margin:0;flex-shrink:0">$' + (item.price * item.quantity).toFixed(2) + '</p>' +
+    '</div>';
+  });
+  el.innerHTML = html;
+  updateStep2Totals();
+}
+
+function updateTotals(items) {
+  var sub = getSubtotal(items);
+  var total = sub - _discount;
+  document.getElementById('s1-subtotal').textContent = '$' + sub.toFixed(2);
+  document.getElementById('s1-total').textContent = '$' + Math.max(0, total).toFixed(2);
+  if (_discount > 0) {
+    document.getElementById('s1-discount-row').style.display = 'flex';
+    document.getElementById('s1-discount-amt').textContent = '-$' + _discount.toFixed(2);
+  }
+}
+
+function updateStep2Totals() {
+  var items = getItems();
+  var sub = getSubtotal(items);
+  var total = sub - _discount + _shippingCost;
+  document.getElementById('s2-subtotal').textContent = '$' + sub.toFixed(2);
+  document.getElementById('s2-shipping').textContent = _shippingCost === 0 ? 'FREE' : '$' + _shippingCost.toFixed(2);
+  document.getElementById('s2-total').textContent = '$' + Math.max(0, total).toFixed(2);
+  if (_discount > 0) {
+    document.getElementById('s2-discount-row').style.display = 'flex';
+    document.getElementById('s2-discount-amt').textContent = '-$' + _discount.toFixed(2);
+  }
+}
+
+/* ── Promo code ── */
+var PROMOS = { 'RESEARCH10': 10, 'PEPTIDE20': 20, 'BRAYER15': 15 };
+function applyPromo() {
+  var code = document.getElementById('promo-input').value.trim().toUpperCase();
+  var msg = document.getElementById('promo-msg');
+  if (PROMOS[code]) {
+    _discount = PROMOS[code];
+    msg.textContent = '\u2713 Code applied — $' + _discount.toFixed(2) + ' off!';
+    msg.style.color = '#4a8a5a';
+    renderStep1();
+  } else {
+    msg.textContent = 'Invalid promo code.';
+    msg.style.color = '#cc4444';
+  }
+}
+document.getElementById('promo-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') applyPromo();
+});
+
+/* ── Shipping selection ── */
+function selectShipping(radio) {
+  _shippingCost = parseFloat(radio.value);
+  ['ship-std','ship-exp','ship-ovn'].forEach(function(id) {
+    document.getElementById(id).classList.remove('selected');
+  });
+  radio.closest('.shipping-option').classList.add('selected');
+  updateStep2Totals();
+  var methods = { '0': '5–7 business days', '15': '2–3 business days', '35': 'Next business day' };
+  document.getElementById('order-delivery').textContent = methods[radio.value] || '5–7 business days';
+}
+
+/* ── Step navigation ── */
+function goToStep(n) {
+  document.getElementById('step-' + _currentStep).classList.remove('active');
+  _currentStep = n;
+  document.getElementById('step-' + n).classList.add('active');
+
+  var pct = { 1: '33%', 2: '66%', 3: '100%' };
+  document.getElementById('checkout-progress-fill').style.width = pct[n];
+
+  [1,2,3].forEach(function(i) {
+    var dot = document.getElementById('dot-' + i);
+    var lbl = document.getElementById('label-' + i);
+    dot.className = 'step-dot' + (i < n ? ' done' : i === n ? ' active' : '');
+    dot.textContent = i < n ? '' : i;
+    if (i < n) {
+      var icon = document.createElement('span');
+      icon.className = 'material-symbols-outlined';
+      icon.style.fontSize = '14px';
+      icon.textContent = 'check';
+      dot.innerHTML = '';
+      dot.appendChild(icon);
+    } else {
+      dot.textContent = i;
+    }
+    lbl.style.color = i <= n ? '#f0ede8' : '#4a4a45';
+  });
+
+  if (n === 2) renderStep2Summary();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ── Form validation + place order ── */
+function placeOrder() {
+  var required = ['f-first','f-last','f-email','f-addr1','f-city','f-zip','f-country'];
+  var err = document.getElementById('form-error');
+  for (var i = 0; i < required.length; i++) {
+    var el = document.getElementById(required[i]);
+    if (!el.value.trim()) {
+      err.textContent = 'Please fill in all required fields.';
+      el.focus();
+      return;
+    }
+  }
+  var email = document.getElementById('f-email').value;
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    err.textContent = 'Please enter a valid email address.';
+    document.getElementById('f-email').focus();
+    return;
+  }
+  err.textContent = '';
+
+  // Generate order reference
+  var ref = 'BP-' + new Date().getFullYear() + '-' + Math.floor(10000 + Math.random() * 90000);
+  document.getElementById('order-ref').textContent = ref;
+
+  var items = getItems();
+  var total = getSubtotal(items) - _discount + _shippingCost;
+  document.getElementById('order-total').textContent = '$' + Math.max(0, total).toFixed(2);
+
+  // Clear cart
+  localStorage.removeItem(CART_KEY);
+
+  goToStep(3);
+}
+
+/* ── Init ── */
+renderStep1();
+</script>
+
+</body>
+</html>
